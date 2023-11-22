@@ -27,10 +27,11 @@
  * shell
  * sql
  * typescript
+ * xml
  * yaml
  */
 
-var hljs = (function () {
+ var hljs = (function () {
   'use strict';
 
   /* eslint-disable no-multi-assign */
