@@ -2,14 +2,17 @@
 
 ## Setup
 
+Tktk Choose ONE of the below options depending on whether you are building a lab or a lecture. Remove the other option. 
 
-Open your Terminal application and navigate to your `~/code/ga/lectures` directory:   [tktk choose one]
-
-Open your Terminal application and navigate to your `~/code/ga/labs` directory:
+[tktk 1] Open your Terminal application and navigate to your `~/code/ga/lectures` directory:
 
 ```bash
-cd ~/code/ga/lectures  [tktk choose one]
+cd ~/code/ga/lectures
+```
 
+[tktk 2] Open your Terminal application and navigate to your `~/code/ga/labs` directory:
+
+```bash
 cd ~/code/ga/labs
 ```
 
@@ -25,9 +28,7 @@ You'll be prompted to choose a project name. Let's name it `[tktk-module-name]`.
 
 - Select a variant. Again, use the arrow keys to choose `JavaScript` and hit `Enter`.
 
-<br>
-
-Navigate to your new project directory and install necessary dependencies:
+Navigate to your new project directory and install the necessary dependencies:
 
 ```bash
 cd [tktk-module-name]
@@ -42,9 +43,7 @@ code .
 
 ### Configuring ESLint
 
-Before we begin, we need to adjust the ESLint configuration:
-
-Add the following rules to the `.eslintrc.cjs` file:
+Before we begin, we need to adjust the ESLint configuration. Add the following rules to the `.eslintrc.cjs` file:
 
 ```js
 rules: {
@@ -57,9 +56,9 @@ rules: {
 },
 ```
 
-The first addition prevents warnings if you’re not declaring types for your props (which we’re not), and the second prevents warnings if you’re using contractions within JSX.
+The first addition prevents warnings if you're not declaring types for your props (which we're not), and the second prevents warnings if you're using contractions within JSX.
 
-### Clear App.js
+### Clear `App.jsx`
 
 Open the `App.jsx` file in the `src` directory and replace the contents of it with the following:
 
@@ -78,7 +77,7 @@ export default App
 
 ### GitHub setup
 
-To add this project to github, initialize a git repository:
+To add this project to GitHub, initialize a Git repository:
 
 ```bash
 git init
@@ -86,12 +85,11 @@ git init
 
 Make a new repository on [GitHub](https://github.com/) named [tktk-module-name]. 
 
-Link your local project to your remote Github repo:
+Link your local project to your remote GitHub repo:
 
 ```bash
-git remote add origin https://git.generalassemb.ly/<your-username>/[tktk-module-name].git
-git branch -M main
-git push -u origin main
+git remote add origin https://git.generalassemb.ly/<github-username>/[tktk-module-name].git
+git push origin main
 ```
 
-> 📚 Note: In the link above, where it says `<your-username>`, you should see the username from your GitHub account.
+> 🚨 Do not copy the above command. It will not work. Your GitHub username will replace `<github-username>` (including the `<` and `>`) in the URL above.
