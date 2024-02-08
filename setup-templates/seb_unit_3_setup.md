@@ -9,12 +9,14 @@ Tktk Choose ONE of the below options depending on whether you are building a lab
 ```bash
 cd ~/code/ga/lectures
 ```
+[tktk end 1]
 
 [tktk 2] Open your Terminal application and navigate to your `~/code/ga/labs` directory:
 
 ```bash
 cd ~/code/ga/labs
 ```
+[tktk end 2]
 
 Create a new Vite project for your React app:
 
