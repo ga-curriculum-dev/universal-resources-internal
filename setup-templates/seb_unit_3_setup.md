@@ -23,7 +23,7 @@ You'll be prompted to choose a project name. Let's name it `[tktk-module-name]`.
 
 - Select a framework. Use the arrow keys to choose the `React` option and hit `Enter`.
 
-- Select a variant. Again, use the arrow keys to choose the `JavaScript` and hit `Enter`.
+- Select a variant. Again, use the arrow keys to choose `JavaScript` and hit `Enter`.
 
 <br>
 
