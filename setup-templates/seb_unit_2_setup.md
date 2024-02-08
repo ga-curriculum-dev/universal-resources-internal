@@ -24,7 +24,7 @@ Clone a copy of your remote repo locally by using the `git clone` command:
 git clone https://git.generalassemb.ly/<your-username>/[tktk-repo-name].git
 ```
 
-> 📚 Note: In the link above, where it says `<your-username>`, you should see the username from your GitHub account.
+> 🚨 Do not copy the above command. It will not work. Your GitHub username will replace <github-username> (including the < and >) in the URL above.
 
 Next, `cd` into your new cloned directory, `[tktk-repo-name]`:
 
