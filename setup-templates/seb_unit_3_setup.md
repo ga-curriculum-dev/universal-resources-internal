@@ -90,7 +90,7 @@ Make a new repository on [GitHub](https://github.com/) named [tktk-module-name].
 Link your local project to your remote GitHub repo:
 
 ```bash
-git remote add origin https://git.generalassemb.ly/<github-username>/[tktk-module-name].git
+git remote add origin https://github.com/<github-username>/[tktk-module-name].git
 git push origin main
 ```
 
