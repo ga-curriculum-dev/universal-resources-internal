@@ -3,8 +3,7 @@ var slideshow = remark.create({
     navigation: {
       scroll: false,
       click: false
-    },
-    highlightStyle: "monokai"
+    }
   });
   // Resize the remark scaler to be full screen
   $(function () {
