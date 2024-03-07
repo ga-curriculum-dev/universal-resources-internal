@@ -1,3 +1,7 @@
+.remark-slide p {
+  white-space: pre-wrap;
+}
+
 #next-button,
 #previous-button {
   position: absolute;
