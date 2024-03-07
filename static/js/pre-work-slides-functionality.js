@@ -4,7 +4,7 @@ var slideshow = remark.create({
       scroll: false,
       click: false
     },
-    highlightLanguage: "no-highlight"
+    highlightStyle: "no-highlight"
   });
   // Resize the remark scaler to be full screen
   $(function () {
