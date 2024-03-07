@@ -47,10 +47,6 @@ input[type="radio"], input[type="checkbox"] {
 legend {
     font-size: 24px;
 }
-.remark-code,
-.remark-inline-code {
-  font-family: 'Ubuntu Mono';
-}
 
 .correct-answer-label {
   border: 3px solid green;
