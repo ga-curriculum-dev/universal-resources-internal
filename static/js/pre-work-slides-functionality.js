@@ -1,7 +1,5 @@
 // REMARK.JS FUNCTIONALITY
 var slideshow = remark.create({
-    highlightLanguage: 'javascript',
-    highlightStyle: 'monokai',
     navigation: {
       scroll: false,
       click: false
