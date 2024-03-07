@@ -3,7 +3,8 @@ var slideshow = remark.create({
     navigation: {
       scroll: false,
       click: false
-    }
+    },
+    highlightLanguage: "no-highlight"
   });
   // Resize the remark scaler to be full screen
   $(function () {
