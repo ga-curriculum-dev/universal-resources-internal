@@ -51,11 +51,13 @@ legend {
 .correct-answer-label {
   border: 3px solid green;
   padding: 2px;
+  margin: 2px;
 }
 
 .incorrect-answer-label {
   border: 3px solid red;
   padding: 2px;
+  margin: 2px;
 }
 /* LEGACY MYGA CSS BELOW */
 .display{font-size:40px;line-height:36px;font-family:PFDin,Impact,sans-serif;font-weight:700;letter-spacing:-.8px;margin:0;text-transform:uppercase}@media (min-width:576px){.display{font-size:64px;line-height:56px}}@media (min-width:768px){.display{font-size:80px;line-height:72px}}.header{font-size:28px;line-height:36px;font-family:Circular,Helvetica,Arial,sans-serif;font-weight:700;letter-spacing:0;margin:0;text-transform:none}@media (min-width:768px){.header{font-size:36px;line-height:44px}}.section-header{font-size:19px;line-height:24px;font-family:Circular,Helvetica,Arial,sans-serif;font-weight:700;letter-spacing:0;margin:0;text-transform:none}@media (min-width:768px){.section-header{font-size:24px;line-height:32px}}.paragraph-header{font-size:16px;line-height:24px;font-family:Circular,Helvetica,Arial,sans-serif;font-weight:500;letter-spacing:0;margin:0;text-transform:none}@media (min-width:768px){.paragraph-header{font-size:19px;line-height:28px}}.VFhTpbga0prS9k29L_VUc p{font-size:16px;letter-spacing:0;text-transform:none}.VFhTpbga0prS9k29L_VUc blockquote>p,.VFhTpbga0prS9k29L_VUc p{font-family:Circular,Helvetica,Arial,sans-serif;font-weight:400;margin:0 0 16px}.VFhTpbga0prS9k29L_VUc blockquote>p{font-size:19px;line-height:28px;color:#707070}@media (min-width:768px){.VFhTpbga0prS9k29L_VUc blockquote>p{font-size:24px;line-height:32px}}.VFhTpbga0prS9k29L_VUc table{border-collapse:separate;border-spacing:0;margin:24px 0;table-layout:fixed;text-align:left;width:100%}.VFhTpbga0prS9k29L_VUc thead th{background:#f6f6f6;border-bottom:1px solid #c3c3c3;color:#222;font-weight:500;padding:16px}.VFhTpbga0prS9k29L_VUc tbody td{border:0;border-bottom:1px solid #ececec;padding:16px;vertical-align:top}.VFhTpbga0prS9k29L_VUc>h1:last-child,.VFhTpbga0prS9k29L_VUc>h2:last-child,.VFhTpbga0prS9k29L_VUc>h3:last-child,.VFhTpbga0prS9k29L_VUc>h4:last-child,.VFhTpbga0prS9k29L_VUc>h5:last-child,.VFhTpbga0prS9k29L_VUc>ol:last-child,.VFhTpbga0prS9k29L_VUc>p:last-child,.VFhTpbga0prS9k29L_VUc>ul:last-child{margin-bottom:0}
