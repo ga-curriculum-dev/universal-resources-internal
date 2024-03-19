@@ -2,4 +2,7 @@ hljs.addPlugin(new CopyButtonPlugin());
 
 const links = document.querySelectorAll('a')
 
-console.log(links);
+links.forEach(link => {
+  const href = link.getAttribute("href")
+  if (!href.startsWith('/')) link.setAttribute("target", "_blank")
+})
