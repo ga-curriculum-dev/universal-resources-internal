@@ -2,6 +2,10 @@
   white-space: pre-wrap;
 }
 
+.remark-slide-number {
+  position: fixed !important;
+}
+
 #next-button,
 #previous-button {
   position: absolute;
