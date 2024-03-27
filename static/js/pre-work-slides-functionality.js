@@ -28,6 +28,9 @@ var slideshow = remark.create({
     if(slideshow.getCurrentSlideIndex() === slideshow.getSlideCount()-1){
         nextButton.style.display = "none";
     }
+    if(previousButton.style.display == "none"){
+        previousButton.style.display = "block";
+    }
   })
   const previousButton = document.getElementById('previous-button');
   previousButton.addEventListener('click', () => {
@@ -83,3 +86,4 @@ document.querySelectorAll('.multiple-choice-checkbox-submit').forEach((el)=>{
         })
     })
 })
+previousButton.style.display = "none";
