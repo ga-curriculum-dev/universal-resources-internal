@@ -25,10 +25,16 @@ var slideshow = remark.create({
   const nextButton = document.getElementById('next-button');
   nextButton.addEventListener('click', () => {
     slideshow.gotoNextSlide();
+    if(slideshow.getCurrentSlideIndex() === slideshow.getSlideCount()-1){
+        nextButton.style.display = "none";
+    }
   })
   const previousButton = document.getElementById('previous-button');
   previousButton.addEventListener('click', () => {
     slideshow.gotoPreviousSlide();
+    if(nextButton.style.display == "none"){
+        nextButton.style.display = "block";
+    }
   })
 
 // MYGA COMPONENTS FUNCTIONALITY
