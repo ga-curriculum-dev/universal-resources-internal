@@ -1,0 +1,102 @@
+a {
+  text-decoration: underline;
+}
+
+.markdown-body h1 {
+  border-bottom: none;
+}
+
+pre,
+.hljs {
+  background-color: #0c0c0e !important;
+}
+
+.hljs-comment {
+  color: #cacfe2 !important;
+}
+
+.markdown-body blockquote {
+  color: #3a333d;
+  font-size: large;
+}
+
+.hljs-copy-wrapper {
+  position: relative;
+}
+
+.hljs-copy-button {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  color: whitesmoke;
+  border-radius: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background-color: transparent;
+}
+
+.hljs-copy-alert {
+  display: none !important;
+}
+
+.header {
+  border-bottom: 1px solid #9D9D9D;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #fafafa;
+}
+
+.nav {
+  height: 50px;
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.hamburger-button {
+  border: none;
+  background: none;
+  padding: .3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sub-nav {
+  height: 0;
+  top: 0;
+  overflow-y: scroll;
+  z-index: 999;
+  position: sticky;
+  visibility: hidden;
+  background: #f0f0f0;
+  transition: height 0.25s;
+}
+
+.nav-hamburger-icon,
+.nav-close-icon {
+  visibility: hidden;
+}
+
+.sub-nav.open {
+  height: fit-content;
+  max-height: calc(100dvh - 50px);
+}
+
+.sub-nav.visible,
+.nav-hamburger-icon.visible,
+.nav-close-icon.visible {
+  visibility: visible;
+}
+
+.sub-nav > ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media screen and (prefers-reduced-motion: reduce) {
+  .sub-nav {
+    transition: none
+  }
+}
