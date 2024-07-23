@@ -82,7 +82,7 @@ function showNav() {
   subNav.classList.add("visible", "open")
   navPanelToggle.setAttribute("aria-expanded", "true")
   navPanelToggle.setAttribute("aria-label", "Close navigation")
-  hamPanelToggleIcon.classList.remove("visible")
+  hamburgerIcon.classList.remove("visible")
   closeIcon.classList.add("visible")
   subNavVisible = true
 }
@@ -91,7 +91,7 @@ function hideNav() {
   navPanelToggle.setAttribute("aria-expanded", "false")
   navPanelToggle.setAttribute("aria-label", "Open navigation")
   closeIcon.classList.remove("visible")
-  hamPanelToggleIcon.classList.add("visible")
+  hamburgerIcon.classList.add("visible")
   subNav.classList.remove("open")
   // wait until close animation is complete before hiding element
   setTimeout(function() {
