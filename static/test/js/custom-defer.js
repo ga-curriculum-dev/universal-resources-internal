@@ -58,11 +58,11 @@ enable navigation between microlessons.
 */
 
 /* 
-Check to confirm the navBurger element exists to account for legacy modules 
-without nav functionality to prevent errors.
+Check to confirm the navPanelToggle element exists to account for legacy 
+modules without nav functionality to prevent errors.
 */ 
-if (navBurger) {
-  navBurger.addEventListener('click', handleToggleSubNav)
+if (navPanelToggle) {
+  navPanelToggle.addEventListener('click', handleToggleSubNav)
   pageContent.addEventListener("click", handleInferredNavClose)
   document.body.addEventListener("keyup", handleInferredNavClose)
 }
@@ -77,18 +77,18 @@ function handleToggleSubNav() {
 
 function showNav() {
   subNav.classList.add("visible", "open")
-  navBurger.setAttribute("aria-expanded", "true")
-  navBurger.setAttribute("aria-label", "Close navigation")
-  hamburgerIcon.classList.remove("visible")
+  navPanelToggle.setAttribute("aria-expanded", "true")
+  navPanelToggle.setAttribute("aria-label", "Close navigation")
+  hamPanelToggleIcon.classList.remove("visible")
   closeIcon.classList.add("visible")
   subNavVisible = true
 }
 
 function hideNav() {
-  navBurger.setAttribute("aria-expanded", "false")
-  navBurger.setAttribute("aria-label", "Open navigation")
+  navPanelToggle.setAttribute("aria-expanded", "false")
+  navPanelToggle.setAttribute("aria-label", "Open navigation")
   closeIcon.classList.remove("visible")
-  hamburgerIcon.classList.add("visible")
+  hamPanelToggleIcon.classList.add("visible")
   subNav.classList.remove("open")
   // wait until close animation is complete before hiding element
   setTimeout(function() {
