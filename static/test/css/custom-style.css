@@ -70,7 +70,6 @@ pre,
 }
 
 .sub-nav {
-  height: 0;
   overflow-y: hidden;
   visibility: hidden;
 }
@@ -82,12 +81,6 @@ pre,
 
 .sub-nav-container.open {
   grid-template-rows: 1fr;
-}
-
-.sub-nav.open {
-  overflow-y: scroll;
-  height: auto;
-  max-height: calc(100dvh - 50px);
 }
 
 .sub-nav.visible {

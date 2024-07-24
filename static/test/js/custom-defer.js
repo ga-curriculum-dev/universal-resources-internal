@@ -25,6 +25,7 @@ const closeIcon = document.querySelector(".nav-close-icon")
 /* --------------------------------- State ---------------------------------- */
 
 let subNavVisible = false
+let animationInProgress = false
 
 /* ------------------------------- Link setup ------------------------------- */
 
@@ -49,6 +50,7 @@ window.addEventListener("popstate", handleIdNav)
 
 function handleIdNav() {
   const currentPage = window.location.pathname.split("/").pop()
+  console.log(currentPage);
   if (currentPage.includes("#")) window.scrollBy(0, -60)
 }
 
@@ -72,33 +74,40 @@ if (navPanelToggle) {
 }
 
 function handleToggleSubNav() {
+  if (animationInProgress) return
   if (subNavVisible) {
     hideNav()
   } else {
     showNav()
   }
+  
 }
 
 function showNav() {
-  subNav.classList.add("visible", "open")
+  animationInProgress = true
+  subNav.classList.add("visible")
   subNavContainer.classList.add("open")
   navPanelToggle.setAttribute("aria-expanded", "true")
   navPanelToggle.setAttribute("aria-label", "Close navigation")
   hamburgerIcon.classList.remove("visible")
   closeIcon.classList.add("visible")
+  setTimeout(function() {
+    animationInProgress = false
+  }, 351)
   subNavVisible = true
 }
 
 function hideNav() {
+  animationInProgress = true
   navPanelToggle.setAttribute("aria-expanded", "false")
   navPanelToggle.setAttribute("aria-label", "Open navigation")
   closeIcon.classList.remove("visible")
   hamburgerIcon.classList.add("visible")
-  subNav.classList.remove("open")
   subNavContainer.classList.remove("open")
   // wait until close animation is complete before hiding element
   setTimeout(function() {
     subNav.classList.remove("visible")
+    animationInProgress = false
   }, 351)
   subNavVisible = false
 }
@@ -106,6 +115,6 @@ function hideNav() {
 function handleInferredNavClose(evt) {
   if (!subNavVisible) return
   if (evt.type === "click" || (evt.type === "keyup" && evt.key === "Escape")) {
-    hideNav()
+    handleToggleSubNav()
   } 
 }
