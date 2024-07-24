@@ -80,6 +80,11 @@ pre,
   display: none;
 }
 
+.header.no-stick {
+  position: static;
+  top: auto;
+}
+
 .sub-nav-container.open {
   grid-template-rows: 1fr;
 }
