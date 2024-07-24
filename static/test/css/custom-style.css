@@ -85,7 +85,6 @@ pre,
 
 .sub-nav.visible {
   visibility: visible;
-  width: 100%;
 }
 
 .nav-hamburger-icon.visible,
@@ -99,8 +98,30 @@ pre,
   padding: 0;
 }
 
+#sub-nav-lesson-panel {
+  width: 100%;
+}
+
+#sub-nav-lesson-panel > ul {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 12px 0;
+}
+
+#sub-nav-lesson-panel a {
+  font-size: 18px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #222222;
+}
+
+#sub-nav-lesson-panel a:hover {
+  color: #E41F26;
+}
+
 @media screen and (prefers-reduced-motion: reduce) {
-  .sub-nav {
+  .sub-nav-container {
     transition: none
   }
 }
