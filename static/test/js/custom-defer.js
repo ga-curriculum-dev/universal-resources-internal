@@ -152,10 +152,10 @@ function renderStickyNavButton() {
   */ 
   if (!navPanelToggle) return
   if (stickyNavEnabled === "true") {
-    stickyNavToggle.textContent = "Turn off sticky nav"
+    stickyNavToggle.textContent = "Disable sticky nav"
     headerElement.classList.remove("no-stick")
   } else if (stickyNavEnabled === "false") {
-    stickyNavToggle.textContent = "Turn on sticky nav"
+    stickyNavToggle.textContent = "Enable sticky nav"
     headerElement.classList.add("no-stick")
   }
 }
