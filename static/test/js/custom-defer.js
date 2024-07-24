@@ -46,11 +46,13 @@ slightly so that the header text it is no longer obscured when navigating
 to these types of links. Call this on page load, and when new history is pushed.
 */
 
-window.addEventListener("hashchange", handleIdNav)
+window.addEventListener("popstate", handleIdNav)
 
 function handleIdNav() {
-  window.scrollBy(0, -60)
+  if (window.location.hash) window.scrollBy(0, -60)
 }
+
+handleIdNav()
 
 /* ------------------------- Sub-nav functionality -------------------------- */
 
