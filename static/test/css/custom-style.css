@@ -85,6 +85,7 @@ pre,
 
 .sub-nav.visible {
   visibility: visible;
+  width: 100%;
 }
 
 .nav-hamburger-icon.visible,
