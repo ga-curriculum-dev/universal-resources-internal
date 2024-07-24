@@ -128,8 +128,8 @@ pre,
 #sub-nav-lesson-panel button {
   padding: 8px 16px;
   border: none;
-  color: #222222;
-  background: whitesmoke;
+  color: whitesmoke;
+  background: #222222;
 }
 
 @media screen and (prefers-reduced-motion: reduce) {
