@@ -43,21 +43,6 @@ links.forEach(link => {
   if (!href.startsWith('/')) link.setAttribute("target", "_blank")
 })
 
-/*
-When navigating to a heading element on a page the heading text will be
-obscured under the sticky nav by default. This code moves the page up 
-slightly so that the header text it is no longer obscured when navigating
-to these types of links. Call this on page load, and when new history is pushed.
-*/
-
-window.addEventListener("popstate", handleIdNav)
-
-function handleIdNav() {
-  if (window.location.hash) window.scrollBy(0, -60)
-}
-
-handleIdNav()
-
 /* ------------------------- Sub-nav functionality -------------------------- */
 
 /*

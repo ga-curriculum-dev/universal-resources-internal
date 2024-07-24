@@ -79,6 +79,12 @@ pre,
   margin: 12px 0;
 }
 
+.flex-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
 .nav-hamburger-icon,
 .nav-close-icon {
   display: none;
@@ -130,6 +136,17 @@ pre,
   border: none;
   color: whitesmoke;
   background: #222222;
+}
+
+/*
+When navigating to a heading element on a page the heading text will be
+obscured under the sticky nav by default. This code moves the page up 
+slightly so that the header text it is no longer obscured when navigating
+to these types of links.
+*/
+
+:target {
+  scroll-margin-top: 60px;
 }
 
 @media screen and (prefers-reduced-motion: reduce) {
