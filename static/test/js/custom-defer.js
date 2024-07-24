@@ -157,3 +157,6 @@ function renderStickyNavButton() {
     headerElement.classList.add("no-stick")
   }
 }
+
+// Call on load to ensure state is synced with user preference
+renderStickyNavButton()
