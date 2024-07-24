@@ -62,31 +62,41 @@ pre,
   align-items: center;
 }
 
+.sub-nav-container {
+  background: #f0f0f0;
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s;
+}
+
 .sub-nav {
   height: 0;
-  top: 0;
-  overflow-y: scroll;
-  z-index: 999;
-  position: sticky;
+  overflow-y: hidden;
   visibility: hidden;
-  background: #f0f0f0;
-  transition: height 0.25s;
 }
 
 .nav-hamburger-icon,
 .nav-close-icon {
-  visibility: hidden;
+  display: none;
+}
+
+.sub-nav-container.open {
+  grid-template-rows: 1fr;
 }
 
 .sub-nav.open {
-  height: fit-content;
+  overflow-y: scroll;
+  height: auto;
   max-height: calc(100dvh - 50px);
 }
 
-.sub-nav.visible,
+.sub-nav.visible {
+  visibility: visible;
+}
+
 .nav-hamburger-icon.visible,
 .nav-close-icon.visible {
-  visibility: visible;
+  display: block;
 }
 
 .sub-nav > ul {

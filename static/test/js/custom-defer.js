@@ -18,6 +18,7 @@ for legacy modules without these elements to prevent errors.
 */ 
 const navPanelToggle = document.getElementById("sub-nav-lesson-panel-toggle")
 const subNav = document.getElementById("sub-nav-lesson-panel")
+const subNavContainer = document.querySelector(".sub-nav-container")
 const hamburgerIcon = document.querySelector(".nav-hamburger-icon")
 const closeIcon = document.querySelector(".nav-close-icon")
 
@@ -80,6 +81,7 @@ function handleToggleSubNav() {
 
 function showNav() {
   subNav.classList.add("visible", "open")
+  subNavContainer.classList.add("open")
   navPanelToggle.setAttribute("aria-expanded", "true")
   navPanelToggle.setAttribute("aria-label", "Close navigation")
   hamburgerIcon.classList.remove("visible")
@@ -93,10 +95,11 @@ function hideNav() {
   closeIcon.classList.remove("visible")
   hamburgerIcon.classList.add("visible")
   subNav.classList.remove("open")
+  subNavContainer.classList.remove("open")
   // wait until close animation is complete before hiding element
   setTimeout(function() {
     subNav.classList.remove("visible")
-  }, 251)
+  }, 351)
   subNavVisible = false
 }
 
