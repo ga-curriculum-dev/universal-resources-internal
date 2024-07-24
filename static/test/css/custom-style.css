@@ -75,6 +75,10 @@ pre,
   visibility: hidden;
 }
 
+.nav-section {
+  margin: 12px 0;
+}
+
 .nav-hamburger-icon,
 .nav-close-icon {
   display: none;
@@ -98,21 +102,16 @@ pre,
   display: block;
 }
 
-.sub-nav > ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
 #sub-nav-lesson-panel {
   width: 100%;
 }
 
-#sub-nav-lesson-panel > ul {
+#sub-nav-lesson-panel ul {
+  list-style-type: none;
+  padding: 0;
   display: flex;
   flex-direction: column;
   gap: 8px;
-  margin: 12px 0;
 }
 
 #sub-nav-lesson-panel a {
@@ -124,6 +123,13 @@ pre,
 
 #sub-nav-lesson-panel a:hover {
   color: #E41F26;
+}
+
+#sub-nav-lesson-panel button {
+  padding: 8px 16px;
+  border: none;
+  color: #222222;
+  background: whitesmoke;
 }
 
 @media screen and (prefers-reduced-motion: reduce) {

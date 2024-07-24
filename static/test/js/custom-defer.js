@@ -132,6 +132,8 @@ Not all users may want to use the sticky nav functionality so we allow them to
 toggle the functionality off and on, and persist that choice in localStorage.
 */
 
+stickyNavToggle.addEventListener("click", handleToggleStickyNav)
+
 function handleToggleStickyNav() {
   if (stickyNavEnabled === "true") {
     localStorage.setItem("stickyNav", "false")
