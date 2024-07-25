@@ -113,7 +113,7 @@ Not all users may want to use the sticky nav functionality so we allow them to
 toggle the functionality off and on, and persist that choice in localStorage.
 */
 
-stickyNavToggleEl.addEventListener("click", handleToggleStickyNav)
+stickyNavButtonEl.addEventListener("click", handleToggleStickyNav)
 
 function handleToggleStickyNav() {
   if (stickyNavEnabled === "true") {
@@ -128,10 +128,10 @@ function handleToggleStickyNav() {
 
 function renderStickyNavSetting() {
   if (stickyNavEnabled === "true") {
-    stickyNavToggleEl.textContent = "Disable sticky nav"
+    stickyNavButtonEl.textContent = "Disable sticky nav"
     headerEl.classList.remove("no-stick")
   } else if (stickyNavEnabled === "false") {
-    stickyNavToggleEl.textContent = "Enable sticky nav"
+    stickyNavButtonEl.textContent = "Enable sticky nav"
     headerEl.classList.add("no-stick")
   }
 }
@@ -171,10 +171,10 @@ function setInitialDarkModeState() {
 
 function renderDarkModeSetting() {
   if (darkModeEnabled === "true") {
-    stickyNavToggleEl.textContent = "Disable dark mode"
+    darkModeButtonEl.textContent = "Disable dark mode"
     document.body.classList.add("dark")
   } else if (stickyNavEnabled === "false") {
-    stickyNavToggleEl.textContent = "Enable dark mode"
+    darkModeButtonEl.textContent = "Enable dark mode"
     document.body.classList.remove("dark")
   }
 }
