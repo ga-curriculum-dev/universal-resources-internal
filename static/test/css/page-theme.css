@@ -22,6 +22,7 @@ body {
   --background-color-code-block: #0C0C0C;
   --background-color-inline-code: #1B1F230D;
   --background-color-emphasis: #24292F;
+  --background-color-nav: #24292F;
   --background-color-accent: #0969DA;
   --background-color-attention: #9A6700;
   --background-color-warning: #CF222E;
@@ -57,7 +58,8 @@ body.dark {
   --background-color-subtle: #161B22;
   --background-color-code-block: #0C0C0C;
   --background-color-inline-code: #F5F1ED10;
-  --background-color-emphasis: #D0D7DE;
+  --background-color-nav: #24292F;
+  --background-color-emphasis: #6E7681;
   --background-color-accent: #1F6FEB;
   --background-color-attention: #9E6A03;
   --background-color-warning: #DA3633;
@@ -66,7 +68,7 @@ body.dark {
   --text-color-default: #F3EDE6;
   --text-color-muted: #8d96a0;
   --text-color-on-bold-bg: #F3EDE6;
-  --text-color-on-emphasis: #1f2328;
+  --text-color-on-emphasis: #F3EDE6;
   --text-color-accent: #E41F26; /* GA Red */
   --text-color-attention: #d29922;
   --text-color-warning: #F85149;
@@ -1933,7 +1935,7 @@ pre {
 
 #tc-header {
   z-index: 1000;
-  background: var(--background-color-emphasis);
+  background: var(--background-color-nav);
   color: var(--text-color-on-emphasis);
 }
 
