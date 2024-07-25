@@ -70,8 +70,8 @@ function showNav() {
   subNavEl.classList.add("visible")
   subNavContainerEl.classList.add("open")
   subNavContainerEl.setAttribute("aria-hidden", "false")
-  navPanelToggleEl.setAttribute("aria-expanded", "true")
-  navPanelToggleEl.setAttribute("aria-label", "Close navigation")
+  navPanelButtonEl.setAttribute("aria-expanded", "true")
+  navPanelButtonEl.setAttribute("aria-label", "Close navigation")
   hamburgerIconEl.classList.remove("visible")
   closeIconEl.classList.add("visible")
 
@@ -84,8 +84,8 @@ function showNav() {
 function hideNav() {
   isAnimationInProgress = true
 
-  navPanelToggleEl.setAttribute("aria-expanded", "false")
-  navPanelToggleEl.setAttribute("aria-label", "Open navigation")
+  navPanelButtonEl.setAttribute("aria-expanded", "false")
+  navPanelButtonEl.setAttribute("aria-label", "Open navigation")
   closeIconEl.classList.remove("visible")
   hamburgerIconEl.classList.add("visible")
   subNavContainerEl.classList.remove("open")
