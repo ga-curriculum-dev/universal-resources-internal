@@ -27,7 +27,6 @@ const darkModeButtonEl = document.getElementById("tc-dark-mode-button")
 
 /* --------------------------------- State ---------------------------------- */
 
-const pagePathname = window.location.pathname
 let isSubNavVisible = false
 let isAnimationInProgress = false
 let stickyNavEnabled = localStorage.getItem("gaStickyNavEnabled") ?? "true"

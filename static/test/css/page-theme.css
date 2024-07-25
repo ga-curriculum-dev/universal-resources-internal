@@ -1742,7 +1742,7 @@ pre {
 /** Customization
  *  Allow the keyboard class to use this styling
  */
-.keyboard,
+.markdown-body span.keyboard,
 .markdown-body kbd {
   display: inline-block;
   padding: 3px 5px 4px;
@@ -1945,6 +1945,15 @@ pre {
 
 .markdown-body p.collapse {
   margin-bottom: 0;
+}
+
+.markdown-body span.warning {
+  color: var(--text-color-warning);
+}
+
+.markdown-body span.extreme-warning {
+  color: var(--text-color-warning);
+  font-weight: 600;
 }
 
 .markdown-body code.codeblock-filepath {
