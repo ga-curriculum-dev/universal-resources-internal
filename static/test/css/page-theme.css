@@ -1956,7 +1956,6 @@ pre {
 
 .markdown-body code.filepath {
   color: var(--text-color-file);
-  font-weight: 600;
 }
 
 .markdown-body blockquote.attention {
