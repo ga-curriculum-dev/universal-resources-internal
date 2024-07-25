@@ -56,8 +56,8 @@ body.dark {
   /* Backgrounds */
   --body-background-color: #0D1117;
   --background-color-subtle: #161B22;
-  --background-color-code-block: #0C0C0C;
-  --background-color-inline-code: #F5F1ED10;
+  --background-color-code-block: #1F1F25;
+  --background-color-inline-code: #F5F1ED20;
   --background-color-nav: #24292F;
   --background-color-emphasis: #6E7681;
   --background-color-accent: #1F6FEB;
@@ -1739,6 +1739,10 @@ pre {
   margin-bottom: 0;
 }
 
+/** Customization
+ *  Allow the keyboard class to use this styling
+ */
+.keyboard,
 .markdown-body kbd {
   display: inline-block;
   padding: 3px 5px 4px;
@@ -1889,6 +1893,12 @@ pre {
   background-color: transparent;
 }
 
+/* Markdown code types */
+
+/** Customization
+ *  Significant customization to code styles to simplify and consolidate.
+ */
+
 .markdown-body code,
 .markdown-body tt {
   padding: 0.2em 0.4em;
@@ -1933,6 +1943,37 @@ pre {
 
 /* Custom styles */
 
+.markdown-body p.collapse {
+  margin-bottom: 0;
+}
+
+.markdown-body code.codeblock-filepath {
+  background-color: var(--background-color-code-block);
+  color: var(--text-color-file);
+  padding: .4em .7em;
+  font-size: 14.5px;
+}
+
+.markdown-body code.filepath {
+  color: var(--text-color-file);
+  font-weight: 600;
+}
+
+.markdown-body blockquote.attention {
+  border-color: var(--border-color-attention);
+}
+
+.markdown-body blockquote.warning {
+  border-color: var(--border-color-warning);
+}
+
+.markdown-body blockquote.extreme-warning {
+  color: var(--text-color-on-bold-bg);
+  border-color: var(--border-color-default);
+  background-color: var(--background-color-warning);
+  font-weight: 600;
+}
+
 #tc-header {
   z-index: 1000;
   background: var(--background-color-nav);
@@ -1966,7 +2007,6 @@ pre {
 #tc-sub-nav.visible {
   visibility: visible;
 }
-
 
 #tc-hamburger-icon.visible,
 #tc-close-icon.visible {
