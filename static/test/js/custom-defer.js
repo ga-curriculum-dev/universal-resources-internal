@@ -173,7 +173,7 @@ function renderDarkModeSetting() {
   if (darkModeEnabled === "true") {
     darkModeButtonEl.textContent = "Disable dark mode"
     document.body.classList.add("dark")
-  } else if (stickyNavEnabled === "false") {
+  } else if (darkModeEnabled === "false") {
     darkModeButtonEl.textContent = "Enable dark mode"
     document.body.classList.remove("dark")
   }
