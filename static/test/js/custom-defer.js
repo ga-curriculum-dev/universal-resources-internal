@@ -15,7 +15,7 @@ const pageContent = document.querySelector(".markdown-body")
 /* 
 Nav elements
 */ 
-const headerEl = document.getElementById("ta-header")
+const headerEl = document.getElementById("tc-header")
 const navPanelButtonEl = document.getElementById("tc-sub-nav-button")
 const hamburgerIconEl = document.getElementById("tc-hamburger-icon")
 const closeIconEl = document.getElementById("tc-close-icon")
