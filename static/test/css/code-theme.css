@@ -1,11 +1,37 @@
-pre code.hljs {
-  display: block;
-  overflow-x: auto;
-  padding: 1em;
+/** Customization 
+ *  Settings for highlightjs copy button plugin. See: 
+ *  https://github.com/arronhunt/highlightjs-copy
+ */
+
+.hljs-copy-wrapper {
+  position: relative;
 }
 
-code.hljs {
-  padding: 3px 5px;
+.hljs-copy-button {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  color: whitesmoke;
+  border-radius: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background-color: transparent;
+  font-size: 14px;
+}
+
+.hljs-copy-alert {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+@media (prefers-reduced-motion) {
+  .hljs-copy-button {
+    transition: none;
+  }
 }
 
 /*
@@ -28,14 +54,23 @@ hue-6-2: #e6c07b
 
 */
 
+/** Customization
+ *  Change background color from default of #282C34 to #0C0C0C
+ *  to improve accessibility.
+ */
 .hljs {
   color: #abb2bf;
-  background: #282c34;
+  background: #0c0c0e;
 }
+
+/** Customization
+ *  Change text color from default of #5C6370 to #CACFE2
+ *  to improve accessibility.
+ */
 
 .hljs-comment,
 .hljs-quote {
-  color: #5c6370;
+  color: #CACFE2;
   font-style: italic;
 }
 

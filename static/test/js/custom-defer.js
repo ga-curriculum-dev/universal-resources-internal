@@ -14,22 +14,23 @@ const pageContent = document.querySelector(".markdown-body")
 
 /* 
 Nav elements
-Check to confirm the below elements exist before using them in code to account
-for legacy modules without these elements to prevent errors.
 */ 
-const navPanelToggle = document.getElementById("sub-nav-lesson-panel-toggle")
-const subNav = document.getElementById("sub-nav-lesson-panel")
-const subNavContainer = document.querySelector(".sub-nav-container")
-const hamburgerIcon = document.querySelector(".nav-hamburger-icon")
-const closeIcon = document.querySelector(".nav-close-icon")
-const stickyNavToggle = document.getElementById("sticky-nav-toggle")
-const headerElement = document.querySelector("header.header")
+const headerEl = document.getElementById("ta-header")
+const navPanelButtonEl = document.getElementById("tc-sub-nav-button")
+const hamburgerIconEl = document.getElementById("tc-hamburger-icon")
+const closeIconEl = document.getElementById("tc-close-icon")
+const subNavEl = document.getElementById("tc-sub-nav")
+const subNavContainerEl = document.getElementById("tc-sub-nav-container")
+const stickyNavButtonEl = document.getElementById("tc-sticky-nav-button")
+const darkModeButtonEl = document.getElementById("tc-dark-mode-button")
 
 /* --------------------------------- State ---------------------------------- */
 
-let subNavVisible = false
-let animationInProgress = false
-let stickyNavEnabled = localStorage.getItem("stickyNav") ?? "true"
+const pagePathname = window.location.pathname
+let isSubNavVisible = false
+let isAnimationInProgress = false
+let stickyNavEnabled = localStorage.getItem("gaStickyNavEnabled") ?? "true"
+let darkModeEnabled = "false"
 
 /* ------------------------------- Link setup ------------------------------- */
 
@@ -50,20 +51,13 @@ The below functionality implements the slide-down sub-nav functionality to
 enable navigation between microlessons.
 */
 
-/* 
-Check to confirm the navPanelToggle element exists to account for legacy 
-modules without nav functionality to prevent errors.
-*/ 
-if (navPanelToggle) {
-  navPanelToggle.addEventListener('click', handleToggleSubNav)
-  pageContent.addEventListener("click", handleInferredNavClose)
-  document.body.addEventListener("keyup", handleInferredNavClose)
-  stickyNavToggle.addEventListener("click", handleToggleStickyNav)
-}
+navPanelButtonEl.addEventListener('click', handleToggleSubNav)
+pageContent.addEventListener("click", handleInferredNavClose)
+document.body.addEventListener("keyup", handleInferredNavClose)
 
 function handleToggleSubNav() {
-  if (animationInProgress) return
-  if (subNavVisible) {
+  if (isAnimationInProgress) return
+  if (isSubNavVisible) {
     hideNav()
   } else {
     showNav()
@@ -71,40 +65,42 @@ function handleToggleSubNav() {
 }
 
 function showNav() {
-  animationInProgress = true
+  isAnimationInProgress = true
 
-  subNav.classList.add("visible")
-  subNavContainer.classList.add("open")
-  navPanelToggle.setAttribute("aria-expanded", "true")
-  navPanelToggle.setAttribute("aria-label", "Close navigation")
-  hamburgerIcon.classList.remove("visible")
-  closeIcon.classList.add("visible")
+  subNavEl.classList.add("visible")
+  subNavContainerEl.classList.add("open")
+  subNavContainerEl.setAttribute("aria-hidden", "false")
+  navPanelToggleEl.setAttribute("aria-expanded", "true")
+  navPanelToggleEl.setAttribute("aria-label", "Close navigation")
+  hamburgerIconEl.classList.remove("visible")
+  closeIconEl.classList.add("visible")
 
   setTimeout(function() {
-    subNavVisible = true
-    animationInProgress = false
+    isSubNavVisible = true
+    isAnimationInProgress = false
   }, 351)
 }
 
 function hideNav() {
-  animationInProgress = true
+  isAnimationInProgress = true
 
-  navPanelToggle.setAttribute("aria-expanded", "false")
-  navPanelToggle.setAttribute("aria-label", "Open navigation")
-  closeIcon.classList.remove("visible")
-  hamburgerIcon.classList.add("visible")
-  subNavContainer.classList.remove("open")
+  navPanelToggleEl.setAttribute("aria-expanded", "false")
+  navPanelToggleEl.setAttribute("aria-label", "Open navigation")
+  closeIconEl.classList.remove("visible")
+  hamburgerIconEl.classList.add("visible")
+  subNavContainerEl.classList.remove("open")
+  subNavContainerEl.setAttribute("aria-hidden", "true")
 
   // wait until close animation is complete before hiding element
   setTimeout(function() {
-    subNav.classList.remove("visible")
-    subNavVisible = false
-    animationInProgress = false
+    subNavEl.classList.remove("visible")
+    isSubNavVisible = false
+    isAnimationInProgress = false
   }, 351)
 }
 
 function handleInferredNavClose(evt) {
-  if (!subNavVisible) return
+  if (!isSubNavVisible) return
   if (evt.type === "click" || (evt.type === "keyup" && evt.key === "Escape")) {
     handleToggleSubNav()
   } 
@@ -117,33 +113,71 @@ Not all users may want to use the sticky nav functionality so we allow them to
 toggle the functionality off and on, and persist that choice in localStorage.
 */
 
-stickyNavToggle.addEventListener("click", handleToggleStickyNav)
+stickyNavToggleEl.addEventListener("click", handleToggleStickyNav)
 
 function handleToggleStickyNav() {
   if (stickyNavEnabled === "true") {
-    localStorage.setItem("stickyNav", "false")
+    localStorage.setItem("gaStickyNavEnabled", "false")
     stickyNavEnabled = "false"
   } else {
-    localStorage.setItem("stickyNav", "true")
+    localStorage.setItem("gaStickyNavEnabled", "true")
     stickyNavEnabled = "true"
   }
-  renderStickyNavButton()
+  renderStickyNavSetting()
 }
 
-function renderStickyNavButton() {
-  /* 
-  Check to confirm the navPanelToggle element exists to account for legacy 
-  modules without nav functionality to prevent errors.
-  */ 
-  if (!navPanelToggle) return
+function renderStickyNavSetting() {
   if (stickyNavEnabled === "true") {
-    stickyNavToggle.textContent = "Disable sticky nav"
-    headerElement.classList.remove("no-stick")
+    stickyNavToggleEl.textContent = "Disable sticky nav"
+    headerEl.classList.remove("no-stick")
   } else if (stickyNavEnabled === "false") {
-    stickyNavToggle.textContent = "Enable sticky nav"
-    headerElement.classList.add("no-stick")
+    stickyNavToggleEl.textContent = "Enable sticky nav"
+    headerEl.classList.add("no-stick")
   }
 }
 
 // Call on load to ensure state is synced with user preference
-renderStickyNavButton()
+renderStickyNavSetting()
+
+/* ------------------------ Dark mode functionality ------------------------- */
+
+darkModeButtonEl.addEventListener("click", handleToggleDarkMode)
+
+function handleToggleDarkMode() {
+  if (darkModeEnabled === "true") {
+    localStorage.setItem("gaDarkModeEnabled", "false")
+    darkModeEnabled = "false"
+  } else {
+    localStorage.setItem("gaDarkModeEnabled", "true")
+    darkModeEnabled = "true"
+  }
+  renderDarkModeSetting()
+}
+
+function setInitialDarkModeState() {
+  /*
+  Check to see if the user has manually toogled dark mode off/on *first* before
+  detecting their OS preference. If a user has toggled dark mode off manually
+  then we want to respect that preference above all else. When the user hasn't
+  indicated a preference for dark mode, it will be disabled.
+  */
+
+  if (localStorage.getItem("gaDarkModeEnabled")) {
+    darkModeEnabled = localStorage.getItem("gaDarkModeEnabled")
+  } else if (window.matchMedia("(prefers-color-scheme:dark)").matches) {
+    darkModeEnabled = "true"
+  }
+}
+
+function renderDarkModeSetting() {
+  if (darkModeEnabled === "true") {
+    stickyNavToggleEl.textContent = "Disable dark mode"
+    document.body.classList.add("dark")
+  } else if (stickyNavEnabled === "false") {
+    stickyNavToggleEl.textContent = "Enable dark mode"
+    document.body.classList.remove("dark")
+  }
+}
+
+setInitialDarkModeState()
+renderDarkModeSetting()
