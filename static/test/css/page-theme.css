@@ -1957,10 +1957,14 @@ pre {
 }
 
 #tc-sub-nav {
-  display: none;
+  visibility: hidden;
 }
 
-#tc-sub-nav.visible,
+#tc-sub-nav.visible {
+  visibility: visible;
+}
+
+
 #tc-hamburger-icon.visible,
 #tc-close-icon.visible {
   display: block;
