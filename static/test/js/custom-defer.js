@@ -8,7 +8,8 @@ hljs.addPlugin(new CopyButtonPlugin());
 
 /* ----------------------- Cached element references ------------------------ */
 
-const links = document.querySelectorAll('a')
+const linkEls = document.querySelectorAll('a')
+const paragraphEls = document.querySelectorAll('p')
 
 const pageContent = document.querySelector(".markdown-body")
 
@@ -39,7 +40,7 @@ This ensures that links work properly when they are clicked inside of iframes.
 Some links (like MDN) will not be handled properly when clicked without this.
 */
 
-links.forEach(link => {
+linkEls.forEach(link => {
   const href = link.getAttribute("href")
   if (!href.startsWith('/')) link.setAttribute("target", "_blank")
 })
@@ -181,3 +182,13 @@ function renderDarkModeSetting() {
 
 setInitialDarkModeState()
 renderDarkModeSetting()
+
+/* ------------------------- Filepath functionality ------------------------- */
+
+paragraphEls.forEach(function (pEl) {
+  if (pEl.nextElementSibling.nodeName !== "PRE") return
+  if ( pEl.childNodes.length === 1 && pEl.childNodes[0].nodeName === "CODE" ) {
+    pEl.classList.add("collapse")
+    pEl.childNodes[0].classList.add("codeblock-filepath")
+  }
+})
