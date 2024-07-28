@@ -13,7 +13,7 @@ const darkModeButtonEl = document.createElement("button")
 
 // Get config for export
 
-const config = getConfig()
+const config = await getConfig()
 
 console.log(config);
 
