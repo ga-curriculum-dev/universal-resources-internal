@@ -1,3 +1,7 @@
+import { pageElements, config } from "./page-build.js"
+
+console.log(config);
+
 /* ---------------------------- Code copy button ---------------------------- */
 
 /*
@@ -20,8 +24,8 @@ const headerEl = document.getElementById("tc-header")
 const navPanelButtonEl = document.getElementById("tc-sub-nav-button")
 const hamburgerIconEl = document.getElementById("tc-hamburger-icon")
 const closeIconEl = document.getElementById("tc-close-icon")
-const subNavEl = document.getElementById("tc-sub-nav")
 const subNavContainerEl = document.getElementById("tc-sub-nav-container")
+const subNavEl = document.getElementById("tc-sub-nav")
 const stickyNavButtonEl = document.getElementById("tc-sticky-nav-button")
 const darkModeButtonEl = document.getElementById("tc-dark-mode-button")
 
