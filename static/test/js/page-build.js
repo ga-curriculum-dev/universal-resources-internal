@@ -92,7 +92,8 @@ const darkModeButtonElAttrs = [
 async function getConfig() {
   const configLinkEl = document.getElementById("config-link-element")
   const configRes = await fetch(configLinkEl.getAttribute("href"))
-  return await configRes.json()
+  const config = await configRes.json()
+  return config
 }
 
 function buildHeader() {
