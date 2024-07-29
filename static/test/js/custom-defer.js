@@ -1,4 +1,4 @@
-import { pageElements, config } from "./page-build.js"
+import { pageEls, config } from "./page-build.js"
 
 console.log(config);
 
