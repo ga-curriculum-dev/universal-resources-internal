@@ -168,6 +168,6 @@ function setAttributes(el, attrs) {
 }
 
 export {
-  pageElements,
+  pageEls,
   config
 }
