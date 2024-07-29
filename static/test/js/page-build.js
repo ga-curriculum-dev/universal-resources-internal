@@ -1,6 +1,6 @@
 // Create elements for export
 
-const pageElements = {}
+const pageEls = {}
 
 const headerEl = document.createElement("header")
 const navPanelButtonEl = document.createElement("button")
@@ -90,7 +90,7 @@ const darkModeButtonElAttrs = [
 ] 
 
 async function getConfig() {
-  const configLinkEl = document.getElementById("config-link-element")
+  const configLinkEl = document.getElementById("prefetch-config-link-element")
   const configRes = await fetch(configLinkEl.getAttribute("href"))
   return await configRes.json()
 }
@@ -109,6 +109,7 @@ function buildNav() {
   setAttributes(navEl, navElAttrs)
   setAttributes(navPanelButtonEl, navPanelButtonElAttrs)
   setAttributes(hamburgerIconEl, hamburgerIconElAttrs)
+  setAttributes(closeIconEl, closeIconElAttrs)
 
   hamburgerIconEl.innerHTML = `
     <path 
