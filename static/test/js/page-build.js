@@ -15,11 +15,13 @@ const darkModeButtonEl = document.createElement("button")
 
 const config = await getConfig()
 
-console.log(config);
-
 // Create elements to use internally
 
 const subNavItemsContainerEl = document.createElement("div")
+
+// Get course from URL or localstorage
+
+const studentCourse = getStudentCourse()
 
 /*
 Attributes by element
@@ -93,6 +95,16 @@ async function getConfig() {
   const configLinkEl = document.getElementById("prefetch-config-link-element")
   const configRes = await fetch(configLinkEl.getAttribute("href"))
   return await configRes.json()
+}
+
+function getStudentCourse() {
+  if (window.location.pathname.includes("canvas-landing-pages")) {
+    const coursePath = window.location.pathname.split("/")
+    console.log(coursePath);
+    const course = coursePath.pop()
+    console.log(course);
+    return course
+  }
 }
 
 function buildHeader() {
