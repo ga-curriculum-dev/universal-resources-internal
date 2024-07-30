@@ -196,6 +196,16 @@ function buildNav() {
   pageEls.navPanelButton.appendChild(pageEls.hamburgerIcon)
   pageEls.navPanelButton.appendChild(pageEls.closeIcon)
   navEl.appendChild(pageEls.navPanelButton)
+
+  if(courseConfig.logoUrl) {
+    const headerLogoElAttrs = [
+      ["id", "tc-header-logo"],
+      ["class", "ml-5"]
+      ["href", courseConfig.logoUrl],
+      ["height", "32"]
+    ]
+  }
+
   pageEls.header.appendChild(navEl)
 }
 
