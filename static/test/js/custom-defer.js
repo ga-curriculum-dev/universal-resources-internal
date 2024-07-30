@@ -110,13 +110,17 @@ function handleToggleStickyNav() {
   renderStickyNavSetting()
 }
 
-function getInitialStickyNavSetting(params) {
+function getInitialStickyNavSetting() {
   const userStickyNavPreference = localStorage.getItem("gaStickyNavEnabled")
   
-  if (!courseConfig.isStickyNavAllowed) {
+  if (!courseConfig.isFixedNavAllowed) {
+    stickyNavEnabled = true
+  } else if (!courseConfig.isStickyNavAllowed) {
     stickyNavEnabled = false
   } else if (userStickyNavPreference) {
     stickyNavEnabled = convertLocalStorageBool(userStickyNavPreference)
+  } else if (!isStickyNavDefault) {
+    stickyNavEnabled = false
   } else {
     stickyNavEnabled = true
   }
@@ -136,7 +140,8 @@ function renderStickyNavButton() {
   if (!(
     courseConfig.isHeaderNavSettingsShown &&
     courseConfig.isStickyNavSettingShown &&
-    courseConfig.isStickyNavAllowed
+    courseConfig.isStickyNavAllowed &&
+    courseConfig.isFixedNavAllowed
   )) return
   if (stickyNavEnabled) {
     pageEls.stickyNavButton.textContent = "Disable sticky nav"
