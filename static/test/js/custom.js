@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', function (event) {
   addCodeBlockHighlighting()
-  addCodeBlockCopyButton()
   attachFilePathsToCodeBlocks()
   setLinkAttrs()
   addAnchors()
@@ -13,14 +12,6 @@ function addCodeBlockHighlighting() {
   */
 
   hljs.highlightAll();
-}
-
-function addCodeBlockCopyButton() {
-  /*
-  Adds copy buttons to all hljs code blocks.
-  */
-
-  hljs.addPlugin(new CopyButtonPlugin());
 }
 
 function attachFilePathsToCodeBlocks() {

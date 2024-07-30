@@ -1,6 +1,14 @@
 import { pageEls } from "./page-build.js"
 import { config, userCourseConfig as courseConfig } from "./config.js"
 
+/* ------------------------- HLJS code copy buttons ------------------------- */
+
+/*
+Adds copy buttons to all hljs code blocks. This code should execute first.
+*/
+
+hljs.addPlugin(new CopyButtonPlugin());
+
 /* ----------------------- Cached element references ------------------------ */
 
 const pageContent = document.querySelector(".markdown-body")

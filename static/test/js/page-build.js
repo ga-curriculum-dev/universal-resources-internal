@@ -124,12 +124,18 @@ const settingsBtnContainerElAttrs = [
 function buildPage() {
   if (!config) {
     document.getElementById("tc-header-temp").remove()
+    console.log("No config file for this module is present.")
     return
   }
+  const mlIdx = getMicrolessonIdx()
   buildHeader()
 }
 
 buildPage()
+
+function getMicrolessonIdx() {
+  
+}
 
 function buildHeader() {
   if (!courseConfig.isHeaderShown) {
