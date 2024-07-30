@@ -1,0 +1,347 @@
+// ! You likely should not modify this template file.
+// Make changes in these files instead:
+// - microlessons.pkl
+// - config.pkl
+
+// Do not modify this class.
+class Org {
+
+  /*
+    The friendly user-facing name of the GitHub organization that holds this 
+    content.
+  */
+  friendlyName: String = "Modular Curriculum All Courses"
+
+  /*
+    The name of the GitHub organization that holds this content.
+  */
+  name: String = "modular-curriculum-all-courses"
+}
+
+// Do not modify this class.
+class Repo {
+
+  /*
+    The friendly user-facing name of the GitHub repo that holds this 
+    content.
+  */
+  friendlyName: String
+
+  /*
+    The name of the GitHub organization that holds this content.
+  */
+  name: String
+
+  /*
+    The type of content contained in this repo.
+  */
+  type: 
+    "Pre-work"|
+    "Lesson"|
+    "Lab"|
+    "Project"|
+    "Group Project"|
+    "Decoupled Project"|
+    "Decoupled Group Project"
+    = "Group Project"
+}
+
+// Do not modify this class. 
+class Course {
+
+  /* 
+    The name of a course must match the name of course's landing page in
+    the canvas-landing-pages directory, excluding the file extension.
+    It should always be lower-case.
+    For example: seb.md -> "seb"
+
+    A course named "fallback" should exist for every module - it will be used
+    if a user's course cannot be determined for any reason. This fallback
+    course should be provided with sensible defaults depending on the context 
+    the module is most likely to be used in.
+  */
+  name: String
+  
+  /*
+    The full URL for the logo used for this course.
+  */
+  logoUrl: String = ""
+
+  /*
+    The microlessons for a lecture that will exist for this course.
+  */
+  microlessons: Listing<Microlesson>
+
+  /*
+    ! Typically this should not be changed from the default value of true.
+
+    Hide the header by setting isHeaderShown to false. This will prevent user 
+    access to:
+    - All page navigation contained in the header
+    - Toggling the sticky nav off and on manually
+        Note that the sticky nav may still be toggled off automatically.
+    - Toggling dark mode off and on manually
+        Note that dark mode may still be toggled off and on automatically.
+    - The header logo (if there is one)
+
+    While there may be valid reasons to do this, consider that this removes
+    some user choice in how they interact with course content.
+  */
+  isHeaderShown: Boolean = true
+
+  /*
+    Set isHeaderModuleNav to false to hide all navigation within a module from 
+    the header. 
+    When set to false users cannot access:
+    - Any navigation from the header. This includes:
+      - The link the landing page.
+      - Any links to other microlessons.
+    - Note that settings *can* still be accessed.
+  */
+  isHeaderModuleNavShown: Boolean = true
+
+  /*
+    Set isHeaderHomeNavShown to false to hide the link to the landing page 
+    inside the header. Other header navigation components will not be disabled.
+  */
+  isHeaderHomeNavShown: Boolean = true
+
+  /*
+    Set isHeaderMicrolessonNavShown to false to hide links to other 
+    microlessons in a module inside the header. Other header navigation 
+    components will not be disabled.
+  */
+  isHeaderMicrolessonNavShown: Boolean = true
+
+  /*
+    Set isHeaderNavSettingsShown to false to prevent users from manually 
+    changing settings from within the header nav.
+    When set to false users cannot access:
+    - Any settings from the header. This includes:
+      - Dark mode settings.
+      - Sticky nav settings.
+    - Note that header navigation *can* still be accessed.
+
+    Automatic settings users have previously configured may still be applied.
+
+    While there may be valid reasons to do this, consider that this removes
+    some user choice in how they interact with course content.
+  */
+  isHeaderNavSettingsShown: Boolean = true
+
+  /*
+    ! Typically this should not be changed from the default value of true.
+
+    Set isFooterShown to false to hide the footer.
+    This prevents user access to:
+    - Any navigation from the footer. This includes:
+      - The link to the previous microlesson.
+      - The link to the next microlesson.
+      - Other footer content including the copyright date.
+
+    While there may be valid reasons to do this, consider that this removes
+    some user choice in how they interact with course content.
+  */
+  isFooterShown: Boolean = true
+
+  /*
+    Set isFooterCopyrightShown to false to hide the copyright in the footer.
+  */
+  isFooterCopyrightShown: Boolean = true
+
+  /*
+    Set isFooterLessonNavShown to false to hide links to the previous and next 
+    microlesson in a module.
+  */
+  isFooterLessonNavShown: Boolean = true
+  
+  /*
+    Set isStickyNavSettingShown to false to hide the sticky/fixed nav setting 
+    button.
+    
+    User's saved sticky nav preferences will still be respected as long as 
+    localstorage is enabled.
+  */
+  isStickyNavSettingShown: Boolean = true
+
+  /*
+    Set isStickyNavAllowed to false to prevent sticky nav from being used in 
+    all circumstances. 
+    Setting this to false has these implications:
+    - Fixed nav will be used as the default.
+    - The button to enable stiky nav will be hidden.
+    - User's saved preferences will not be respected.
+    
+    While there may be valid reasons to do this, consider that this removes
+    some user choice in how they interact with course content.
+
+    Note that if neither sticky nav or fixed nav are allowed, sticky nav will 
+    be used, and the button to enable fixed nav will be hidden.
+  */
+  isStickyNavAllowed: Boolean = true
+
+  /*
+    Set isFixedNavAllowed to false to prevent fixed nav from being used in 
+    all circumstances.
+    Setting this to false has these implications:
+    - Sticky nav will be used as the default.
+    - The button to enable fixed nav will be hidden.
+    - User's saved preferences will not be respected.
+    
+    While there may be valid reasons to do this, consider that this removes
+    some user choice in how they interact with course content.
+
+    Note that if neither sticky nav or fixed nav are allowed, sticky nav will 
+    be used, and the button to enable fixed nav will be hidden.
+  */
+  isFixedNavAllowed: Boolean = true
+
+  /*
+    Set isStickyNavDefault to false to remove sticky nav as the default.
+    Setting this to false has these implications:
+    - Fixed nav mode will be the default mode.
+    - User's saved preferences will be respected.
+    - Users may still enable sticky nav manually.
+  */
+  isStickyNavDefault: Boolean = true
+
+  /*
+    Set this to true to force sticky nav as the default.
+    Setting this to true has these implications:
+    - Sticky nav will be the default.
+    - User's saved preferences will not be respected.
+    - Users may still enable fixed nav manually.
+
+    While there may be valid reasons to do this, consider that this removes
+    some user choice in how they interact with course content.
+
+    If both sticky nav and fixed nav are forced as the default, sticky nav will 
+    be used.
+  */
+  isStickyNavForcedDefault: Boolean = false
+
+  /*
+    Set this to true will force fixed nav as the default.
+    Setting this to true has these implications:
+    - Fixed nav will be the default.
+    - User's saved preferences will not be respected.
+    - Users may still enable sticky nav manually.
+
+    While there may be valid reasons to do this, consider that this removes
+    some user choice in how they interact with course content.
+
+    If both sticky nav and fixed nav are forced as the default, sticky nav will 
+    be used.
+  */
+  isFixedNavForcedDefault: Boolean = false
+
+  /*
+    Set isDarkModeSettingShown to false to hide the light/dark mode setting 
+    button.
+    
+    User's saved dark mode preferences will still be respected as long as 
+    localstorage is enabled.
+  */
+  isDarkModeSettingShown: Boolean = true
+
+  /*
+    Set isDarkModeAllowed to false to prevent dark mode from being used in 
+    all circumstances.
+    Setting this to false has these implications:
+    - Light mode will be used by default.
+    - The button to enable dark mode will be hidden.
+    - User's saved preferences will not be respected.
+    
+    While there may be valid reasons to do this, consider that this removes
+    some user choice in how they interact with course content.
+
+    Note that if neither light mode or dark mode are allowed, light mode will 
+    be used, and the button to enable dark mode will be hidden.
+  */
+  isDarkModeAllowed: Boolean = true
+
+  /*
+    Set isLightModeAllowed to false to prevent light mode from being used in 
+    all circumstances.
+    Setting this to false has these implications:
+    - Dark mode will be used by default.
+    - The button to enable light mode will be hidden.
+    - User's saved preferences will not be respected.
+    
+    While there may be valid reasons to do this, consider that this removes
+    some user choice in how they interact with course content.
+
+    Note that if neither light mode or dark mode are allowed, light mode will 
+    be used, and the button to enable dark mode will be hidden.
+  */
+  isLightModeAllowed: Boolean = true
+
+  /*
+    Set isLightModeDefault to false to set dark mode as the default mode.
+    Setting this to false has these implications:
+    - Dark mode will be used by default.
+    - Users may still enable light mode manually.
+    - User's saved preferences will be respected.
+  */
+  isLightModeDefault: Boolean = true
+
+  /*
+    Set isLightModeForcedDefault to true to force light mode as the default.
+    Setting this to true has these implications:
+    - Light mode will be used by default.
+    - User's saved preferences will not be respected.
+    - Users may still enable dark mode manually.
+
+    While there may be valid reasons to do this, consider that this removes
+    some user choice in how they interact with course content.
+
+    Note that if both light mode and dark mode are forced as defaults, light 
+    mode will be used.
+  */
+  isLightModeForcedDefault: Boolean = false
+
+  /*
+    Set isDarkModeForcedDefault to true to force dark mode as the default.
+    Setting this to true has these implications:
+    - Dark mode will be used by default.
+    - User's saved preferences will not be respected.
+    - Users may still enable light mode manually.
+
+    While there may be valid reasons to do this, consider that this removes
+    some user choice in how they interact with course content.
+
+    Note that if both light mode and dark mode are forced as defaults, light 
+    mode will be used.
+  */
+  isDarkModeForcedDefault: Boolean = false
+}
+
+// Do not modify this class
+class Microlesson {
+
+  /*
+    The friendly user-facing name of a microlesson.
+  */
+  friendlyName: String
+
+  /*
+    The directory name of the microlesson.
+  */
+  dirName: String
+
+  /*
+    The type of content contained in this microlesson.
+  */
+  type: "Content"|"Level Up content"
+
+  /*
+    A link to the video content that corresponds to this microlesson.
+  */
+  videoUrl: String = ""
+}
+
+org: Org
+
+repo: Repo
+
+courses: Listing<Course>
