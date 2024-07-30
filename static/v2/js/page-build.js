@@ -201,7 +201,7 @@ function buildNav() {
     const headerLogoElAttrs = [
       ["id", "tc-header-logo"],
       ["class", "ml-5"],
-      ["href", courseConfig.logoUrl],
+      ["src", courseConfig.logoUrl],
       ["height", "32"]
     ]
     const headerLogoEl = createElWithAttrs("img", headerLogoElAttrs)
