@@ -401,6 +401,8 @@ function getMinMainHeight() {
     minHeight = "calc(100dvh - 104px)"
   }
 
+  console.log(minHeight);
+
   mainContainerEl.style.gridTemplateRows = `minmax(${minHeight}, auto)`
 }
 
