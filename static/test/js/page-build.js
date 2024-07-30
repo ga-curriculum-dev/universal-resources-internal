@@ -45,7 +45,7 @@ const navPanelButtonElAttrs = [
   ["aria-expanded", "false"],
 ]
 
-const hamburgerIconElAttrs = [
+const hamburgerIconSvgAttrs = [
   ["id", "tc-hamburger-icon"],
   ["class", "visible"],
   ["width", "30"],
@@ -55,7 +55,23 @@ const hamburgerIconElAttrs = [
   ["viewBox", "0 0 18 14"],
 ]
 
-const closeIconElAttrs = [
+const hamburgerIconPathAttrs = [
+  ["stroke", "currentColor"], 
+  ["stroke-linecap", "round"], 
+  ["stroke-linejoin", "round"],
+  ["stroke-width", "2"],
+  ["d", "M1 13h7M1 1h16H1Zm0 6h16H1Z"],
+]
+
+const closeIconPathAttrs = [
+  ["stroke", "currentColor"], 
+  ["stroke-linecap", "round"], 
+  ["stroke-linejoin", "round"],
+  ["stroke-width", "2"],
+  ["d", "m1 1 12 12M1 13 13 1 1 13Z"]
+]
+
+const closeIconSvgAttrs = [
   ["id", "tc-close-icon"],
   ["width", "30"],
   ["height", "30"],
@@ -125,28 +141,13 @@ function buildNav() {
   const navEl = createElWithAttrs("nav", navElAttrs)
 
   pageEls.navPanelButton = createElWithAttrs("button", navPanelButtonElAttrs)
-  pageEls.hamburgerIcon = createElWithAttrs("svg", hamburgerIconElAttrs)
-  pageEls.closeIcon = createElWithAttrs("svg", closeIconElAttrs)
-
-  pageEls.hamburgerIcon.innerHTML = `
-    <path 
-      stroke="currentColor" 
-      stroke-linecap="round" 
-      stroke-linejoin="round" 
-      stroke-width="2" 
-      d="M1 13h7M1 1h16H1Zm0 6h16H1Z"
-    ></path>
-  `
-  pageEls.closeIcon.innerHTML = `
-    <path 
-      stroke="currentColor"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      stroke-width="2" 
-      d="m1 1 12 12M1 13 13 1 1 13Z"
-    ></path>
-  `
-
+  pageEls.hamburgerIcon = createSvgWithAttrs("svg", hamburgerIconSvgAttrs)
+  pageEls.closeIcon = createSvgWithAttrs("svg", closeIconSvgAttrs)
+  const hamburgerPath = createSvgWithAttrs("path", hamburgerIconPathAttrs)
+  const closePath = createElWithAttrs("path", closeIconPathAttrs)
+  
+  pageEls.hamburgerIcon.appendChild(hamburgerPath)
+  pageEls.closeIcon.appendChild(closePath)
   pageEls.navPanelButton.appendChild(pageEls.hamburgerIcon)
   pageEls.navPanelButton.appendChild(pageEls.closeIcon)
   navEl.appendChild(pageEls.navPanelButton)
@@ -263,6 +264,12 @@ function buildSettings() {
 
 function createElWithAttrs(elName, attrs) {
   const el = document.createElement(elName)
+  attrs.forEach(attr => el.setAttribute(attr[0], attr[1]));
+  return el
+}
+
+function createSvgWithAttrs(elName, attrs) {
+  const el = document.createElementNS("http://www.w3.org/2000/svg", elName)
   attrs.forEach(attr => el.setAttribute(attr[0], attr[1]));
   return el
 }
