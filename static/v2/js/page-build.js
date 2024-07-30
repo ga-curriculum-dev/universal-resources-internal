@@ -1,4 +1,4 @@
-import { config, userCourseConfig as courseConfig } from "./config.js"
+import { config, userCourseConfig as courseConfig } from "./config.min.js"
 
 /* ------------------------------- Constants -------------------------------- */
 

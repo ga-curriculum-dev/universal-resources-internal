@@ -1,5 +1,5 @@
-import { pageEls } from "./page-build.js"
-import { userCourseConfig as courseConfig } from "./config.js"
+import { pageEls } from "./page-build.min.js"
+import { userCourseConfig as courseConfig } from "./config.min.js"
 
 /* ------------------------- HLJS code copy buttons ------------------------- */
 
