@@ -361,7 +361,8 @@ function buildFooter() {
   }
 
   if (courseConfig.isFooterCopyrightShown) {
-    copyrightEl.textContent = `© ${Date.now().getFullYear()} General Assembly`
+    const currentYear = new Date().getFullYear()
+    copyrightEl.textContent = `© ${currentYear} General Assembly`
   }
 
   if (
