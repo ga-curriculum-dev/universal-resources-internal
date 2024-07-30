@@ -2139,7 +2139,7 @@ to these types of links.
 
 /* Change footer nav display on small format screens */
 
-@media screen and (min-width: 700px) {
+@media (min-width: 800px) {
   #tc-right-nav-sm {
     display: none;
   }

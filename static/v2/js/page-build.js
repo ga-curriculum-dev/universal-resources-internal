@@ -400,6 +400,7 @@ function buildFooter() {
     nextNavSmEl.textContent = "Next >"
 
     nextEl.appendChild(nextNavLgEl)
+    nextEl.appendChild(nextNavSmEl)
   }
 
   footerItemsContainerEl.appendChild(backEl)
