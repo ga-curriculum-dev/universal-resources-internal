@@ -12,7 +12,7 @@ hljs.addPlugin(new CopyButtonPlugin());
 /* ----------------------- Cached element references ------------------------ */
 
 
-const mainEl = document.querySelector("main")
+const mainContainerEl = document.getElementById("tc-main-container")
 
 /* --------------------------------- State ---------------------------------- */
 
@@ -31,7 +31,7 @@ enable navigation between microlessons.
 */
 
 pageEls.navPanelButton.addEventListener('click', handleToggleSubNav)
-mainEl.addEventListener("click", handleInferredNavClose)
+mainContainerEl.addEventListener("click", handleInferredNavClose)
 document.body.addEventListener("keyup", handleInferredNavClose)
 
 function handleToggleSubNav() {
@@ -91,15 +91,15 @@ function calcMainHeight() {
     // We only need to put a min-height on the main if there is a footer
     if (!courseConfig.isFooterShown) return
 
-    let mainHeight
+    let minHeight
   
     if (courseConfig.isHeaderShown) {
-      mainHeight = `calc(100dvh - ${pageEls.header.clientHeight}px - 105px)`
+      minHeight = `calc(100dvh - ${pageEls.header.clientHeight}px - 105px)`
     } else {
-      mainHeight = "calc(100dvh - 104px)"
+      minHeight = "calc(100dvh - 104px)"
     }
   
-    mainEl.style.minHeight = mainHeight
+    mainContainerEl.style.gridTemplateRows = `minmax(${minHeight}, auto)`
 }
 
 /* ------------------------ Sticky nav functionality ------------------------ */

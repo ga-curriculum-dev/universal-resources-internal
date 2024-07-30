@@ -21,7 +21,7 @@ const subNavItemsContainerEl = document.createElement("div")
 
 // Get cached element references
 
-const mainEl = document.querySelector("main")
+const mainContainerEl = document.getElementById("tc-main-container")
 
 /*
 Attributes by element
@@ -393,15 +393,15 @@ function getMinMainHeight() {
   // We only need to put a min-height on the main if there is a footer
   if (!courseConfig.isFooterShown) return
 
-  let mainHeight
-
+  let minHeight
+  
   if (courseConfig.isHeaderShown) {
-    mainHeight = "calc(100dvh - 90px - 64px)"
+    minHeight = `calc(100dvh - ${pageEls.header.clientHeight}px - 105px)`
   } else {
-    mainHeight = "calc(100dvh - 40px - 64px)"
+    minHeight = "calc(100dvh - 104px)"
   }
 
-  mainEl.style.minHeight = mainHeight
+  mainContainerEl.style.gridTemplateRows = `minmax(${minHeight}, auto)`
 }
 
 /* -------------------------------- Helpers --------------------------------- */

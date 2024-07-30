@@ -2018,6 +2018,10 @@ pre {
   transition: grid-template-rows 0.35s;
 }
 
+#tc-main-container {
+  transition: grid-template-rows 0.35s;
+}
+
 #tc-footer {
   background: var(--background-color-nav);
   color: var(--text-color-on-emphasis);
