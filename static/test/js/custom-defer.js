@@ -93,8 +93,10 @@ function calcMainHeight() {
 
     let minHeight
   
+    const calc = 50 + pageEls.subNavContainer.clientHeight
+
     if (courseConfig.isHeaderShown) {
-      minHeight = `calc(100dvh - ${pageEls.header.clientHeight}px - 41px)`
+      minHeight = `calc(100dvh - ${calc}px - 40px)`
     } else {
       minHeight = "calc(100dvh - 40px)"
     }
