@@ -120,10 +120,10 @@ function handleToggleStickyNav() {
 function renderStickyNavSetting() {
   if (stickyNavEnabled === "true") {
     pageEls.stickyNavButton.textContent = "Disable sticky nav"
-    pagesEls.header.classList.remove("no-stick")
+    pageEls.header.classList.remove("no-stick")
   } else if (stickyNavEnabled === "false") {
     pageEls.stickyNavButton.textContent = "Enable sticky nav"
-    pagesEls.header.classList.add("no-stick")
+    pageEls.header.classList.add("no-stick")
   }
 }
 
