@@ -216,6 +216,7 @@ function setInitialDarkModeState() {
 }
 
 function renderDarkModeSetting() {
+  console.log(darkModeEnabled);
   if (darkModeEnabled) {
     document.documentElement.classList.add("dark")
   } else {
