@@ -117,7 +117,7 @@ function buildHeader() {
   buildSubNav()
   buildSettings()
   pageEls.subNavContainer.appendChild(pageEls.subNav)
-  pageEls.header.appendChild(pageEls.subNav)
+  pageEls.header.appendChild(pageEls.subNavContainer)
   document.body.prepend(pageEls.header)
 }
 
