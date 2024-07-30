@@ -200,7 +200,7 @@ function buildNav() {
   if(courseConfig.logoUrl) {
     const headerLogoElAttrs = [
       ["id", "tc-header-logo"],
-      ["class", "ml-5"]
+      ["class", "ml-5"],
       ["href", courseConfig.logoUrl],
       ["height", "32"]
     ]
