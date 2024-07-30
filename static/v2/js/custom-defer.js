@@ -254,4 +254,3 @@ function convertLocalStorageBool(boolString) {
     return undefined
   }
 }
-
