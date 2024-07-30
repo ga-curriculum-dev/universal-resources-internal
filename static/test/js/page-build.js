@@ -1,27 +1,21 @@
+import { config, userCourseConfig as courseConfig } from "./config.js"
+
 // Create elements for export
 
-const pageEls = {}
-
-const headerEl = document.createElement("header")
-const navPanelButtonEl = document.createElement("button")
-const hamburgerIconEl = document.createElement("svg")
-const closeIconEl = document.createElement("svg")
-const subNavContainerEl = document.createElement("div")
-const subNavEl = document.createElement("nav")
-const stickyNavButtonEl = document.createElement("button")
-const darkModeButtonEl = document.createElement("button")
-
-// Get config for export
-
-const config = await getConfig()
+const pageEls = {
+  header: undefined,
+  navPanelButton: undefined,
+  hamburgerIcon: undefined,
+  closeIcon: undefined,
+  subNavContainer: undefined,
+  subNav: undefined,
+  stickyNavButton: undefined,
+  darkModeButton: undefined
+}
 
 // Create elements to use internally
 
 const subNavItemsContainerEl = document.createElement("div")
-
-// Get course from URL or localstorage
-
-const studentCourse = getStudentCourse()
 
 /*
 Attributes by element
@@ -81,6 +75,14 @@ const subNavElAttrs = [
   ["class", "container-lg px-3 width-full"],
 ]
 
+const subNavHeadingElAttrs = [
+  ["class", "no-anchor"]
+]
+
+const subNavUlElAttrs = [
+  ["class", "list-style-none p-0 my-3 d-flex flex-column gap-2"]
+]
+
 const stickyNavButtonElAttrs = [
   ["id", "tc-sticky-nav-button"],
   ["class", "border-0 px-3 py-2"],
@@ -91,39 +93,42 @@ const darkModeButtonElAttrs = [
   ["class", "border-0 px-3 py-2"],
 ] 
 
-async function getConfig() {
-  const configLinkEl = document.getElementById("prefetch-config-link-element")
-  const configRes = await fetch(configLinkEl.getAttribute("href"))
-  return await configRes.json()
+const settingsBtnContainerElAttrs = [
+  ["class", "my-3 d-flex gap-3 flex-wrap"]
+]
+
+// Do work:
+
+// tktk figure out what to do when there is no config.
+
+function buildPage() {
+  if (!config) return
+  buildHeader()
 }
 
-function getStudentCourse() {
-  if (window.location.pathname.includes("canvas-landing-pages")) {
-    const coursePath = window.location.pathname.split("/")
-    console.log(coursePath);
-    const course = coursePath.pop()
-    console.log(course);
-    return course
-  }
-}
+buildPage()
 
 function buildHeader() {
-  setAttributes(headerEl, headerElAttrs)
+  if (!courseConfig.isHeaderShown) return
+  pageEls.header = createElWithAttrs("header", headerElAttrs)
   buildNav()
+  pageEls.subNavContainer = createElWithAttrs("div", subNavContainerElAttrs)
+  pageEls.subNav = createElWithAttrs("nav", subNavElAttrs)
   buildSubNav()
+  buildSettings()
+  pageEls.subNavContainer.appendChild(pageEls.subNav)
+  pageEls.header.appendChild(pageEls.subNav)
+  document.body.prepend(pageEls.header)
 }
 
-buildHeader()
-
 function buildNav() {
-  const navEl = document.createElement("nav")
+  const navEl = createElWithAttrs("nav", navElAttrs)
 
-  setAttributes(navEl, navElAttrs)
-  setAttributes(navPanelButtonEl, navPanelButtonElAttrs)
-  setAttributes(hamburgerIconEl, hamburgerIconElAttrs)
-  setAttributes(closeIconEl, closeIconElAttrs)
+  pageEls.navPanelButton = createElWithAttrs("nav", navPanelButtonElAttrs)
+  pageEls.hamburgerIcon = createElWithAttrs("svg", hamburgerIconElAttrs)
+  pageEls.closeIcon = createElWithAttrs("svg", closeIconElAttrs)
 
-  hamburgerIconEl.innerHTML = `
+  pageEls.hamburgerIcon.innerHTML = `
     <path 
       stroke="currentColor" 
       stroke-linecap="round" 
@@ -132,7 +137,7 @@ function buildNav() {
       d="M1 13h7M1 1h16H1Zm0 6h16H1Z"
     ></path>
   `
-  closeIconEl.innerHTML = `
+  pageEls.closeIcon.innerHTML = `
     <path 
       stroke="currentColor"
       stroke-linecap="round"
@@ -142,41 +147,124 @@ function buildNav() {
     ></path>
   `
 
-  navPanelButtonEl.appendChild(hamburgerIconEl)
-  navPanelButtonEl.appendChild(closeIconEl)
-  navEl.appendChild(navPanelButtonEl)
-  headerEl.appendChild(navEl)
+  pageEls.navPanelButton.appendChild(pageEls.hamburgerIcon)
+  pageEls.navPanelButton.appendChild(pageEls.closeIcon)
+  navEl.appendChild(pageEls.navPanelButton)
+  pageEls.header.appendChild(navEl)
 }
 
 function buildSubNav() {
+  if (!courseConfig.isHeaderModuleNavShown) return
+
+  buildHomeLink()
+  buildMicrolessonLinks()
+  pageEls.subNav.appendChild(subNavItemsContainerEl)
+}
+
+function buildHomeLink() {
+  if (!courseConfig.isHeaderHomeNavShown) return
+
+  const homeHeadingLinkElAttrs = [
+    ["class", "no-underline p-0 my-3"],
+    [
+      "href", 
+      `/${config.org.name}/${config.repo.name}/canvas-landing-pages/${courseConfig.name}`
+    ]
+  ]
+
+  const homeHeadingEl = createElWithAttrs("h2", subNavHeadingElAttrs)
+
+  const homeHeadingLinkEl = createElWithAttrs("a", homeHeadingLinkElAttrs)
+  homeHeadingLinkEl.textContent = config.repo.friendlyName
+  homeHeadingEl.appendChild(homeHeadingLinkEl)
+  subNavItemsContainerEl.appendChild(homeHeadingLinkEl)
+}
+
+function buildMicrolessonLinks() {
+  if (!courseConfig.isHeaderMicrolessonNavShown) return
+
+  const contentHeadingEl = createElWithAttrs("h2", subNavHeadingElAttrs)
+  contentHeadingEl.textContent = "Content"
+  const levelUpContentHeadingEl = createElWithAttrs("h2", subNavHeadingElAttrs)
+  levelUpContentHeadingEl.textContent = "Level Up content"
+
+  const contentUlEl = createElWithAttrs("ul", subNavUlElAttrs)
+  const levelUpContentUlEl = createElWithAttrs("ul", subNavUlElAttrs)
+
+  courseConfig.microlessons.forEach(ml => {
+    const liEl = document.createElement("li")
+
+    const anchorElAttrs = [
+      ["class", "f3 text-bold no-underline"],
+      ["href", `/${config.org.name}/${config.repo.name}/${ml.dirName}`]
+    ]
+
+    const anchorEl = createElWithAttrs("a", anchorElAttrs)
+    anchorEl.textContent = ml.friendlyName
+
+    liEl.appendChild(anchorEl)
+
+    if (ml.type = "Content") {
+      contentUlEl.appendChild(liEl)
+    } else if (ml.type = "Level Up content") {
+      levelUpContentUlEl.appendChild(liEl)
+    }
+  })
+
+  if (contentUlEl.children.length) {
+    subNavItemsContainerEl.appendChild(contentHeadingEl)
+    subNavItemsContainerEl.appendChild(contentUlEl)
+  }
+  if (levelUpContentUlEl.children.length) {
+    subNavItemsContainerEl.appendChild(levelUpContentHeadingEl)
+    subNavItemsContainerEl.appendChild(levelUpContentUlEl)
+  }
+  pageEls.subNav.appendChild(subNavItemsContainerEl)
+}
+
+function buildSettings() {
+  if (!courseConfig.isHeaderNavSettingsShown) return
+
   const subNavSettingsContainerEl = document.createElement("div")
-  const settingsHeadingEl = document.createElement("h2")
-  const settingsBtnContainerEl = document.createElement("div")
+  const settingsHeadingEl = createElWithAttrs("h2", subNavHeadingElAttrs)
+  const settingsBtnContainerEl = createElWithAttrs(
+    "div", settingsBtnContainerElAttrs
+  )
 
-  settingsHeadingEl.classList.add("no-anchor")
-  settingsBtnContainerEl.classList.add("my-3", "d-flex", "gap-3", "flex-wrap")
+  // Build sticky nav button
+  if (
+    courseConfig.isStickyNavAllowed && 
+    courseConfig.isFixedNavAllowed &&
+    courseConfig.isStickyNavSettingShown
+  ) {
+    pageEls.stickyNavButton = createElWithAttrs(
+      "button", stickyNavButtonElAttrs
+    )
+    pageEls.stickyNavButton.textContent = "Disable sticky nav"
+    settingsBtnContainerEl.appendChild(pageEls.stickyNavButton)
+  }
 
-  setAttributes(subNavContainerEl, subNavContainerElAttrs)
-  setAttributes(subNavEl, subNavElAttrs)
-  setAttributes(stickyNavButtonEl, stickyNavButtonElAttrs)
-  stickyNavButtonEl.textContent = "Disable sticky nav"
-  setAttributes(darkModeButtonEl, darkModeButtonElAttrs)
-  darkModeButtonEl.textContent = "Enable dark mode"
+  // Build dark mode button
+  if(
+    courseConfig.isDarkModeAllowed && 
+    courseConfig.isLightModeAllowed &&
+    courseConfig.isDarkModeSettingShown
+  ) {
+    pageEls.darkModeButton = createElWithAttrs("button", darkModeButtonElAttrs)
+    pageEls.darkModeButton.textContent = "Enable dark mode"
+    settingsBtnContainerEl.appendChild(pageEls.darkModeButton)
+  }
 
-  settingsBtnContainerEl.appendChild(stickyNavButtonEl)
-  settingsBtnContainerEl.appendChild(darkModeButtonEl)
   subNavSettingsContainerEl.appendChild(settingsHeadingEl)
   subNavSettingsContainerEl.appendChild(settingsBtnContainerEl)
 
-  buildSubNavItems()
+  pageEls.subNav.appendChild(subNavSettingsContainerEl)
 }
 
-async function buildSubNavItems() {
-  
-}
-
-function setAttributes(el, attrs) {
+function createElWithAttrs(elName, attrs) {
+  const el = document.createElement(elName)
   attrs.forEach(attr => el.setAttribute(attr[0], attr[1]));
+  return el
 }
 
 export {

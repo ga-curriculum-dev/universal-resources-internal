@@ -32,6 +32,7 @@ body {
   --text-color-muted: #636c76;
   --text-color-on-bold-bg: #F3EDE6;
   --text-color-on-emphasis: #F3EDE6;
+  --text-color-on-emphasis-muted: #A19FA8;
   --text-color-accent: #E41F26; /* GA Red */
   --text-color-attention: #9A6700;
   --text-color-warning: #D1242F;
@@ -69,6 +70,7 @@ body.dark {
   --text-color-muted: #8d96a0;
   --text-color-on-bold-bg: #F3EDE6;
   --text-color-on-emphasis: #F3EDE6;
+  --text-color-on-emphasis-muted: #A19FA8;
   --text-color-accent: #E41F26; /* GA Red */
   --text-color-attention: #d29922;
   --text-color-warning: #F85149;
@@ -2041,6 +2043,10 @@ pre {
 
 #tc-sub-nav a:hover {
   color: var(--text-color-accent);
+}
+
+#tc-sub-nav a.complete {
+  color: var(--text-color-on-emphasis-muted);
 }
 
 /* Stop animations */

@@ -1,6 +1,5 @@
-import { pageEls, config } from "./page-build.js"
-
-console.log(config);
+import { config, studentCourseConfig as courseConfig } from "./config.js"
+import { pageEls } from "./page-build.js"
 
 /* ---------------------------- Code copy button ---------------------------- */
 
