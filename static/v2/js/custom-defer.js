@@ -194,7 +194,6 @@ function setInitialDarkModeState() {
 
   const userDarkModePreference = localStorage.getItem("gaDarkModeEnabled")
 
-  console.log(courseConfig);
   if (!courseConfig.isDarkModeAllowed) {
     darkModeEnabled = false
   } else if (!courseConfig.isLightModeAllowed) {
@@ -217,7 +216,6 @@ function setInitialDarkModeState() {
 }
 
 function renderDarkModeSetting() {
-  console.log(darkModeEnabled);
   if (darkModeEnabled) {
     document.documentElement.classList.add("dark")
   } else {
