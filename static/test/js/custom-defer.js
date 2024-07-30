@@ -154,10 +154,14 @@ function setInitialDarkModeState() {
 
 function renderDarkModeSetting() {
   if (darkModeEnabled === "true") {
-    pageEls.darkModeButton.textContent = "Disable dark mode"
+    if (courseConfig.isHeaderShown) {
+      pageEls.darkModeButton.textContent = "Disable dark mode"
+    }
     document.documentElement.classList.add("dark")
   } else if (darkModeEnabled === "false") {
-    pageEls.darkModeButton.textContent = "Enable dark mode"
+    if (courseConfig.isHeaderShown) {
+      pageEls.darkModeButton.textContent = "Enable dark mode"
+    }
     document.documentElement.classList.remove("dark")
   }
 }
