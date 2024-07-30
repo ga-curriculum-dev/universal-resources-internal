@@ -26,7 +26,7 @@ let darkModeEnabled = "false"
 The below functionality implements the slide-down sub-nav functionality to 
 enable navigation between microlessons.
 */
-if (courseConfig.isHeaderShown) {
+if (courseConfig?.isHeaderShown) {
   pageEls.navPanelButton.addEventListener('click', handleToggleSubNav)
   mainEl.addEventListener("click", handleInferredNavClose)
   document.body.addEventListener("keyup", handleInferredNavClose)
@@ -91,11 +91,11 @@ toggle the functionality off and on, and persist that choice in localStorage.
 We can also manipulate this setting in the course configuration.
 */
 if (
-  courseConfig.isHeaderShown && 
-  courseConfig.isHeaderNavSettingsShown &&
-  courseConfig.isStickyNavSettingShown &&
-  courseConfig.isStickyNavAllowed &&
-  courseConfig.isFixedNavAllowed
+  courseConfig?.isHeaderShown && 
+  courseConfig?.isHeaderNavSettingsShown &&
+  courseConfig?.isStickyNavSettingShown &&
+  courseConfig?.isStickyNavAllowed &&
+  courseConfig?.isFixedNavAllowed
 ) {
   pageEls.stickyNavButton.addEventListener("click", handleToggleStickyNav)
 }
@@ -114,13 +114,13 @@ function handleToggleStickyNav() {
 function setInitialStickyNavState() {
   const userStickyNavPreference = localStorage.getItem("gaStickyNavEnabled")
 
-  if (!courseConfig.isFixedNavAllowed) {
+  if (!courseConfig?.isFixedNavAllowed) {
     stickyNavEnabled = true
-  } else if (!courseConfig.isStickyNavAllowed) {
+  } else if (!courseConfig?.isStickyNavAllowed) {
     stickyNavEnabled = false
-  } else if (courseConfig.isStickyNavForcedDefault) {
+  } else if (courseConfig?.isStickyNavForcedDefault) {
     stickyNavEnabled = true
-  } else if (courseConfig.isFixedNavForcedDefault) {
+  } else if (courseConfig?.isFixedNavForcedDefault) {
     stickyNavEnabled = false
   } else if (userStickyNavPreference) {
     stickyNavEnabled = convertLocalStorageBool(userStickyNavPreference)
@@ -144,10 +144,10 @@ function renderStickyNavSetting() {
 
 function renderStickyNavButton() {
   if (!(
-    courseConfig.isHeaderNavSettingsShown &&
-    courseConfig.isStickyNavSettingShown &&
-    courseConfig.isStickyNavAllowed &&
-    courseConfig.isFixedNavAllowed
+    courseConfig?.isHeaderNavSettingsShown &&
+    courseConfig?.isStickyNavSettingShown &&
+    courseConfig?.isStickyNavAllowed &&
+    courseConfig?.isFixedNavAllowed
   )) return
   if (stickyNavEnabled) {
     pageEls.stickyNavButton.textContent = "Disable sticky nav"
@@ -157,18 +157,18 @@ function renderStickyNavButton() {
 }
 
 // Call on load to ensure state is synced with user preference
-if (courseConfig.isHeaderShown) {
+if (courseConfig?.isHeaderShown) {
   setInitialStickyNavState()
 }
 
 /* ------------------------ Dark mode functionality ------------------------- */
 
 if (
-  courseConfig.isHeaderShown &&
-  courseConfig.isHeaderNavSettingsShown &&
-  courseConfig.isDarkModeSettingShown &&
-  courseConfig.isDarkModeAllowed &&
-  courseConfig.isLightModeAllowed
+  courseConfig?.isHeaderShown &&
+  courseConfig?.isHeaderNavSettingsShown &&
+  courseConfig?.isDarkModeSettingShown &&
+  courseConfig?.isDarkModeAllowed &&
+  courseConfig?.isLightModeAllowed
 ) {
   pageEls.darkModeButton.addEventListener("click", handleToggleDarkMode)
 }
@@ -194,13 +194,13 @@ function setInitialDarkModeState() {
 
   const userDarkModePreference = localStorage.getItem("gaDarkModeEnabled")
 
-  if (!courseConfig.isDarkModeAllowed) {
+  if (!courseConfig?.isDarkModeAllowed) {
     darkModeEnabled = false
-  } else if (!courseConfig.isLightModeAllowed) {
+  } else if (!courseConfig?.isLightModeAllowed) {
     darkModeEnabled = true
-  } else if (courseConfig.isLightModeForcedDefault) {
+  } else if (courseConfig?.isLightModeForcedDefault) {
     darkModeEnabled = false
-  } else if (courseConfig.isDarkModeForcedDefault) {
+  } else if (courseConfig?.isDarkModeForcedDefault) {
     darkModeEnabled = true
   } else if (userDarkModePreference) {
     darkModeEnabled = convertLocalStorageBool(userDarkModePreference)
@@ -226,11 +226,11 @@ function renderDarkModeSetting() {
 
 function renderDarkModeButton() {
   if (!(
-    courseConfig.isHeaderShown &&
-    courseConfig.isHeaderNavSettingsShown &&
-    courseConfig.isDarkModeSettingShown &&
-    courseConfig.isLightModeAllowed &&
-    courseConfig.isDarkModeAllowed
+    courseConfig?.isHeaderShown &&
+    courseConfig?.isHeaderNavSettingsShown &&
+    courseConfig?.isDarkModeSettingShown &&
+    courseConfig?.isLightModeAllowed &&
+    courseConfig?.isDarkModeAllowed
   )) return
   if (darkModeEnabled) {
     pageEls.darkModeButton.textContent = "Disable dark mode"
