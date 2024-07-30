@@ -396,9 +396,9 @@ function getMinMainHeight() {
   let minHeight
   
   if (courseConfig.isHeaderShown) {
-    minHeight = `calc(100dvh - ${pageEls.header.clientHeight}px - 105px)`
+    minHeight = `calc(100dvh - ${pageEls.header.clientHeight}px - 41px)`
   } else {
-    minHeight = "calc(100dvh - 104px)"
+    minHeight = "calc(100dvh - 40px)"
   }
 
   console.log(minHeight);
