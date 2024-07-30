@@ -11,7 +11,6 @@ hljs.addPlugin(new CopyButtonPlugin());
 
 /* ----------------------- Cached element references ------------------------ */
 
-
 const mainEl = document.querySelector("main")
 
 /* --------------------------------- State ---------------------------------- */
@@ -90,7 +89,10 @@ function handleInferredNavClose(evt) {
 Not all users may want to use the sticky nav functionality so we allow them to
 toggle the functionality off and on, and persist that choice in localStorage.
 */
-if (courseConfig.isHeaderShown) {
+if (
+  courseConfig.isHeaderShown || 
+  courseConfig.isHeaderNavSettingsShown
+) {
   pageEls.stickyNavButton.addEventListener("click", handleToggleStickyNav)
 }
 
@@ -107,10 +109,14 @@ function handleToggleStickyNav() {
 
 function renderStickyNavSetting() {
   if (stickyNavEnabled === "true") {
-    pageEls.stickyNavButton.textContent = "Disable sticky nav"
+    if (courseConfig.isHeaderNavSettingsShown) {
+      pageEls.stickyNavButton.textContent = "Disable sticky nav"
+    }
     pageEls.header.classList.remove("no-stick")
   } else if (stickyNavEnabled === "false") {
-    pageEls.stickyNavButton.textContent = "Enable sticky nav"
+    if (courseConfig.isHeaderNavSettingsShown) {
+      pageEls.stickyNavButton.textContent = "Enable sticky nav"
+    }
     pageEls.header.classList.add("no-stick")
   }
 }
@@ -122,7 +128,10 @@ if (courseConfig.isHeaderShown) {
 
 /* ------------------------ Dark mode functionality ------------------------- */
 
-if (courseConfig.isHeaderShown) {
+if (
+  courseConfig.isHeaderShown ||
+  courseConfig.isHeaderNavSettingsShown
+) {
   pageEls.darkModeButton.addEventListener("click", handleToggleDarkMode)
 }
 
@@ -154,12 +163,18 @@ function setInitialDarkModeState() {
 
 function renderDarkModeSetting() {
   if (darkModeEnabled === "true") {
-    if (courseConfig.isHeaderShown) {
+    if (
+      courseConfig.isHeaderShown ||
+      courseConfig.isHeaderNavSettingsShown
+    ) {
       pageEls.darkModeButton.textContent = "Disable dark mode"
     }
     document.documentElement.classList.add("dark")
   } else if (darkModeEnabled === "false") {
-    if (courseConfig.isHeaderShown) {
+    if (
+      courseConfig.isHeaderShown ||
+      courseConfig.isHeaderNavSettingsShown
+    ) {
       pageEls.darkModeButton.textContent = "Enable dark mode"
     }
     document.documentElement.classList.remove("dark")
