@@ -104,7 +104,7 @@ Not all users may want to use the sticky nav functionality so we allow them to
 toggle the functionality off and on, and persist that choice in localStorage.
 */
 
-pageEls.stickyNavButtonEl.addEventListener("click", handleToggleStickyNav)
+pageEls.stickyNavButton.addEventListener("click", handleToggleStickyNav)
 
 function handleToggleStickyNav() {
   if (stickyNavEnabled === "true") {
@@ -119,10 +119,10 @@ function handleToggleStickyNav() {
 
 function renderStickyNavSetting() {
   if (stickyNavEnabled === "true") {
-    pageEls.stickyNavButtonEl.textContent = "Disable sticky nav"
+    pageEls.stickyNavButton.textContent = "Disable sticky nav"
     pagesEls.header.classList.remove("no-stick")
   } else if (stickyNavEnabled === "false") {
-    pageEls.stickyNavButtonEl.textContent = "Enable sticky nav"
+    pageEls.stickyNavButton.textContent = "Enable sticky nav"
     pagesEls.header.classList.add("no-stick")
   }
 }
