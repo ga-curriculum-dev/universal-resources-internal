@@ -1,3 +1,4 @@
+import "./custom-defer-priority.js"
 import { pageEls } from "./page-build.js"
 import { config, userCourseConfig as courseConfig } from "./config.js"
 
