@@ -12,7 +12,7 @@ hljs.addPlugin(new CopyButtonPlugin());
 /* ----------------------- Cached element references ------------------------ */
 
 
-const mainContainerEl = document.getElementById("tc-main-container")
+const mainEl = document.querySelector("main")
 
 /* --------------------------------- State ---------------------------------- */
 
@@ -31,7 +31,7 @@ enable navigation between microlessons.
 */
 
 pageEls.navPanelButton.addEventListener('click', handleToggleSubNav)
-mainContainerEl.addEventListener("click", handleInferredNavClose)
+mainEl.addEventListener("click", handleInferredNavClose)
 document.body.addEventListener("keyup", handleInferredNavClose)
 
 function handleToggleSubNav() {
@@ -53,7 +53,6 @@ function showNav() {
   pageEls.navPanelButton.setAttribute("aria-label", "Close navigation")
   pageEls.hamburgerIcon.classList.remove("visible")
   pageEls.closeIcon.classList.add("visible")
-  calcMainHeight()
 
   setTimeout(function() {
     isSubNavVisible = true
@@ -70,7 +69,6 @@ function hideNav() {
   pageEls.hamburgerIcon.classList.add("visible")
   pageEls.subNavContainer.classList.remove("open")
   pageEls.subNavContainer.setAttribute("aria-hidden", "true")
-  calcMainHeight()
 
   // wait until close animation is complete before hiding element
   setTimeout(function() {
@@ -85,25 +83,6 @@ function handleInferredNavClose(evt) {
   if (evt.type === "click" || (evt.type === "keyup" && evt.key === "Escape")) {
     handleToggleSubNav()
   } 
-}
-
-function calcMainHeight() {
-    // We only need to put a min-height on the main if there is a footer
-    if (!courseConfig.isFooterShown) return
-
-    let minHeight
-  
-    const calc = 50 + pageEls.subNavContainer.clientHeight
-
-    if (courseConfig.isHeaderShown) {
-      minHeight = `calc(100dvh - ${calc}px - 40px)`
-    } else {
-      minHeight = "calc(100dvh - 40px)"
-    }
-  
-    console.log(minHeight);
-
-    mainContainerEl.style.gridTemplateRows = `minmax(${minHeight}, auto)`
 }
 
 /* ------------------------ Sticky nav functionality ------------------------ */
