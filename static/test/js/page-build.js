@@ -134,7 +134,9 @@ function buildPage() {
 buildPage()
 
 function getMicrolessonIdx() {
-  
+  console.log(location.pathname.split("/")[3]);
+  const currentDirName = location.pathname.split("/")[3]
+  console.log(currentDirName);
 }
 
 function buildHeader() {
