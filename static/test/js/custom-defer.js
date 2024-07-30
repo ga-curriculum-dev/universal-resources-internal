@@ -16,18 +16,6 @@ const paragraphEls = document.querySelectorAll('p')
 
 const pageContent = document.querySelector(".markdown-body")
 
-/* 
-Nav elements
-*/ 
-const headerEl = document.getElementById("tc-header")
-const navPanelButtonEl = document.getElementById("tc-sub-nav-button")
-const hamburgerIconEl = document.getElementById("tc-hamburger-icon")
-const closeIconEl = document.getElementById("tc-close-icon")
-const subNavContainerEl = document.getElementById("tc-sub-nav-container")
-const subNavEl = document.getElementById("tc-sub-nav")
-const stickyNavButtonEl = document.getElementById("tc-sticky-nav-button")
-const darkModeButtonEl = document.getElementById("tc-dark-mode-button")
-
 /* --------------------------------- State ---------------------------------- */
 
 let isSubNavVisible = false
@@ -54,7 +42,7 @@ The below functionality implements the slide-down sub-nav functionality to
 enable navigation between microlessons.
 */
 
-navPanelButtonEl.addEventListener('click', handleToggleSubNav)
+pageEls.navPanelButton.addEventListener('click', handleToggleSubNav)
 pageContent.addEventListener("click", handleInferredNavClose)
 document.body.addEventListener("keyup", handleInferredNavClose)
 
@@ -70,13 +58,13 @@ function handleToggleSubNav() {
 function showNav() {
   isAnimationInProgress = true
 
-  subNavEl.classList.add("visible")
-  subNavContainerEl.classList.add("open")
-  subNavContainerEl.setAttribute("aria-hidden", "false")
-  navPanelButtonEl.setAttribute("aria-expanded", "true")
-  navPanelButtonEl.setAttribute("aria-label", "Close navigation")
-  hamburgerIconEl.classList.remove("visible")
-  closeIconEl.classList.add("visible")
+  pageEls.subNav.classList.add("visible")
+  pageEls.subNavContainer.classList.add("open")
+  pageEls.subNavContainer.setAttribute("aria-hidden", "false")
+  pageEls.navPanelButton.setAttribute("aria-expanded", "true")
+  pageEls.navPanelButton.setAttribute("aria-label", "Close navigation")
+  pageEls.hamburgerIcon.classList.remove("visible")
+  pageEls.closeIcon.classList.add("visible")
 
   setTimeout(function() {
     isSubNavVisible = true
@@ -87,16 +75,16 @@ function showNav() {
 function hideNav() {
   isAnimationInProgress = true
 
-  navPanelButtonEl.setAttribute("aria-expanded", "false")
-  navPanelButtonEl.setAttribute("aria-label", "Open navigation")
-  closeIconEl.classList.remove("visible")
-  hamburgerIconEl.classList.add("visible")
-  subNavContainerEl.classList.remove("open")
-  subNavContainerEl.setAttribute("aria-hidden", "true")
+  pageEls.navPanelButton.setAttribute("aria-expanded", "false")
+  pageEls.navPanelButton.setAttribute("aria-label", "Open navigation")
+  pageEls.closeIcon.classList.remove("visible")
+  pageEls.hamburgerIcon.classList.add("visible")
+  pageEls.subNavContainer.classList.remove("open")
+  pageEls.subNavContainer.setAttribute("aria-hidden", "true")
 
   // wait until close animation is complete before hiding element
   setTimeout(function() {
-    subNavEl.classList.remove("visible")
+    pageEls.subNav.classList.remove("visible")
     isSubNavVisible = false
     isAnimationInProgress = false
   }, 351)
@@ -116,7 +104,7 @@ Not all users may want to use the sticky nav functionality so we allow them to
 toggle the functionality off and on, and persist that choice in localStorage.
 */
 
-stickyNavButtonEl.addEventListener("click", handleToggleStickyNav)
+pageEls.stickyNavButtonEl.addEventListener("click", handleToggleStickyNav)
 
 function handleToggleStickyNav() {
   if (stickyNavEnabled === "true") {
@@ -131,11 +119,11 @@ function handleToggleStickyNav() {
 
 function renderStickyNavSetting() {
   if (stickyNavEnabled === "true") {
-    stickyNavButtonEl.textContent = "Disable sticky nav"
-    headerEl.classList.remove("no-stick")
+    pageEls.stickyNavButtonEl.textContent = "Disable sticky nav"
+    pagesEls.header.classList.remove("no-stick")
   } else if (stickyNavEnabled === "false") {
-    stickyNavButtonEl.textContent = "Enable sticky nav"
-    headerEl.classList.add("no-stick")
+    pageEls.stickyNavButtonEl.textContent = "Enable sticky nav"
+    pagesEls.header.classList.add("no-stick")
   }
 }
 
@@ -144,7 +132,7 @@ renderStickyNavSetting()
 
 /* ------------------------ Dark mode functionality ------------------------- */
 
-darkModeButtonEl.addEventListener("click", handleToggleDarkMode)
+pageEls.darkModeButton.addEventListener("click", handleToggleDarkMode)
 
 function handleToggleDarkMode() {
   if (darkModeEnabled === "true") {
@@ -174,10 +162,10 @@ function setInitialDarkModeState() {
 
 function renderDarkModeSetting() {
   if (darkModeEnabled === "true") {
-    darkModeButtonEl.textContent = "Disable dark mode"
+    pageEls.darkModeButton.textContent = "Disable dark mode"
     document.body.classList.add("dark")
   } else if (darkModeEnabled === "false") {
-    darkModeButtonEl.textContent = "Enable dark mode"
+    pageEls.darkModeButton.textContent = "Enable dark mode"
     document.body.classList.remove("dark")
   }
 }
