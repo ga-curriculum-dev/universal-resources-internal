@@ -252,6 +252,7 @@ function createNavAnchorEl(idx, currentMlIdx, href, textContent) {
     ["href", href]
   ]
   const anchorEl = createElWithAttrs("a", anchorElAttrs)
+  if (!href.startsWith('/')) anchorEl.setAttribute("target", "_blank")
   anchorEl.textContent = textContent
 
   // apply styling
