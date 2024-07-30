@@ -142,7 +142,7 @@ const footerNextElAttrs = [
 ]
 
 const copyrightElAttrs = [
-  ["id", "tc-footer-right"],
+  ["id", "tc-copyright"],
   ["class", "f5"],
 ]
 
