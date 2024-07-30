@@ -1988,6 +1988,7 @@ pre {
   z-index: 1000;
   background: var(--background-color-nav);
   color: var(--text-color-on-emphasis);
+  height: 50px;
 }
 
 #tc-header-temp {

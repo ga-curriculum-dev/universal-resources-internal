@@ -122,14 +122,20 @@ const settingsBtnContainerElAttrs = [
 // tktk figure out what to do when there is no config.
 
 function buildPage() {
-  if (!config) return
+  if (!config) {
+    document.getElementById("tc-header-temp").remove()
+    return
+  }
   buildHeader()
 }
 
 buildPage()
 
 function buildHeader() {
-  if (!courseConfig.isHeaderShown) return
+  if (!courseConfig.isHeaderShown) {
+    document.getElementById("tc-header-temp").remove()
+    return
+  }
   pageEls.header = createElWithAttrs("header", headerElAttrs)
   buildNav()
   pageEls.subNavContainer = createElWithAttrs("div", subNavContainerElAttrs)
@@ -138,6 +144,7 @@ function buildHeader() {
   buildSettings()
   pageEls.subNavContainer.appendChild(pageEls.subNav)
   pageEls.header.appendChild(pageEls.subNavContainer)
+  document.getElementById("tc-header-temp").remove()
   document.body.prepend(pageEls.header)
 }
 
