@@ -258,9 +258,9 @@ function buildMicrolessonLinks() {
     }
 
     // Attach the microlesson to its location in the lesson
-    if (ml.type = "Content") {
+    if (ml.type === "Content") {
       contentUlEl.appendChild(liEl)
-    } else if (ml.type = "Level Up content") {
+    } else if (ml.type === "Level Up content") {
       levelUpContentUlEl.appendChild(liEl)
     }
   })
