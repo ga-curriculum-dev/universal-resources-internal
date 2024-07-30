@@ -90,7 +90,7 @@ Not all users may want to use the sticky nav functionality so we allow them to
 toggle the functionality off and on, and persist that choice in localStorage.
 */
 if (
-  courseConfig.isHeaderShown || 
+  courseConfig.isHeaderShown && 
   courseConfig.isHeaderNavSettingsShown
 ) {
   pageEls.stickyNavButton.addEventListener("click", handleToggleStickyNav)
@@ -129,7 +129,7 @@ if (courseConfig.isHeaderShown) {
 /* ------------------------ Dark mode functionality ------------------------- */
 
 if (
-  courseConfig.isHeaderShown ||
+  courseConfig.isHeaderShown &&
   courseConfig.isHeaderNavSettingsShown
 ) {
   pageEls.darkModeButton.addEventListener("click", handleToggleDarkMode)
@@ -164,7 +164,7 @@ function setInitialDarkModeState() {
 function renderDarkModeSetting() {
   if (darkModeEnabled === "true") {
     if (
-      courseConfig.isHeaderShown ||
+      courseConfig.isHeaderShown &&
       courseConfig.isHeaderNavSettingsShown
     ) {
       pageEls.darkModeButton.textContent = "Disable dark mode"
@@ -172,7 +172,7 @@ function renderDarkModeSetting() {
     document.documentElement.classList.add("dark")
   } else if (darkModeEnabled === "false") {
     if (
-      courseConfig.isHeaderShown ||
+      courseConfig.isHeaderShown &&
       courseConfig.isHeaderNavSettingsShown
     ) {
       pageEls.darkModeButton.textContent = "Enable dark mode"
