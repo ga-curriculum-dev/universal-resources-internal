@@ -53,11 +53,11 @@ function showNav() {
   pageEls.navPanelButton.setAttribute("aria-label", "Close navigation")
   pageEls.hamburgerIcon.classList.remove("visible")
   pageEls.closeIcon.classList.add("visible")
+  calcMainHeight()
 
   setTimeout(function() {
     isSubNavVisible = true
     isAnimationInProgress = false
-    calcMainHeight()
   }, 351)
 }
 
@@ -70,13 +70,13 @@ function hideNav() {
   pageEls.hamburgerIcon.classList.add("visible")
   pageEls.subNavContainer.classList.remove("open")
   pageEls.subNavContainer.setAttribute("aria-hidden", "true")
+  calcMainHeight()
 
   // wait until close animation is complete before hiding element
   setTimeout(function() {
     pageEls.subNav.classList.remove("visible")
     isSubNavVisible = false
     isAnimationInProgress = false
-    calcMainHeight()
   }, 351)
 }
 
