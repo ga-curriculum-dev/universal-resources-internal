@@ -2018,6 +2018,30 @@ pre {
   transition: grid-template-rows 0.35s;
 }
 
+#tc-footer {
+  background: var(--background-color-nav);
+  color: var(--text-color-on-emphasis);
+}
+
+#tc-footer-items {
+  height: 39px;
+}
+
+#tc-footer-right,
+#tc-footer-left {
+  flex-grow: 1;
+  flex-basis: 0;
+}
+
+#tc-footer-copyright {
+  color: var(--text-color-on-emphasis-muted)
+}
+
+#tc-footer-right {
+  display: flex;
+  justify-content: flex-end;
+}
+
 #tc-sub-nav {
   visibility: hidden;
   overflow-y: hidden;
@@ -2063,6 +2087,14 @@ pre {
 #tc-sub-nav a.current,
 #tc-sub-nav li.current {
   color: var(--text-color-accent);
+}
+
+#tc-footer-items p {
+  margin: 0;
+}
+
+#tc-footer-items a {
+  color: var(--text-color-on-emphasis);
 }
 
 /* Stop animations */

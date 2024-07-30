@@ -19,6 +19,10 @@ const pageEls = {
 
 const subNavItemsContainerEl = document.createElement("div")
 
+// Get cached element references
+
+const mainEl = document.querySelector("main")
+
 /*
 Attributes by element
 
@@ -119,6 +123,29 @@ const settingsBtnContainerElAttrs = [
   ["class", "my-3 d-flex gap-3 flex-wrap"]
 ]
 
+const footerElAttrs = [
+  ["id", "tc-footer"]
+  ["class", "border-top"],
+]
+
+const footerItemsContainerElAttrs = [
+  ["id", "tc-footer-items"],
+  ["class", "container-lg px-3 d-flex flex-items-center flex-justify-between"],
+]
+
+const footerBackElAttrs = [
+  ["id", "tc-footer-left"],
+]
+
+const footerNextElAttrs = [
+  ["id", "tc-footer-right"],
+]
+
+const copyrightElAttrs = [
+  ["id", "tc-footer-right"],
+  ["class", "f5"]
+]
+
 // Do work:
 
 // tktk figure out what to do when there is no config.
@@ -130,9 +157,13 @@ function buildPage() {
     return
   }
   buildHeader()
+  buildFooter()
+  getMinMainHeight()
 }
 
 buildPage()
+
+/* --------------------------------- Header --------------------------------- */
 
 function buildHeader() {
   if (!courseConfig.isHeaderShown) {
@@ -303,6 +334,75 @@ function buildSettings() {
 
   pageEls.subNav.appendChild(subNavSettingsContainerEl)
 }
+
+function buildFooter() {
+  if (!courseConfig.isFooterShown) return
+
+  const footerEl = createElWithAttrs("footer", footerElAttrs)
+  const footerItemsContainerEl = createElWithAttrs(
+    "nav", footerItemsContainerElAttrs
+  )
+
+  const currentMlIdx = getMicrolessonIdx()
+
+  const backEl = createElWithAttrs("p", footerBackElAttrs)
+  const copyrightEl = createElWithAttrs("p", copyrightElAttrs)
+  const nextEl = createElWithAttrs("p", footerNextElAttrs)
+
+  if (courseConfig.isFooterLessonNavShown && currentMlIdx > 0) {
+    const prevMl = courseConfig.microlessons[currentMlIdx - 1]
+    const backNavElAttrs = [
+      ["class", "f3 text-bold no-underline"],
+      ["href", `/${config.org.name}/${config.repo.name}/${prevMl.dirName}`]
+    ]
+    const backNavEl = createElWithAttrs("a", backNavElAttrs)
+    backNavEl.textContent = prevMl.friendlyName
+    backEl.appendChild(backNavEl)
+  }
+
+  if (courseConfig.isFooterCopyrightShown) {
+    copyrightEl.textContent = `© ${Date.now().getFullYear()} General Assembly`
+  }
+
+  if (
+    courseConfig.isFooterLessonNavShown && 
+    currentMlIdx > -1 &&
+    currentMlIdx < courseConfig.microlessons.length - 1
+  ) {
+    const nextMl = courseConfig.microlessons[currentMlIdx + 1]
+    const nextNavElAttrs = [
+      ["class", "f3 text-bold no-underline"],
+      ["href", `/${config.org.name}/${config.repo.name}/${nextMl.dirName}`]
+    ]
+    const nextNavEl = createElWithAttrs("a", nextNavElAttrs)
+    nextNavEl.textContent = nextMl.friendlyName
+    nextEl.appendChild(nextNavEl)
+  }
+
+  footerItemsContainerEl.appendChild(backEl)
+  footerItemsContainerEl.appendChild(copyrightEl)
+  footerItemsContainerEl.appendChild(nextEl)
+
+  footerEl.appendChild(footerItemsContainerEl)
+
+}
+
+function getMinMainHeight() {
+  // We only need to put a min-height on the main if there is a footer
+  if (!courseConfig.isFooterShown) return
+
+  let mainHeight
+
+  if (courseConfig.isHeaderShown) {
+    mainHeight = "calc(100dvh - 100px)"
+  } else {
+    mainHeight = "calc(100dvh - 50px)"
+  }
+
+  mainEl.style.minHeight = mainHeight
+}
+
+/* -------------------------------- Helpers --------------------------------- */
 
 function createElWithAttrs(elName, attrs) {
   const el = document.createElement(elName)
