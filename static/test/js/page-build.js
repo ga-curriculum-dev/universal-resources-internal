@@ -178,7 +178,7 @@ function buildHomeLink() {
   const homeHeadingLinkEl = createElWithAttrs("a", homeHeadingLinkElAttrs)
   homeHeadingLinkEl.textContent = config.repo.friendlyName
   homeHeadingEl.appendChild(homeHeadingLinkEl)
-  subNavItemsContainerEl.appendChild(homeHeadingLinkEl)
+  subNavItemsContainerEl.appendChild(homeHeadingEl)
 }
 
 function buildMicrolessonLinks() {
