@@ -124,7 +124,7 @@ const settingsBtnContainerElAttrs = [
 ]
 
 const footerElAttrs = [
-  ["id", "tc-footer"]
+  ["id", "tc-footer"],
   ["class", "border-top"],
 ]
 
