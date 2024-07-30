@@ -124,7 +124,7 @@ function buildHeader() {
 function buildNav() {
   const navEl = createElWithAttrs("nav", navElAttrs)
 
-  pageEls.navPanelButton = createElWithAttrs("nav", navPanelButtonElAttrs)
+  pageEls.navPanelButton = createElWithAttrs("button", navPanelButtonElAttrs)
   pageEls.hamburgerIcon = createElWithAttrs("svg", hamburgerIconElAttrs)
   pageEls.closeIcon = createElWithAttrs("svg", closeIconElAttrs)
 
