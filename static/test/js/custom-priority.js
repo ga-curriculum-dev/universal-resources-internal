@@ -1,12 +1,10 @@
 /* ------------------------ Dark mode functionality ------------------------- */
 
 /*
-  Make a best-effort guess on this as soon as possible. Pulling in a config
-  may change this later, but generally, the faster we execute this code the less
-  visual pop-in we have.
+Make a best-effort guess on this as soon as possible. Pulling in a config
+may change this later, but generally, the faster we execute this code the less
+visual pop-in we have.
 */
-
-let darkModeEnabled
 
 function setInitialDarkModeState() {
   /*
@@ -15,6 +13,7 @@ function setInitialDarkModeState() {
   then we want to respect that preference above all else. When the user hasn't
   indicated a preference for dark mode, it will be disabled.
   */
+  let darkModeEnabled
 
   const localStorageDarkMode = localStorage.getItem("gaDarkModeEnabled")
 
@@ -23,15 +22,10 @@ function setInitialDarkModeState() {
   } else if (window.matchMedia("(prefers-color-scheme:dark)").matches) {
     darkModeEnabled = "true"
   }
-}
-
-function renderDarkModeSetting() {
+  
   if (darkModeEnabled === "true") {
     document.documentElement.classList.add("dark")
-  } else if (darkModeEnabled === "false") {
-    document.documentElement.classList.remove("dark")
   }
 }
 
 setInitialDarkModeState()
-renderDarkModeSetting()
