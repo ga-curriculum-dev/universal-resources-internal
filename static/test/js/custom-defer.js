@@ -124,9 +124,9 @@ function getInitialStickyNavSetting(params) {
 }
 
 function renderStickyNavSetting() {
-  if (stickyNavEnabled === "true") {
+  if (stickyNavEnabled) {
     pageEls.header.classList.remove("no-stick")
-  } else if (stickyNavEnabled === "false") {
+  } else {
     pageEls.header.classList.add("no-stick")
   }
   renderStickyNavButton()
