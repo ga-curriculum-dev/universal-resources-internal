@@ -74,7 +74,7 @@ const closeIconPathAttrs = [
   ["stroke-linecap", "round"], 
   ["stroke-linejoin", "round"],
   ["stroke-width", "2"],
-  ["d", "m1 1 12 12M1 13 13 1 1 13Z"]
+  ["d", "m1 1 12 12M1 13 13 1 1 13Z"],
 ]
 
 const closeIconSvgAttrs = [
@@ -98,15 +98,15 @@ const subNavElAttrs = [
 ]
 
 const subNavHomeHeadingElAttrs = [
-  ["class", "no-anchor p-0 my-2 h1"]
+  ["class", "no-anchor p-0 my-2 h1"],
 ]
 
 const subNavHeadingElAttrs = [
-  ["class", "no-anchor"]
+  ["class", "no-anchor"],
 ]
 
 const subNavUlElAttrs = [
-  ["class", "list-style-none pl-2 my-2 d-flex flex-column gap-2"]
+  ["class", "list-style-none pl-2 my-2 d-flex flex-column gap-2"],
 ]
 
 const stickyNavButtonElAttrs = [
@@ -120,7 +120,7 @@ const darkModeButtonElAttrs = [
 ] 
 
 const settingsBtnContainerElAttrs = [
-  ["class", "my-3 d-flex gap-3 flex-wrap"]
+  ["class", "my-3 d-flex gap-3 flex-wrap"],
 ]
 
 const footerElAttrs = [
@@ -143,7 +143,7 @@ const footerNextElAttrs = [
 
 const copyrightElAttrs = [
   ["id", "tc-footer-right"],
-  ["class", "f5"]
+  ["class", "f5"],
 ]
 
 // Do work:
