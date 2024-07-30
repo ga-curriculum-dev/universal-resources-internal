@@ -137,7 +137,8 @@ if (courseConfig.isHeaderShown) {
 
 if (
   courseConfig.isHeaderShown &&
-  courseConfig.isHeaderNavSettingsShown
+  courseConfig.isHeaderNavSettingsShown &&
+  courseConfig.isDarkModeSettingShown
 ) {
   pageEls.darkModeButton.addEventListener("click", handleToggleDarkMode)
 }
@@ -172,7 +173,8 @@ function renderDarkModeSetting() {
   if (darkModeEnabled === "true") {
     if (
       courseConfig.isHeaderShown &&
-      courseConfig.isHeaderNavSettingsShown
+      courseConfig.isHeaderNavSettingsShown &&
+      courseConfig.isDarkModeSettingShown
     ) {
       pageEls.darkModeButton.textContent = "Disable dark mode"
     }
@@ -180,7 +182,8 @@ function renderDarkModeSetting() {
   } else if (darkModeEnabled === "false") {
     if (
       courseConfig.isHeaderShown &&
-      courseConfig.isHeaderNavSettingsShown
+      courseConfig.isHeaderNavSettingsShown && 
+      courseConfig.isDarkModeSettingShown
     ) {
       pageEls.darkModeButton.textContent = "Enable dark mode"
     }
