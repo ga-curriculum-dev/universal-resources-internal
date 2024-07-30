@@ -111,12 +111,16 @@ function handleToggleStickyNav() {
   renderStickyNavSetting()
 }
 
-function getInitialStickyNavSetting() {
+function setInitialStickyNavState() {
   const userStickyNavPreference = localStorage.getItem("gaStickyNavEnabled")
-  
+
   if (!courseConfig.isFixedNavAllowed) {
     stickyNavEnabled = true
   } else if (!courseConfig.isStickyNavAllowed) {
+    stickyNavEnabled = false
+  } else if (courseConfig.isStickyNavForcedDefault) {
+    stickyNavEnabled = true
+  } else if (courseConfig.isFixedNavForcedDefault) {
     stickyNavEnabled = false
   } else if (userStickyNavPreference) {
     stickyNavEnabled = convertLocalStorageBool(userStickyNavPreference)
@@ -125,6 +129,7 @@ function getInitialStickyNavSetting() {
   } else {
     stickyNavEnabled = true
   }
+
   renderStickyNavSetting()
 }
 
@@ -153,7 +158,7 @@ function renderStickyNavButton() {
 
 // Call on load to ensure state is synced with user preference
 if (courseConfig.isHeaderShown) {
-  getInitialStickyNavSetting()
+  setInitialStickyNavState()
 }
 
 /* ------------------------ Dark mode functionality ------------------------- */
@@ -161,18 +166,20 @@ if (courseConfig.isHeaderShown) {
 if (
   courseConfig.isHeaderShown &&
   courseConfig.isHeaderNavSettingsShown &&
-  courseConfig.isDarkModeSettingShown
+  courseConfig.isDarkModeSettingShown &&
+  courseConfig.isDarkModeAllowed &&
+  courseConfig.isLightModeAllowed
 ) {
   pageEls.darkModeButton.addEventListener("click", handleToggleDarkMode)
 }
 
 function handleToggleDarkMode() {
-  if (darkModeEnabled === "true") {
+  if (darkModeEnabled) {
     localStorage.setItem("gaDarkModeEnabled", "false")
-    darkModeEnabled = "false"
+    darkModeEnabled = false
   } else {
     localStorage.setItem("gaDarkModeEnabled", "true")
-    darkModeEnabled = "true"
+    darkModeEnabled = true
   }
   renderDarkModeSetting()
 }
@@ -185,34 +192,56 @@ function setInitialDarkModeState() {
   indicated a preference for dark mode, it will be disabled.
   */
 
-  if (localStorage.getItem("gaDarkModeEnabled")) {
-    darkModeEnabled = localStorage.getItem("gaDarkModeEnabled")
+  const userDarkModePreference = localStorage.getItem("gaDarkModeEnabled")
+
+  if (!courseConfig.isDarkModeAllowed) {
+    darkModeEnabled = false
+  } else if (!courseConfig.isLightModeAllowed) {
+    darkModeEnabled = true
+  } else if (courseConfig.isLightModeForcedDefault) {
+    darkModeEnabled = false
+  } else if (courseConfig.isDarkModeForcedDefault) {
+    darkModeEnabled = true
+  } else if (userDarkModePreference) {
+    darkModeEnabled = convertLocalStorageBool(userDarkModePreference)
   } else if (window.matchMedia("(prefers-color-scheme:dark)").matches) {
-    darkModeEnabled = "true"
+    darkModeEnabled = true
+  } else if (!isLightModeDefault) {
+    darkModeEnabled = true
+  } else {
+    darkModeEnabled = false
   }
+
+  renderDarkModeSetting()
 }
 
 function renderDarkModeSetting() {
-  if (darkModeEnabled === "true") {
-    if (
-      courseConfig.isHeaderShown &&
-      courseConfig.isHeaderNavSettingsShown &&
-      courseConfig.isDarkModeSettingShown
-    ) {
-      pageEls.darkModeButton.textContent = "Disable dark mode"
-    }
+  if (darkModeEnabled) {
     document.documentElement.classList.add("dark")
-  } else if (darkModeEnabled === "false") {
-    if (
-      courseConfig.isHeaderShown &&
-      courseConfig.isHeaderNavSettingsShown && 
-      courseConfig.isDarkModeSettingShown
-    ) {
-      pageEls.darkModeButton.textContent = "Enable dark mode"
-    }
+  } else {
     document.documentElement.classList.remove("dark")
   }
+  renderDarkModeButton()
 }
+
+function renderDarkModeButton() {
+  if (!(
+    courseConfig.isHeaderShown &&
+    courseConfig.isHeaderNavSettingsShown &&
+    courseConfig.isDarkModeSettingShown &&
+    courseConfig.isLightModeAllowed &&
+    courseConfig.isDarkModeAllowed
+  )) return
+  if (darkModeEnabled) {
+    pageEls.darkModeButton.textContent = "Disable dark mode"
+  } else {
+    pageEls.darkModeButton.textContent = "Enable dark mode"
+  }
+}
+
+setInitialDarkModeState()
+
+/* ---------------------------  Helper functions  --------------------------- */
 
 function convertLocalStorageBool(boolString) {
   if (boolString === "true") {
@@ -224,5 +253,3 @@ function convertLocalStorageBool(boolString) {
   }
 }
 
-setInitialDarkModeState()
-renderDarkModeSetting()
