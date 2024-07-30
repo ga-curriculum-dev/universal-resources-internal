@@ -319,7 +319,7 @@ function getMicrolessonIdx() {
   const currentMlDir = location.pathname.split("/")[3]
 
   return courseConfig.microlessons.findIndex(microlesson => {
-    return microlesson.dirName = currentMlDir
+    return microlesson.dirName === currentMlDir
   })
 }
 
