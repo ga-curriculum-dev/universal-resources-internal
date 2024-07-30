@@ -2093,6 +2093,11 @@ pre {
   color: var(--text-color-accent);
 }
 
+#tc-sub-nav a.complete:hover,
+#tc-sub-nav a.current:hover {
+  color: var(--text-color-accent);
+}
+
 #tc-footer-items p {
   margin: 0;
 }
