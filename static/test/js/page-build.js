@@ -385,6 +385,7 @@ function buildFooter() {
 
   footerEl.appendChild(footerItemsContainerEl)
 
+  document.body.appendChild(footerEl)
 }
 
 function getMinMainHeight() {
