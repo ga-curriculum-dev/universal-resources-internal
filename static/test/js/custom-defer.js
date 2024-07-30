@@ -88,6 +88,7 @@ function handleInferredNavClose(evt) {
 /*
 Not all users may want to use the sticky nav functionality so we allow them to
 toggle the functionality off and on, and persist that choice in localStorage.
+We can also manipulate this setting in the course configuration.
 */
 if (
   courseConfig.isHeaderShown && 
@@ -119,7 +120,7 @@ function getInitialStickyNavSetting(params) {
   } else {
     stickyNavEnabled = true
   }
-  renderStickyNavSetting
+  renderStickyNavSetting()
 }
 
 function renderStickyNavSetting() {
