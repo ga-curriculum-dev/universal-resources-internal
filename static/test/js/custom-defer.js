@@ -90,7 +90,7 @@ function handleInferredNavClose(evt) {
 Not all users may want to use the sticky nav functionality so we allow them to
 toggle the functionality off and on, and persist that choice in localStorage.
 */
-if (isHeaderShown) {
+if (courseConfig.isHeaderShown) {
   pageEls.stickyNavButton.addEventListener("click", handleToggleStickyNav)
 }
 
@@ -116,13 +116,13 @@ function renderStickyNavSetting() {
 }
 
 // Call on load to ensure state is synced with user preference
-if (isHeaderShown) {
+if (courseConfig.isHeaderShown) {
   renderStickyNavSetting()
 }
 
 /* ------------------------ Dark mode functionality ------------------------- */
 
-if (isHeaderShown) {
+if (courseConfig.isHeaderShown) {
   pageEls.darkModeButton.addEventListener("click", handleToggleDarkMode)
 }
 
