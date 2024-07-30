@@ -2046,7 +2046,8 @@ pre {
   color: var(--text-color-default);
 }
 
-#tc-sub-nav a {
+#tc-sub-nav a,
+#tc-sub-nav li {
   color: var(--text-color-on-emphasis);
 }
 
@@ -2054,8 +2055,14 @@ pre {
   color: var(--text-color-accent);
 }
 
-#tc-sub-nav a.complete {
+#tc-sub-nav a.complete,
+#tc-sub-nav li.complete {
   color: var(--text-color-on-emphasis-muted);
+}
+
+#tc-sub-nav a.current,
+#tc-sub-nav li.current {
+  color: var(--text-color-accent);
 }
 
 /* Stop animations */

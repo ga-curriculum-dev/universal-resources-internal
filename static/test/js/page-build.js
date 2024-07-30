@@ -1,5 +1,7 @@
 import { config, userCourseConfig as courseConfig } from "./config.js"
 
+/* ------------------------------- Constants -------------------------------- */
+
 // Create elements for export
 
 const pageEls = {
@@ -127,17 +129,10 @@ function buildPage() {
     console.log("No config file for this module is present.")
     return
   }
-  const mlIdx = getMicrolessonIdx()
   buildHeader()
 }
 
 buildPage()
-
-function getMicrolessonIdx() {
-  console.log(location.pathname.split("/")[3]);
-  const currentDirName = location.pathname.split("/")[3]
-  console.log(currentDirName);
-}
 
 function buildHeader() {
   if (!courseConfig.isHeaderShown) {
@@ -206,24 +201,32 @@ function buildMicrolessonLinks() {
   const contentHeadingEl = createElWithAttrs("h2", subNavHeadingElAttrs)
   contentHeadingEl.textContent = "Content"
   const levelUpContentHeadingEl = createElWithAttrs("h2", subNavHeadingElAttrs)
-  levelUpContentHeadingEl.textContent = "Level Up content"
+  levelUpContentHeadingEl.textContent = "Level Up content 🚀"
 
   const contentUlEl = createElWithAttrs("ul", subNavUlElAttrs)
   const levelUpContentUlEl = createElWithAttrs("ul", subNavUlElAttrs)
 
-  courseConfig.microlessons.forEach(ml => {
+  const currentMlIdx = getMicrolessonIdx()
+
+  courseConfig.microlessons.forEach((ml, idx) => {
     const liEl = document.createElement("li")
 
-    const anchorElAttrs = [
-      ["class", "f3 text-bold no-underline"],
-      ["href", `/${config.org.name}/${config.repo.name}/${ml.dirName}`]
-    ]
+    // Create the base link
+    const baseLinkHref = `/${config.org.name}/${config.repo.name}/${ml.dirName}`
+    liEl.appendChild(createNavAnchorEl(
+      idx, currentMlIdx, baseLinkHref, ml.friendlyName
+    ))
 
-    const anchorEl = createElWithAttrs("a", anchorElAttrs)
-    anchorEl.textContent = ml.friendlyName
+    // If microlesson has a video attach a link to it
+    if (ml.videoUrl) {
+      const content = document.createTextNode(" - ")
+      liEl.appendChild(content)
+      liEl.appendChild(createNavAnchorEl(
+        idx, currentMlIdx, ml.videoUrl, "video"
+      ))
+    }
 
-    liEl.appendChild(anchorEl)
-
+    // Attach the microlesson to its location in the lesson
     if (ml.type = "Content") {
       contentUlEl.appendChild(liEl)
     } else if (ml.type = "Level Up content") {
@@ -240,6 +243,25 @@ function buildMicrolessonLinks() {
     subNavItemsContainerEl.appendChild(levelUpContentUlEl)
   }
   pageEls.subNav.appendChild(subNavItemsContainerEl)
+}
+
+function createNavAnchorEl(idx, currentMlIdx, href, textContent) {
+  // Create the base link
+  const anchorElAttrs = [
+    ["class", "f3 text-bold no-underline"],
+    ["href", href]
+  ]
+  const anchorEl = createElWithAttrs("a", anchorElAttrs)
+  anchorEl.textContent = textContent
+
+  // apply styling
+  if (idx < currentMlIdx) {
+    anchorEl.classList.add("complete")
+  } else if (idx === currentMlIdx) {
+    anchorEl.classList.add("current")
+  }
+
+  return anchorEl
 }
 
 function buildSettings() {
@@ -291,6 +313,14 @@ function createSvgWithAttrs(elName, attrs) {
   const el = document.createElementNS("http://www.w3.org/2000/svg", elName)
   attrs.forEach(attr => el.setAttribute(attr[0], attr[1]));
   return el
+}
+
+function getMicrolessonIdx() {
+  const currentMlDir = location.pathname.split("/")[3]
+
+  return courseConfig.microlessons.findIndex(microlesson => {
+    return microlesson.dirName = currentMlDir
+  })
 }
 
 export {
