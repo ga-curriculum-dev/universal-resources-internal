@@ -18,7 +18,9 @@ const pageContent = document.querySelector(".markdown-body")
 let isSubNavVisible = false
 let isAnimationInProgress = false
 let stickyNavEnabled = localStorage.getItem("gaStickyNavEnabled") ?? "true"
-let darkModeEnabled = "false"
+let darkModeEnabled = document.documentElement.classList.contains("dark") ? "true" : "false"
+
+console.log(darkModeEnabled);
 
 /* ------------------------- Sub-nav functionality -------------------------- */
 
@@ -148,10 +150,10 @@ function setInitialDarkModeState() {
 function renderDarkModeSetting() {
   if (darkModeEnabled === "true") {
     pageEls.darkModeButton.textContent = "Disable dark mode"
-    document.body.classList.add("dark")
+    document.documentElement.classList.add("dark")
   } else if (darkModeEnabled === "false") {
     pageEls.darkModeButton.textContent = "Enable dark mode"
-    document.body.classList.remove("dark")
+    document.documentElement.classList.remove("dark")
   }
 }
 
