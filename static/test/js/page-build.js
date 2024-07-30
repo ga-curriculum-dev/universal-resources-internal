@@ -92,7 +92,7 @@ const subNavElAttrs = [
 ]
 
 const subNavHomeHeadingElAttrs = [
-  ["class", "no-anchor p-0 my-2"]
+  ["class", "no-anchor p-0 my-2 h1"]
 ]
 
 const subNavHeadingElAttrs = [
@@ -100,7 +100,7 @@ const subNavHeadingElAttrs = [
 ]
 
 const subNavUlElAttrs = [
-  ["class", "list-style-none pl-1 my-3 d-flex flex-column gap-2"]
+  ["class", "list-style-none pl-2 my-2 d-flex flex-column gap-2"]
 ]
 
 const stickyNavButtonElAttrs = [
