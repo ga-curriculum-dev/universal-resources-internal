@@ -91,7 +91,8 @@ toggle the functionality off and on, and persist that choice in localStorage.
 */
 if (
   courseConfig.isHeaderShown && 
-  courseConfig.isHeaderNavSettingsShown
+  courseConfig.isHeaderNavSettingsShown &&
+  courseConfig.isStickyNavSettingShown
 ) {
   pageEls.stickyNavButton.addEventListener("click", handleToggleStickyNav)
 }
@@ -109,12 +110,18 @@ function handleToggleStickyNav() {
 
 function renderStickyNavSetting() {
   if (stickyNavEnabled === "true") {
-    if (courseConfig.isHeaderNavSettingsShown) {
+    if (
+      courseConfig.isHeaderNavSettingsShown &&
+      courseConfig.isStickyNavSettingShown
+    ) {
       pageEls.stickyNavButton.textContent = "Disable sticky nav"
     }
     pageEls.header.classList.remove("no-stick")
   } else if (stickyNavEnabled === "false") {
-    if (courseConfig.isHeaderNavSettingsShown) {
+    if (
+      courseConfig.isHeaderNavSettingsShown &&
+      courseConfig.isStickyNavSettingShown
+    ) {
       pageEls.stickyNavButton.textContent = "Enable sticky nav"
     }
     pageEls.header.classList.add("no-stick")
