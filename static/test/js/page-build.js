@@ -144,7 +144,7 @@ function buildNav() {
   pageEls.hamburgerIcon = createSvgWithAttrs("svg", hamburgerIconSvgAttrs)
   pageEls.closeIcon = createSvgWithAttrs("svg", closeIconSvgAttrs)
   const hamburgerPath = createSvgWithAttrs("path", hamburgerIconPathAttrs)
-  const closePath = createElWithAttrs("path", closeIconPathAttrs)
+  const closePath = createSvgWithAttrs("path", closeIconPathAttrs)
   
   pageEls.hamburgerIcon.appendChild(hamburgerPath)
   pageEls.closeIcon.appendChild(closePath)
