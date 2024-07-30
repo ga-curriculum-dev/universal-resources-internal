@@ -25,9 +25,9 @@ function setInitialDarkModeState() {
 
 function renderDarkModeSetting() {
   if (darkModeEnabled === "true") {
-    document.body.classList.add("dark")
+    document.documentElement.classList.add("dark")
   } else if (darkModeEnabled === "false") {
-    document.body.classList.remove("dark")
+    document.documentElement.classList.remove("dark")
   }
 }
 
