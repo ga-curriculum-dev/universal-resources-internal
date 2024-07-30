@@ -2037,6 +2037,14 @@ pre {
   flex-basis: 0;
 }
 
+#tc-left-nav-lg {
+  display: none;
+}
+
+#tc-right-nav-lg {
+  display: none;
+}
+
 #tc-footer-copyright {
   color: var(--text-color-on-emphasis-muted)
 }
@@ -2127,4 +2135,24 @@ to these types of links.
 
 :target {
   scroll-margin-top: 60px;
+}
+
+/* Change footer nav display on small format screens */
+
+@media screen and (min-width: 700px) {
+  #tc-right-nav-sm {
+    display: none;
+  }
+
+  #tc-right-nav-lg {
+    display: block;
+  }
+
+  #tc-left-nav-sm {
+    display: none;
+  }
+
+  #tc-left-nav-lg {
+    display: block;
+  }
 }
