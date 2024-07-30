@@ -1,5 +1,3 @@
-import "./page-build.js"
-
 document.addEventListener('DOMContentLoaded', function (event) {
   /*
   Add anchor links to all h2, h3, h4, and h5 elements excluding those with

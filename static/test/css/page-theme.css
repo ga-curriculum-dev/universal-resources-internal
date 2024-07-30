@@ -1990,8 +1990,17 @@ pre {
   color: var(--text-color-on-emphasis);
 }
 
-#tc-nav {
+#tc-header-temp {
+  z-index: 1000;
+  background: var(--background-color-nav);
+  color: var(--text-color-on-emphasis);
+  position: sticky;
+  top: 0;
   height: 50px;
+}
+
+#tc-nav {
+  height: 100%;
 }
 
 #tc-sub-nav-button {
