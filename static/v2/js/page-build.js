@@ -241,6 +241,7 @@ function buildMicrolessonLinks() {
 
   courseConfig.microlessons.forEach((ml, idx) => {
     const liEl = document.createElement("li")
+    liEl.setAttribute("class", "f3")
 
     // Create the base link
     const baseLinkHref = `/${config.org.name}/${config.repo.name}/${ml.dirName}`
