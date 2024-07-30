@@ -361,7 +361,7 @@ function buildFooter() {
     backNavLgEl.textContent = `< ${prevMl.friendlyName}`
 
     const backNavSmElAttrs = [
-      ["id", "tc-left-nav-sm"]
+      ["id", "tc-left-nav-sm"],
       ["class", "f4 text-bold no-underline"],
       ["href", `/${config.org.name}/${config.repo.name}/${prevMl.dirName}`]
     ]
