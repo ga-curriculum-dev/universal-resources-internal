@@ -17,7 +17,7 @@ const mainEl = document.querySelector("main")
 
 let isSubNavVisible = false
 let isAnimationInProgress = false
-let stickyNavEnabled = localStorage.getItem("gaStickyNavEnabled") ?? "true"
+let stickyNavEnabled
 let darkModeEnabled = "false"
 
 /* ------------------------- Sub-nav functionality -------------------------- */
@@ -92,7 +92,8 @@ toggle the functionality off and on, and persist that choice in localStorage.
 if (
   courseConfig.isHeaderShown && 
   courseConfig.isHeaderNavSettingsShown &&
-  courseConfig.isStickyNavSettingShown
+  courseConfig.isStickyNavSettingShown &&
+  courseConfig.isStickNavAllowed
 ) {
   pageEls.stickyNavButton.addEventListener("click", handleToggleStickyNav)
 }
@@ -108,29 +109,44 @@ function handleToggleStickyNav() {
   renderStickyNavSetting()
 }
 
+function getInitialStickyNavSetting(params) {
+  const userStickyNavPreference = localStorage.getItem("gaStickyNavEnabled")
+  
+  if (!courseConfig.isStickyNavAllowed) {
+    stickyNavEnabled = false
+  } else if (userStickyNavPreference) {
+    stickyNavEnabled = convertLocalStorageBool(userStickyNavPreference)
+  } else {
+    stickyNavEnabled = true
+  }
+  renderStickyNavSetting
+}
+
 function renderStickyNavSetting() {
   if (stickyNavEnabled === "true") {
-    if (
-      courseConfig.isHeaderNavSettingsShown &&
-      courseConfig.isStickyNavSettingShown
-    ) {
-      pageEls.stickyNavButton.textContent = "Disable sticky nav"
-    }
     pageEls.header.classList.remove("no-stick")
   } else if (stickyNavEnabled === "false") {
-    if (
-      courseConfig.isHeaderNavSettingsShown &&
-      courseConfig.isStickyNavSettingShown
-    ) {
-      pageEls.stickyNavButton.textContent = "Enable sticky nav"
-    }
     pageEls.header.classList.add("no-stick")
+  }
+  renderStickyNavButton()
+}
+
+function renderStickyNavButton() {
+  if (!(
+    courseConfig.isHeaderNavSettingsShown &&
+    courseConfig.isStickyNavSettingShown &&
+    courseConfig.isStickyNavAllowed
+  )) return
+  if (stickyNavEnabled) {
+    pageEls.stickyNavButton.textContent = "Disable sticky nav"
+  } else {
+    pageEls.stickyNavButton.textContent = "Enable sticky nav"
   }
 }
 
 // Call on load to ensure state is synced with user preference
 if (courseConfig.isHeaderShown) {
-  renderStickyNavSetting()
+  getInitialStickyNavSetting()
 }
 
 /* ------------------------ Dark mode functionality ------------------------- */
@@ -188,6 +204,16 @@ function renderDarkModeSetting() {
       pageEls.darkModeButton.textContent = "Enable dark mode"
     }
     document.documentElement.classList.remove("dark")
+  }
+}
+
+function convertLocalStorageBool(boolString) {
+  if (boolString === "true") {
+    return true
+  } else if (boolString === "false") {
+    return false
+  } else {
+    return undefined
   }
 }
 
