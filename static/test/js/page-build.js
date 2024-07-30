@@ -142,8 +142,8 @@ const footerNextElAttrs = [
 ]
 
 const copyrightElAttrs = [
-  ["id", "tc-copyright"],
-  ["class", "f5"],
+  ["id", "tc-footer-copyright"],
+  ["class", "f6"],
 ]
 
 // Do work:
@@ -352,11 +352,11 @@ function buildFooter() {
   if (courseConfig.isFooterLessonNavShown && currentMlIdx > 0) {
     const prevMl = courseConfig.microlessons[currentMlIdx - 1]
     const backNavElAttrs = [
-      ["class", "f3 text-bold no-underline"],
+      ["class", "f4 text-bold no-underline"],
       ["href", `/${config.org.name}/${config.repo.name}/${prevMl.dirName}`]
     ]
     const backNavEl = createElWithAttrs("a", backNavElAttrs)
-    backNavEl.textContent = prevMl.friendlyName
+    backNavEl.textContent = `< ${prevMl.friendlyName}`
     backEl.appendChild(backNavEl)
   }
 
@@ -372,11 +372,11 @@ function buildFooter() {
   ) {
     const nextMl = courseConfig.microlessons[currentMlIdx + 1]
     const nextNavElAttrs = [
-      ["class", "f3 text-bold no-underline"],
+      ["class", "f4 text-bold no-underline"],
       ["href", `/${config.org.name}/${config.repo.name}/${nextMl.dirName}`]
     ]
     const nextNavEl = createElWithAttrs("a", nextNavElAttrs)
-    nextNavEl.textContent = nextMl.friendlyName
+    nextNavEl.textContent = `${nextMl.friendlyName} >`
     nextEl.appendChild(nextNavEl)
   }
 

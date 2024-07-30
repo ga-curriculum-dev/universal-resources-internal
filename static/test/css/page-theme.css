@@ -2097,6 +2097,10 @@ pre {
   color: var(--text-color-on-emphasis);
 }
 
+#tc-footer-items a:hover {
+  color: var(--text-color-accent);
+}
+
 /* Stop animations */
 
 @media screen and (prefers-reduced-motion: reduce) {
