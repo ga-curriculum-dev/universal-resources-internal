@@ -2,7 +2,7 @@
 
 /*
   Make a best-effort guess on this as soon as possible. Pulling in a config
-  may change this later, but the faster we are executing this code the less
+  may change this later, but generally, the faster we execute this code the less
   visual pop-in we have.
 */
 
@@ -16,8 +16,10 @@ function setInitialDarkModeState() {
   indicated a preference for dark mode, it will be disabled.
   */
 
-  if (localStorage.getItem("gaDarkModeEnabled")) {
-    darkModeEnabled = localStorage.getItem("gaDarkModeEnabled")
+  const localStorageDarkMode = localStorage.getItem("gaDarkModeEnabled")
+
+  if (localStorageDarkMode) {
+    darkModeEnabled = localStorageDarkMode
   } else if (window.matchMedia("(prefers-color-scheme:dark)").matches) {
     darkModeEnabled = "true"
   }
