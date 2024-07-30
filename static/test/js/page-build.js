@@ -91,12 +91,16 @@ const subNavElAttrs = [
   ["class", "container-lg px-3 width-full"],
 ]
 
+const subNavHomeHeadingElAttrs = [
+  ["class", "no-anchor p-0 my-2"]
+]
+
 const subNavHeadingElAttrs = [
   ["class", "no-anchor"]
 ]
 
 const subNavUlElAttrs = [
-  ["class", "list-style-none p-0 my-3 d-flex flex-column gap-2"]
+  ["class", "list-style-none pl-1 my-3 d-flex flex-column gap-2"]
 ]
 
 const stickyNavButtonElAttrs = [
@@ -166,14 +170,14 @@ function buildHomeLink() {
   if (!courseConfig.isHeaderHomeNavShown) return
 
   const homeHeadingLinkElAttrs = [
-    ["class", "no-underline p-0 my-3"],
+    ["class", "no-underline"],
     [
       "href", 
       `/${config.org.name}/${config.repo.name}/canvas-landing-pages/${courseConfig.name}`
     ]
   ]
 
-  const homeHeadingEl = createElWithAttrs("h2", subNavHeadingElAttrs)
+  const homeHeadingEl = createElWithAttrs("h2", subNavHomeHeadingElAttrs)
 
   const homeHeadingLinkEl = createElWithAttrs("a", homeHeadingLinkElAttrs)
   homeHeadingLinkEl.textContent = config.repo.friendlyName
