@@ -2140,19 +2140,13 @@ to these types of links.
 /* Change footer nav display on small format screens */
 
 @media (min-width: 800px) {
+  #tc-left-nav-sm,
   #tc-right-nav-sm {
     display: none;
   }
 
+  #tc-left-nav-lg,
   #tc-right-nav-lg {
-    display: block;
-  }
-
-  #tc-left-nav-sm {
-    display: none;
-  }
-
-  #tc-left-nav-lg {
     display: block;
   }
 }
