@@ -94,18 +94,19 @@ if (
   courseConfig.isHeaderShown && 
   courseConfig.isHeaderNavSettingsShown &&
   courseConfig.isStickyNavSettingShown &&
-  courseConfig.isStickNavAllowed
+  courseConfig.isStickyNavAllowed &&
+  courseConfig.isFixedNavAllowed
 ) {
   pageEls.stickyNavButton.addEventListener("click", handleToggleStickyNav)
 }
 
 function handleToggleStickyNav() {
-  if (stickyNavEnabled === "true") {
+  if (stickyNavEnabled) {
     localStorage.setItem("gaStickyNavEnabled", "false")
-    stickyNavEnabled = "false"
+    stickyNavEnabled = false
   } else {
     localStorage.setItem("gaStickyNavEnabled", "true")
-    stickyNavEnabled = "true"
+    stickyNavEnabled = true
   }
   renderStickyNavSetting()
 }
