@@ -204,6 +204,8 @@ function buildNav() {
       ["href", courseConfig.logoUrl],
       ["height", "32"]
     ]
+    const headerLogoEl = createElWithAttrs("img", headerLogoElAttrs)
+    navEl.appendChild(headerLogoEl)
   }
 
   pageEls.header.appendChild(navEl)
