@@ -19,9 +19,7 @@ const mainEl = document.querySelector("main")
 let isSubNavVisible = false
 let isAnimationInProgress = false
 let stickyNavEnabled = localStorage.getItem("gaStickyNavEnabled") ?? "true"
-let darkModeEnabled = document.documentElement.classList.contains("dark") ? "true" : "false"
-
-console.log(darkModeEnabled);
+let darkModeEnabled = "false"
 
 /* ------------------------- Sub-nav functionality -------------------------- */
 
@@ -29,10 +27,11 @@ console.log(darkModeEnabled);
 The below functionality implements the slide-down sub-nav functionality to 
 enable navigation between microlessons.
 */
-
-pageEls.navPanelButton.addEventListener('click', handleToggleSubNav)
-mainEl.addEventListener("click", handleInferredNavClose)
-document.body.addEventListener("keyup", handleInferredNavClose)
+if (courseConfig.isHeaderShown) {
+  pageEls.navPanelButton.addEventListener('click', handleToggleSubNav)
+  mainEl.addEventListener("click", handleInferredNavClose)
+  document.body.addEventListener("keyup", handleInferredNavClose)
+}
 
 function handleToggleSubNav() {
   if (isAnimationInProgress) return
@@ -91,8 +90,9 @@ function handleInferredNavClose(evt) {
 Not all users may want to use the sticky nav functionality so we allow them to
 toggle the functionality off and on, and persist that choice in localStorage.
 */
-
-pageEls.stickyNavButton.addEventListener("click", handleToggleStickyNav)
+if (isHeaderShown) {
+  pageEls.stickyNavButton.addEventListener("click", handleToggleStickyNav)
+}
 
 function handleToggleStickyNav() {
   if (stickyNavEnabled === "true") {
@@ -116,11 +116,15 @@ function renderStickyNavSetting() {
 }
 
 // Call on load to ensure state is synced with user preference
-renderStickyNavSetting()
+if (isHeaderShown) {
+  renderStickyNavSetting()
+}
 
 /* ------------------------ Dark mode functionality ------------------------- */
 
-pageEls.darkModeButton.addEventListener("click", handleToggleDarkMode)
+if (isHeaderShown) {
+  pageEls.darkModeButton.addEventListener("click", handleToggleDarkMode)
+}
 
 function handleToggleDarkMode() {
   if (darkModeEnabled === "true") {
@@ -160,7 +164,3 @@ function renderDarkModeSetting() {
 
 setInitialDarkModeState()
 renderDarkModeSetting()
-
-/* ------------------------- Filepath functionality ------------------------- */
-
-
