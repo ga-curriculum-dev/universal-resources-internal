@@ -396,9 +396,9 @@ function getMinMainHeight() {
   let mainHeight
 
   if (courseConfig.isHeaderShown) {
-    mainHeight = "calc(100dvh - 100px)"
+    mainHeight = "calc(100dvh - 100px - 64px)"
   } else {
-    mainHeight = "calc(100dvh - 50px)"
+    mainHeight = "calc(100dvh - 50px - 64px)"
   }
 
   mainEl.style.minHeight = mainHeight
