@@ -11,7 +11,8 @@ hljs.addPlugin(new CopyButtonPlugin());
 
 /* ----------------------- Cached element references ------------------------ */
 
-const pageContent = document.querySelector(".markdown-body")
+
+const mainEl = document.querySelector("main")
 
 /* --------------------------------- State ---------------------------------- */
 
@@ -30,7 +31,7 @@ enable navigation between microlessons.
 */
 
 pageEls.navPanelButton.addEventListener('click', handleToggleSubNav)
-pageContent.addEventListener("click", handleInferredNavClose)
+mainEl.addEventListener("click", handleInferredNavClose)
 document.body.addEventListener("keyup", handleInferredNavClose)
 
 function handleToggleSubNav() {
@@ -56,6 +57,7 @@ function showNav() {
   setTimeout(function() {
     isSubNavVisible = true
     isAnimationInProgress = false
+    calcMainHeight()
   }, 351)
 }
 
@@ -74,6 +76,7 @@ function hideNav() {
     pageEls.subNav.classList.remove("visible")
     isSubNavVisible = false
     isAnimationInProgress = false
+    calcMainHeight()
   }, 351)
 }
 
@@ -82,6 +85,21 @@ function handleInferredNavClose(evt) {
   if (evt.type === "click" || (evt.type === "keyup" && evt.key === "Escape")) {
     handleToggleSubNav()
   } 
+}
+
+function calcMainHeight() {
+    // We only need to put a min-height on the main if there is a footer
+    if (!courseConfig.isFooterShown) return
+
+    let mainHeight
+  
+    if (courseConfig.isHeaderShown) {
+      mainHeight = `calc(100dvh - ${pageEls.header.clientHeight}px - 105px)`
+    } else {
+      mainHeight = "calc(100dvh - 104px)"
+    }
+  
+    mainEl.style.minHeight = mainHeight
 }
 
 /* ------------------------ Sticky nav functionality ------------------------ */
