@@ -111,12 +111,12 @@ const subNavUlElAttrs = [
 
 const stickyNavButtonElAttrs = [
   ["id", "tc-sticky-nav-button"],
-  ["class", "border-0 px-3 py-2"],
+  ["class", "border-1 rounded-1 border-emphasis px-3 py-2"],
 ]
 
 const darkModeButtonElAttrs = [
   ["id", "tc-dark-mode-button"],
-  ["class", "border-0 px-3 py-2"],
+  ["class", "border-1 rounded-1 border-emphasis px-3 py-2"],
 ] 
 
 const settingsBtnContainerElAttrs = [
