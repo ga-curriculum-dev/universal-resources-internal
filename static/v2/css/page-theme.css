@@ -19,6 +19,7 @@ html {
   /* Backgrounds */
   --body-background-color: #FFF;
   --background-color-subtle: #F6F8FA;
+  --background-color-subtle-hover: #EAEEF2;
   --background-color-code-block: #0C0C0C;
   --background-color-inline-code: #1B1F230D;
   --background-color-emphasis: #24292F;
@@ -57,6 +58,7 @@ html.dark {
   /* Backgrounds */
   --body-background-color: #0D1117;
   --background-color-subtle: #161B22;
+  --background-color-subtle-hover: #21262d;
   --background-color-code-block: #1F1F25;
   --background-color-inline-code: #F5F1ED20;
   --background-color-nav: #24292F;
@@ -2085,6 +2087,10 @@ pre {
 #tc-sub-nav a,
 #tc-sub-nav li {
   color: var(--text-color-on-emphasis);
+}
+
+#tc-sub-nav button:hover {
+  background-color: var(--background-color-subtle-hover);
 }
 
 #tc-sub-nav a:hover {
