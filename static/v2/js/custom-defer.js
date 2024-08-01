@@ -124,7 +124,7 @@ function setInitialStickyNavState() {
     stickyNavEnabled = false
   } else if (userStickyNavPreference) {
     stickyNavEnabled = convertLocalStorageBool(userStickyNavPreference)
-  } else if (!isStickyNavDefault) {
+  } else if (!courseConfig?.isStickyNavDefault) {
     stickyNavEnabled = false
   } else {
     stickyNavEnabled = true
@@ -206,7 +206,7 @@ function setInitialDarkModeState() {
     darkModeEnabled = convertLocalStorageBool(userDarkModePreference)
   } else if (window.matchMedia("(prefers-color-scheme:dark)").matches) {
     darkModeEnabled = true
-  } else if (!isLightModeDefault) {
+  } else if (!courseConfig.isLightModeDefault) {
     darkModeEnabled = true
   } else {
     darkModeEnabled = false
