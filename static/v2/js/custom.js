@@ -1,9 +1,24 @@
 document.addEventListener('DOMContentLoaded', function (event) {
+  addHeroLogo()
   addCodeBlockHighlighting()
   attachFilePathsToCodeBlocks()
   setLinkAttrs()
   addAnchors()
 });
+
+function addHeroLogo() {
+  const heroLogoContainer = document.createElement("div")
+  const logoImg = document.createElement("img")
+
+  logoImg.setAttribute("alt", "Logo")
+  logoImg.setAttribute(
+    "src", 
+    "https://pages.git.generalassemb.ly/modular-curriculum-all-courses/universal-resources-internal/static/v2/assets/hero-logo.png"
+  )
+
+  heroLogoContainer.appendChild(logoImg)
+  document.getElementById("hero").prepend(heroLogoContainer)
+}
 
 
 function addCodeBlockHighlighting() {

@@ -63,8 +63,24 @@ html {
   --border-color-attention: #BF8700;
   --border-color-warning: #CF222E;
 
+  /* Fonts */
+  --system-fonts: 
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    "Noto Sans",
+    Helvetica,
+    Arial,
+    sans-serif,
+    "Apple Color Emoji",
+    "Segoe UI Emoji";
+  --barlow-condensed-bold: "Barlow Condensed Bold";
+  --barlow-semicondensed-semibold: "Barlow Semi Condensed SemiBold";
+  
   /* Misc */
   --highlighter-yellow: #CCFF15;
+  --white: #FFFFFF;
+  --black: #000000;
 }
 
 html.dark {
@@ -105,6 +121,9 @@ html.dark {
 
   /* Misc */
   --highlighter-yellow: #CCFF15;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
@@ -119,16 +138,7 @@ html.dark {
  */
 
 html {
-  font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    "Noto Sans",
-    Helvetica,
-    Arial,
-    sans-serif,
-    "Apple Color Emoji",
-    "Segoe UI Emoji"; /* 1 */
+  font-family: var(--system-fonts); /* 1 */
   line-height: normal; /* 2 */
   -webkit-text-size-adjust: 100%; /* 3 */
   -moz-tab-size: 4; /* 4 */
@@ -1688,6 +1698,43 @@ pre {
   width: 100%;
 }
 
+/* Medium Zoom styles */
+
+.medium-zoom-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transition: 
+    backdrop 0.7s, 
+    -webkit-backdrop-filter 0.7s, 
+    background-color 0.7s;
+}
+
+.medium-zoom--opened .medium-zoom-overlay {
+  cursor: pointer;
+  cursor: zoom-out;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  background-color: rgba(33, 37, 48, 0.3);
+}
+
+.medium-zoom-image {
+  cursor: pointer;
+  cursor: zoom-in;
+  transition: transform 0.3s cubic-bezier(0.2, 0, 0.2, 1) !important;
+}
+
+.medium-zoom-image--hidden {
+  visibility: hidden;
+}
+
+.medium-zoom-image--opened {
+  position: relative;
+  cursor: zoom-out;
+}
+
 /* Markdown */
 
 .markdown-body {
@@ -1923,6 +1970,7 @@ pre {
   margin: 0;
   font-size: 90%;
   background-color: var(--background-color-inline-code);
+  color: var(--text-color-inline-code);
   border-radius: 3px;
 }
 
@@ -1957,6 +2005,7 @@ pre {
   border: 0;
   border-radius: 0;
   background-color: transparent;
+  color: #abb2bf;
 }
 
 /* Custom styles */
@@ -1999,6 +2048,8 @@ pre {
   background-color: var(--background-color-warning);
   font-weight: 600;
 }
+
+/* ------------------------- Page header and footer ------------------------- */
 
 #tc-header {
   background: var(--background-color-nav);
@@ -2167,4 +2218,43 @@ to these types of links.
   #tc-right-nav-lg {
     display: block;
   }
+}
+
+/* ---------------------------------- Hero ---------------------------------- */
+
+#hero div {
+  height: 48%;
+  aspect-ratio: 1 / 1;
+  margin: 0 4.5%;
+}
+
+#hero h1 {
+  display: flex;
+  flex-direction: column;
+  color: var(--white);
+  margin: 16px 4.5% 16px 0;
+}
+
+#hero h1 .prefix + .headline,
+#hero h1 .headline + .subhead {
+  margin-top: 6px;
+}
+
+#hero h1 .headline {
+  font-size: clamp(24px, 4.6vw, 48px);
+  line-height: clamp(24px, 4.6vw, 48px);
+  font-family: var(--barlow-condensed-bold), var(--system-fonts);
+}
+
+#hero h1 .prefix,
+#hero h1 .subhead {
+  font-size: clamp(16px, 2.9vw, 30px);
+  line-height: clamp(16px, 2.9vw, 30px);
+  font-family: var(--barlow-semicondensed-semibold), var(--system-fonts);
+}
+
+#hero code {
+  color: #56D364;
+  padding: 2px 4px;
+  margin: 0 1px;
 }
