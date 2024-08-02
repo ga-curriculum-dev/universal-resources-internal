@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
   addHeroLogo()
   addCodeBlockHighlighting()
   attachFilePathsToCodeBlocks()
+  addMediumZoom()
   setLinkAttrs()
   addAnchors()
 });
