@@ -2222,6 +2222,16 @@ to these types of links.
 
 /* ---------------------------------- Hero ---------------------------------- */
 
+#hero {
+  aspect-ratio: 64 / 11;
+  display: flex;
+  align-items: center;
+  background-color: var(--background-color-subtle);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin-bottom: 16px;
+}
+
 #hero div {
   height: 48%;
   aspect-ratio: 1 / 1;
