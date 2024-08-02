@@ -2226,7 +2226,7 @@ to these types of links.
   aspect-ratio: 64 / 11;
   display: flex;
   align-items: center;
-  background-color: var(--background-color-subtle);
+  background-color: var(--background-color-nav);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   margin-bottom: 16px;
