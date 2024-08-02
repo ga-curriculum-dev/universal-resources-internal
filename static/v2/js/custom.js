@@ -7,17 +7,20 @@ document.addEventListener('DOMContentLoaded', function (event) {
 });
 
 function addHeroLogo() {
-  const heroLogoContainer = document.createElement("div")
-  const logoImg = document.createElement("img")
+  const heroEl = document.getElementById("hero")
+  if (!heroEl) return
+  
+  const heroLogoContainerEl = document.createElement("div")
+  const logoImgEl = document.createElement("img")
 
-  logoImg.setAttribute("alt", "Logo")
-  logoImg.setAttribute(
+  logoImgEl.setAttribute("alt", "Logo")
+  logoImgEl.setAttribute(
     "src", 
     "https://pages.git.generalassemb.ly/modular-curriculum-all-courses/universal-resources-internal/static/v2/assets/hero-logo.png"
   )
 
-  heroLogoContainer.appendChild(logoImg)
-  document.getElementById("hero").prepend(heroLogoContainer)
+  heroLogoContainerEl.appendChild(logoImgEl)
+  document.getElementById("hero").prepend(heroLogoContainerEl)
 }
 
 
