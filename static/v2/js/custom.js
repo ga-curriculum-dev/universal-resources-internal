@@ -9,11 +9,12 @@ document.addEventListener('DOMContentLoaded', function (event) {
 function addHeroLogo() {
   const heroEl = document.getElementById("hero")
   if (!heroEl) return
-  
+
   const heroLogoContainerEl = document.createElement("div")
   const logoImgEl = document.createElement("img")
 
   logoImgEl.setAttribute("alt", "Logo")
+  logoImgEl.setAttribute("class", "no-zoom")
   logoImgEl.setAttribute(
     "src", 
     "https://pages.git.generalassemb.ly/modular-curriculum-all-courses/universal-resources-internal/static/v2/assets/hero-logo.png"
@@ -48,6 +49,14 @@ function attachFilePathsToCodeBlocks() {
       pEl.classList.add("collapse")
       pEl.childNodes[0].classList.add("codeblock-filepath")
     }
+  })
+}
+
+function addMediumZoom() {
+  // mediumZoom function is in in medium-zoom.js
+  mediumZoom(document.querySelectorAll("main img:not(.no-zoom)"), {
+    margin: 24,
+    background: null,
   })
 }
 
