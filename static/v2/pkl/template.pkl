@@ -42,8 +42,8 @@ class Repo {
     "Project"|
     "Group Project"|
     "Decoupled Project"|
-    "Decoupled Group Project"
-    = "Group Project"
+    "Decoupled Group Project"|
+    "Documentation"
 }
 
 // Do not modify this class. 
