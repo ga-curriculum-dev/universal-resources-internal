@@ -2243,17 +2243,14 @@ to these types of links.
   flex-direction: column;
   color: var(--white);
   margin: 16px 4.5% 16px 0;
+  font-size: clamp(24px, 4.6vw, 48px);
+  line-height: clamp(24px, 4.6vw, 48px);
+  font-family: var(--barlow-condensed-bold), var(--system-fonts);
 }
 
 #hero h1 .prefix + .headline,
 #hero h1 .headline + .subhead {
   margin-top: 6px;
-}
-
-#hero h1 .headline {
-  font-size: clamp(24px, 4.6vw, 48px);
-  line-height: clamp(24px, 4.6vw, 48px);
-  font-family: var(--barlow-condensed-bold), var(--system-fonts);
 }
 
 #hero h1 .prefix,

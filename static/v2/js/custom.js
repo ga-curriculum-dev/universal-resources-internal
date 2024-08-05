@@ -8,12 +8,15 @@ document.addEventListener('DOMContentLoaded', function (event) {
 });
 
 function addHeroLogo() {
-  const heroEl = document.getElementById("hero")
-  if (!heroEl) return
+  const h1El = document.querySelector("h1")
+  if (!h1El) return
 
+  const newH1El = h1El.cloneNode(true)
+  const heroContainerEl = document.createElement("div")
   const heroLogoContainerEl = document.createElement("div")
   const logoImgEl = document.createElement("img")
 
+  heroContainerEl.setAttribute("id", "hero")
   logoImgEl.setAttribute("alt", "Logo")
   logoImgEl.setAttribute("class", "no-zoom")
   logoImgEl.setAttribute(
@@ -22,7 +25,10 @@ function addHeroLogo() {
   )
 
   heroLogoContainerEl.appendChild(logoImgEl)
-  document.getElementById("hero").prepend(heroLogoContainerEl)
+  heroContainerEl.appendChild(heroLogoContainerEl)
+  heroContainerEl.appendChild(newH1El)
+  h1El.remove()
+  document.querySelector("main").prepend(heroContainerEl)
 }
 
 
