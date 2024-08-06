@@ -148,8 +148,6 @@ const copyrightElAttrs = [
 
 // Do work:
 
-// tktk figure out what to do when there is no config.
-
 function buildPage() {
   if (!config) {
     document.getElementById("tc-header-temp").remove()

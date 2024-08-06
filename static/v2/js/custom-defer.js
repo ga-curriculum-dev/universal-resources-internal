@@ -1,16 +1,6 @@
 import { pageEls } from "./page-build.min.js"
 import { userCourseConfig as courseConfig } from "./config.min.js"
 
-/* ------------------------- HLJS code copy buttons ------------------------- */
-
-/*
-Adds copy buttons to all hljs code blocks. This code should execute first.
-*/
-console.log("copy button plugin", CopyButtonPlugin)
-console.log("hljs", hljs)
-console.log("custom defer running");
-hljs.addPlugin(new CopyButtonPlugin());
-
 /* ----------------------- Cached element references ------------------------ */
 
 const mainEl = document.querySelector("main")
@@ -188,7 +178,7 @@ function handleToggleDarkMode() {
 
 function setInitialDarkModeState() {
   /*
-  Check to see if the user has manually toogled dark mode off/on *first* before
+  Check to see if the user has manually toggled dark mode off/on *first* before
   detecting their OS preference. If a user has toggled dark mode off manually
   then we want to respect that preference above all else. When the user hasn't
   indicated a preference for dark mode, it will be disabled.
