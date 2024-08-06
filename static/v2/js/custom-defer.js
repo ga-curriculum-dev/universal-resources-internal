@@ -6,6 +6,8 @@ import { userCourseConfig as courseConfig } from "./config.min.js"
 /*
 Adds copy buttons to all hljs code blocks. This code should execute first.
 */
+console.log("copy button plugin", CopyButtonPlugin)
+console.log("hljs", hljs)
 
 hljs.addPlugin(new CopyButtonPlugin());
 

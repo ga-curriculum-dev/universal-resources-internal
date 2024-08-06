@@ -1,11 +1,19 @@
 document.addEventListener('DOMContentLoaded', function (event) {
-  addHeroLogo()
   addCodeBlockHighlighting()
+  addHeroLogo()
   attachFilePathsToCodeBlocks()
   addMediumZoom()
   setLinkAttrs()
   addAnchors()
 });
+
+function addCodeBlockHighlighting() {
+  /*
+  Adds code highlighting to all hljs code blocks.
+  */
+
+  hljs.highlightAll();
+}
 
 function addHeroLogo() {
   const h1El = document.querySelector("h1")
@@ -31,19 +39,10 @@ function addHeroLogo() {
   document.querySelector("main").prepend(heroContainerEl)
 }
 
-
-function addCodeBlockHighlighting() {
-  /*
-  Adds code highlighting to all hljs code blocks.
-  */
-
-  hljs.highlightAll();
-}
-
 function attachFilePathsToCodeBlocks() {
   /*
   Attaches a file path to a code block. Detects when an inline code block
-  is the only node on a line that preceeds a code block. When this is the case
+  is the only node on a line that precedes a code block. When this is the case
   the text in the code block receives a special style and moves to be attached
   to the code block it is adjacent to.
   */
