@@ -36,7 +36,7 @@ class CopyButtonPlugin {
       window.getComputedStyle(el).backgroundColor
     );
 
-    console.log("hey this runs!");
+    
 
     button.onclick = function () {
       if (!navigator.clipboard) return;

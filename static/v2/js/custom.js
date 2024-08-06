@@ -13,6 +13,7 @@ function addCodeBlockHighlighting() {
   */
 
   hljs.highlightAll();
+  hljs.addPlugin(new CopyButtonPlugin());
 }
 
 function addHeroLogo() {
