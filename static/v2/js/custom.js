@@ -11,9 +11,11 @@ function addCodeBlockHighlighting() {
   /*
   Adds code highlighting to all hljs code blocks.
   */
-
+  console.log("code block highlighting runs");
+  hljs.addPlugin(new CopyButtonPlugin());
   hljs.highlightAll();
   hljs.addPlugin(new CopyButtonPlugin());
+  console.log("code block highlighting finishes");
 }
 
 function addHeroLogo() {

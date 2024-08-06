@@ -8,7 +8,7 @@ Adds copy buttons to all hljs code blocks. This code should execute first.
 */
 console.log("copy button plugin", CopyButtonPlugin)
 console.log("hljs", hljs)
-
+console.log("custom defer running");
 hljs.addPlugin(new CopyButtonPlugin());
 
 /* ----------------------- Cached element references ------------------------ */
