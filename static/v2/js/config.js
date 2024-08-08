@@ -38,7 +38,13 @@ function getUserCourse() {
 
   // Get the user course and if found set it in localstorage
   if (window.location.pathname.includes("canvas-landing-pages")) {
-    const course = window.location.pathname.split("/").pop()
+    const coursePage = window.location.pathname.split("/").pop()
+    const extensionStart = coursePage.indexOf(".")
+    let course = coursePage
+
+    if (extensionStart > -1) {
+      course = coursePage.slice(0, extensionStart)
+    }
     localStorage.setItem("gaUserCourse", course)
     return course
 
