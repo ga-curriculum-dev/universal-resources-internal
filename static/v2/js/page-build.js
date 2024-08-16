@@ -135,12 +135,13 @@ const footerNextElAttrs = [["id", "tc-footer-right"]]
 
 const legalContainerElAttrs = [
   ["id", "tc-footer-legal"],
-  ["class", "f6 d-flex flex-column"],
+  ["class", "f6 d-flex flex-column flex-items-center"],
 ]
 
 const attributionsElAttrs = [
   ["href", "https://pages.git.generalassemb.ly/modular-curriculum-all-courses/universal-resources/docs/v2/attributions.html"],
-  ["target", "blank_"]
+  ["target", "blank_"],
+  ["class", "f7"],
 ]
 
 const activityIconSvgAttrs = [
