@@ -1739,7 +1739,7 @@ pre {
 
 .markdown-body {
   font-size: 16px;
-  line-height: 1.5;
+  line-height: 1.55;
   word-wrap: break-word;
 }
 
@@ -1988,6 +1988,7 @@ pre {
   padding: 16px;
   border-radius: 3px;
   background-color: var(--background-color-code-block);
+  line-height: 1.6;
 }
 
 .markdown-body pre code,

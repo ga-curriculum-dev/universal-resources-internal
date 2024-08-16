@@ -98,7 +98,7 @@ const subNavElAttrs = [
 ]
 
 const subNavHomeHeadingElAttrs = [
-  ["class", "no-anchor p-0 my-2 h1"],
+  ["class", "no-anchor p-0 mt-2 mb-3 h1"],
 ]
 
 const subNavHeadingElAttrs = [
@@ -106,7 +106,7 @@ const subNavHeadingElAttrs = [
 ]
 
 const subNavUlElAttrs = [
-  ["class", "list-style-none pl-2 my-2 d-flex flex-column gap-2"],
+  ["class", "list-style-none pl-3 mt-1 mb-3 d-flex flex-column gap-2"],
 ]
 
 const stickyNavButtonElAttrs = [
@@ -120,7 +120,7 @@ const darkModeButtonElAttrs = [
 ] 
 
 const settingsBtnContainerElAttrs = [
-  ["class", "my-3 d-flex gap-3 flex-wrap"],
+  ["class", "mt-4 mb-3 d-flex gap-3 flex-wrap"],
 ]
 
 const footerElAttrs = [
@@ -252,7 +252,7 @@ function buildMicrolessonLinks() {
 
   courseConfig.microlessons.forEach((ml, idx) => {
     const liEl = document.createElement("li")
-    liEl.setAttribute("class", "f3")
+    liEl.setAttribute("class", "f4")
 
     // Create the base link
     const baseLinkHref = `/${config.org.name}/${config.repo.name}/${ml.dirName}`
@@ -291,7 +291,7 @@ function buildMicrolessonLinks() {
 function createNavAnchorEl(idx, currentMlIdx, href, textContent) {
   // Create the base link
   const anchorElAttrs = [
-    ["class", "f3 text-bold no-underline"],
+    ["class", "f4 text-bold no-underline"],
     ["href", href]
   ]
   const anchorEl = createElWithAttrs("a", anchorElAttrs)
