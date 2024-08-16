@@ -53,6 +53,14 @@ hue-6-2: #e6c07b
 */
 
 /** Customization
+ *  Reduce top padding.
+ */
+
+.markdown-body pre code.hljs {
+  padding-top: .25em;
+}
+
+/** Customization
  *  Change background color from default of #282C34 to #0C0C0C
  *  to improve accessibility.
  */

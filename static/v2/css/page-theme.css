@@ -11,7 +11,7 @@ For easy reference the base GitHub Pages Primer Jekyll theme can be found in
 the primer-jekyll.css file in this same directory. That file should never be 
 served publicly.
 
-Customizations and the movtivations behind them should be added as comments
+Customizations and the motivations behind them should be added as comments
 when necessary. 
 */
 
@@ -75,7 +75,7 @@ html {
     "Apple Color Emoji",
     "Segoe UI Emoji";
   --barlow-condensed-bold: "Barlow Condensed Bold";
-  --barlow-semicondensed-semibold: "Barlow Semi Condensed SemiBold";
+  --barlow-semi-condensed-semibold: "Barlow Semi Condensed SemiBold";
   
   /* Misc */
   --highlighter-yellow: #CCFF15;
@@ -2258,7 +2258,7 @@ to these types of links.
 #hero h1 .subhead {
   font-size: clamp(16px, 2.9vw, 30px);
   line-height: clamp(16px, 2.9vw, 30px);
-  font-family: var(--barlow-semicondensed-semibold), var(--system-fonts);
+  font-family: var(--barlow-semi-condensed-semibold), var(--system-fonts);
 }
 
 #hero code {
