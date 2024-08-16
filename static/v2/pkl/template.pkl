@@ -130,21 +130,6 @@ class Course {
   isHeaderNavSettingsShown: Boolean = true
 
   /*
-    ! Typically this should not be changed from the default value of true.
-
-    Set isFooterShown to false to hide the footer.
-    This prevents user access to:
-    - Any navigation from the footer. This includes:
-      - The link to the previous microlesson.
-      - The link to the next microlesson.
-      - Other footer content including the copyright date.
-
-    While there may be valid reasons to do this, consider that this removes
-    some user choice in how they interact with course content.
-  */
-  isFooterShown: Boolean = true
-
-  /*
     Set isFooterCopyrightShown to false to hide the copyright in the footer.
   */
   isFooterCopyrightShown: Boolean = true

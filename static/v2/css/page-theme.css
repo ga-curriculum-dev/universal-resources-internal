@@ -1528,6 +1528,10 @@ pre {
   font-size: 12px;
 }
 
+.f7 {
+  font-size: 10px;
+}
+
 /* Text mods */
 
 .text-normal {
@@ -2144,8 +2148,9 @@ pre {
   display: none;
 }
 
-#tc-footer-copyright {
+#tc-footer-legal {
   color: var(--text-color-on-emphasis-muted);
+  line-height: 14px;
 }
 
 #tc-footer-right {
@@ -2213,11 +2218,16 @@ pre {
   margin: 0;
 }
 
+#tc-footer-legal a {
+  color: var(--text-color-on-emphasis-muted);
+}
+
 #tc-footer-items a {
   color: var(--text-color-on-emphasis);
 }
 
-#tc-footer-items a:hover {
+#tc-footer-items a:hover,
+#tc-footer-legal a:hover {
   color: var(--text-color-accent);
 }
 

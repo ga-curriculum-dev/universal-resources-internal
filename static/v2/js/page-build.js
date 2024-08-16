@@ -133,9 +133,14 @@ const footerBackElAttrs = [["id", "tc-footer-left"]]
 
 const footerNextElAttrs = [["id", "tc-footer-right"]]
 
-const copyrightElAttrs = [
-  ["id", "tc-footer-copyright"],
-  ["class", "f6"],
+const legalContainerElAttrs = [
+  ["id", "tc-footer-legal"],
+  ["class", "f6 d-flex flex-column"],
+]
+
+const attributionsElAttrs = [
+  ["href", "https://pages.git.generalassemb.ly/modular-curriculum-all-courses/universal-resources/docs/v2/attributions.html"],
+  ["target", "blank_"]
 ]
 
 const activityIconSvgAttrs = [
@@ -379,8 +384,6 @@ function buildSettings() {
 /* --------------------------------- Footer --------------------------------- */
 
 function buildFooter() {
-  if (!courseConfig.isFooterShown) return
-
   const footerEl = createElWithAttrs("footer", footerElAttrs)
   const footerItemsContainerEl = createElWithAttrs(
     "nav",
@@ -390,7 +393,7 @@ function buildFooter() {
   const currentMlIdx = getMicrolessonIdx()
 
   const backEl = createElWithAttrs("p", footerBackElAttrs)
-  const copyrightEl = createElWithAttrs("p", copyrightElAttrs)
+  const legalContainerEl = createElWithAttrs("div", legalContainerElAttrs)
   const nextEl = createElWithAttrs("p", footerNextElAttrs)
 
   if (courseConfig.isFooterLessonNavShown && currentMlIdx > 0) {
@@ -416,9 +419,15 @@ function buildFooter() {
   }
 
   if (courseConfig.isFooterCopyrightShown) {
+    const copyrightEl = document.createElement("p")
     const currentYear = new Date().getFullYear()
     copyrightEl.textContent = `© ${currentYear} General Assembly`
+    legalContainerEl.appendChild(copyrightEl)
   }
+
+  const attributionsEl = createElWithAttrs("a", attributionsElAttrs)
+  attributionsEl.textContent = "Attributions"
+  legalContainerEl.appendChild(attributionsEl)
 
   if (
     courseConfig.isFooterLessonNavShown &&
@@ -447,7 +456,7 @@ function buildFooter() {
   }
 
   footerItemsContainerEl.appendChild(backEl)
-  footerItemsContainerEl.appendChild(copyrightEl)
+  footerItemsContainerEl.appendChild(legalContainerEl)
   footerItemsContainerEl.appendChild(nextEl)
 
   footerEl.appendChild(footerItemsContainerEl)
@@ -456,18 +465,9 @@ function buildFooter() {
 }
 
 function getMinMainHeight() {
-  // We only need to put a min-height on the main if there is a footer
-  if (!courseConfig.isFooterShown) return
-
-  let mainHeight
-
-  if (courseConfig.isHeaderShown) {
-    mainHeight = "calc(100dvh - 90px - 64px)"
-  } else {
-    mainHeight = "calc(100dvh - 40px - 64px)"
-  }
-
-  mainEl.style.minHeight = mainHeight
+  mainEl.style.minHeight = courseConfig.isHeaderShown
+    ? "calc(100dvh - 90px - 64px)"
+    : "calc(100dvh - 40px - 64px)"
 }
 
 /* ---------------------------- Activity Banners ---------------------------- */
