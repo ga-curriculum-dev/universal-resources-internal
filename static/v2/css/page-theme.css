@@ -17,110 +17,151 @@ when necessary.
 
 @font-face {
   font-family: "Barlow Condensed Bold";
-  src: url("https://pages.git.generalassemb.ly/modular-curriculum-all-courses/universal-resources-internal/static/v2/fonts/barlow-condensed-bold.woff2") format("woff2");
+  src: url("https://pages.git.generalassemb.ly/modular-curriculum-all-courses/universal-resources-internal/static/v2/fonts/barlow-condensed-bold.woff2")
+    format("woff2");
   font-display: swap;
 }
 
 @font-face {
   font-family: "Barlow Semi Condensed SemiBold";
-  src: url("https://pages.git.generalassemb.ly/modular-curriculum-all-courses/universal-resources-internal/static/v2/fonts/barlow-semi-condensed-semibold.woff2") format("woff2");
+  src: url("https://pages.git.generalassemb.ly/modular-curriculum-all-courses/universal-resources-internal/static/v2/fonts/barlow-semi-condensed-semibold.woff2")
+    format("woff2");
   font-display: swap;
 }
 
+/*
+  Read this before working with the `-x-highlight-color` properties below!
+
+  Changing the below highlight color values will change most of the colors 
+  used in activity banners, but not all. When changing any of these values 
+  you will also need to adjust the `fill` attribute in the `path` element
+  that is used as a background for that banner.
+
+  You can find these values you will need to change in the 
+  `.activity.<activity-name> > .container` rules in this document - replacing 
+  `<activity-name>` with the name of the activity (for example: 
+  `.activity.solo-exercise > .container`. 
+  
+  This is necessary because the background svgs for banners are added as urls 
+  with their own separate context from this document so they don't have 
+  access to our css variables (and beyond that fill is an attribute on the 
+  path HTML element - not CSS)
+*/
+
 html {
   /* Backgrounds */
-  --body-background-color: #FFF;
-  --background-color-subtle: #F6F8FA;
-  --background-color-subtle-hover: #EAEEF2;
-  --background-color-code-block: #0C0C0C;
-  --background-color-inline-code: #1B1F230D;
-  --background-color-emphasis: #24292F;
-  --background-color-nav: #24292F;
-  --background-color-accent: #0969DA;
-  --background-color-attention: #9A6700;
-  --background-color-warning: #CF222E;
+  --body-background-color: #fff;
+  --background-color-subtle: #f6f8fa;
+  --background-color-subtle-hover: #eaeef2;
+  --background-color-code-block: #0c0c0c;
+  --background-color-inline-code: #1b1f230d;
+  --background-color-emphasis: #24292f;
+  --background-color-nav: #24292f;
+  --background-color-accent: #0969da;
+  --background-color-attention: #9a6700;
+  --background-color-warning: #cf222e;
 
   /* Text */
   --text-color-default: #1f2328;
   --text-color-muted: #636c76;
-  --text-color-on-bold-bg: #F3EDE6;
-  --text-color-on-emphasis: #F3EDE6;
-  --text-color-on-emphasis-muted: #A19FA8;
+  --text-color-on-bold-bg: #f3ede6;
+  --text-color-on-emphasis: #f3ede6;
+  --text-color-on-emphasis-muted: #a19fa8;
   --text-color-inline-code: #116329;
-  --text-color-accent: #E41F26; /* GA Red */
-  --text-color-attention: #9A6700;
-  --text-color-warning: #D1242F;
-  --text-color-file: #BC4C00;
-  --text-color-keys: #8250DF;
+  --text-color-accent: #e41f26; /* GA Red */
+  --text-color-attention: #9a6700;
+  --text-color-warning: #d1242f;
+  --text-color-file: #bc4c00;
+  --text-color-keys: #8250df;
   --link-color-default: #0969da;
   --link-color-hover: #0056a6;
 
   /* Borders */
-  --border-color-default: #D0D7DE;
-  --border-color-muted: #D0D7DEB3;
-  --border-color-emphasis: #6E7781;
-  --border-color-accent: #0969DA;
-  --border-color-attention: #BF8700;
-  --border-color-warning: #CF222E;
+  --border-color-default: #d0d7de;
+  --border-color-muted: #d0d7deb3;
+  --border-color-emphasis: #6e7781;
+  --border-color-accent: #0969da;
+  --border-color-attention: #bf8700;
+  --border-color-warning: #cf222e;
 
   /* Fonts */
-  --system-fonts: 
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    "Noto Sans",
-    Helvetica,
-    Arial,
-    sans-serif,
-    "Apple Color Emoji",
-    "Segoe UI Emoji";
+  --system-fonts: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans",
+    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
   --barlow-condensed-bold: "Barlow Condensed Bold";
   --barlow-semi-condensed-semibold: "Barlow Semi Condensed SemiBold";
-  
+
   /* Misc */
-  --highlighter-yellow: #CCFF15;
-  --white: #FFFFFF;
+  --highlighter-yellow: #ccff15;
+  --white: #ffffff;
   --black: #000000;
+
+  /* Activity Banner highlight colors (see note above before changing these */
+  --exercise-highlight-color: #fb8f44;
+  --discussion-highlight-color: #0550ae;
+  --guided-walkthrough-highlight-color: #eac54f;
+  --knowledge-check-highlight-color: #6639ba;
+  --programming-highlight-color: #2da44e;
+  /* 
+    If the value of the background color changes, you may want to update this.
+    Do not use rgb() here - only the color values should be used here so that 
+    this property can be used in both rgb() and rgba().
+  */
+  --activity-banner-background-color-rgb: 255, 255, 255;
+  --activity-banner-background-gradient: linear-gradient(to right, rgba(var(--activity-banner-background-color-rgb), 1) 0%, rgba(var(--activity-banner-background-color-rgb), 0.95) 60%, rgba(var(--activity-banner-background-color-rgb), 0.8) 100%);
 }
 
 html.dark {
   /* Backgrounds */
-  --body-background-color: #0D1117;
-  --background-color-subtle: #161B22;
+  --body-background-color: #0d1117;
+  --background-color-subtle: #161b22;
   --background-color-subtle-hover: #21262d;
-  --background-color-code-block: #1F1F25;
-  --background-color-inline-code: #F5F1ED20;
-  --background-color-nav: #24292F;
-  --background-color-emphasis: #6E7681;
-  --background-color-accent: #1F6FEB;
-  --background-color-attention: #9E6A03;
-  --background-color-warning: #DA3633;
+  --background-color-code-block: #1f1f25;
+  --background-color-inline-code: #f5f1ed20;
+  --background-color-nav: #24292f;
+  --background-color-emphasis: #6e7681;
+  --background-color-accent: #1f6feb;
+  --background-color-attention: #9e6a03;
+  --background-color-warning: #da3633;
 
   /* Text */
-  --text-color-default: #F3EDE6;
+  --text-color-default: #f3ede6;
   --text-color-muted: #8d96a0;
-  --text-color-on-bold-bg: #F3EDE6;
-  --text-color-on-emphasis: #F3EDE6;
-  --text-color-on-emphasis-muted: #A19FA8;
-  --text-color-inline-code: #56D364;
-  --text-color-accent: #E41F26; /* GA Red */
+  --text-color-on-bold-bg: #f3ede6;
+  --text-color-on-emphasis: #f3ede6;
+  --text-color-on-emphasis-muted: #a19fa8;
+  --text-color-inline-code: #56d364;
+  --text-color-accent: #e41f26; /* GA Red */
   --text-color-attention: #d29922;
-  --text-color-warning: #F85149;
-  --text-color-file: #DB6D28;
-  --text-color-keys: #8250DF;
-  --link-color-default: #4493F8;
-  --link-color-hover: #60B0FF;
+  --text-color-warning: #f85149;
+  --text-color-file: #db6d28;
+  --text-color-keys: #8250df;
+  --link-color-default: #4493f8;
+  --link-color-hover: #60b0ff;
 
   /* Borders */
-  --border-color-default: #30363D;
-  --border-color-muted: #30363DB3;
-  --border-color-emphasis: #484F58;
-  --border-color-accent: #1F6FEB;
-  --border-color-attention: #9E6A03;
-  --border-color-warning: #DA3633;
+  --border-color-default: #30363d;
+  --border-color-muted: #30363db3;
+  --border-color-emphasis: #484f58;
+  --border-color-accent: #1f6feb;
+  --border-color-attention: #9e6a03;
+  --border-color-warning: #da3633;
 
   /* Misc */
-  --highlighter-yellow: #CCFF15;
+  --highlighter-yellow: #ccff15;
+
+  /* Activity Banner highlight colors (see note above before changing these */
+  --exercise-highlight-color: #f0883e;
+  --discussion-highlight-color: #1158c7;
+  --guided-walkthrough-highlight-color: #e3b341;
+  --knowledge-check-highlight-color: #6e40c9;
+  --programming-highlight-color: #2ea043;
+  /* 
+    If the value of the background color changes, you may want to update this.
+    Do not use rgb() here - only the color values should be used here so that 
+    this property can be used in both rgb() and rgba().
+  */
+  --activity-banner-background-color-rgb: 13, 17, 23;
+  --activity-banner-background-gradient: linear-gradient(to right, rgba(var(--activity-banner-background-color-rgb), 1) 0%, rgba(var(--activity-banner-background-color-rgb), 0.95) 60%, rgba(var(--activity-banner-background-color-rgb), 0.8) 100%);
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -150,7 +191,9 @@ html {
  * Tied to 5 above, allows box-sizing model to be overridden where necessary.
  */
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: inherit;
 }
 
@@ -186,7 +229,7 @@ h1 {
  */
 
 hr {
-  color: inherit; 
+  color: inherit;
 }
 
 /**
@@ -199,8 +242,8 @@ hr {
 */
 
 table {
-	text-indent: 0; /* 1 */
-	border-color: inherit; /* 2 */
+  text-indent: 0; /* 1 */
+  border-color: inherit; /* 2 */
 }
 
 /**
@@ -211,15 +254,9 @@ code,
 kbd,
 samp,
 pre {
-	font-family:
-    ui-monospace,
-    SFMono-Regular,
-    "SF Mono",
-    Menlo,
-    Consolas,
-    "Liberation Mono",
-    monospace;
-	font-size: 1em;
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
+    "Liberation Mono", monospace;
+  font-size: 1em;
 }
 
 /**
@@ -227,7 +264,7 @@ Add the correct text decoration in Chrome, Edge, and Safari.
 */
 
 abbr[title] {
-	text-decoration: underline dotted;
+  text-decoration: underline dotted;
 }
 
 /**
@@ -282,7 +319,7 @@ button,
 [type="button"],
 [type="reset"],
 [type="submit"],
-[role='button'] {
+[role="button"] {
   -webkit-appearance: button; /* 1 */
   cursor: pointer;
 }
@@ -309,7 +346,6 @@ button:-moz-focusring,
 [type="submit"]:-moz-focusring {
   outline: 1px dotted ButtonText;
 }
-
 
 /**
  * Add the correct display in Edge, IE 10+, and Firefox.
@@ -377,14 +413,14 @@ hr,
 hr::before,
 .rule::before {
   display: table;
-  content: '';
+  content: "";
 }
 
 hr::after,
 .rule::after {
   display: table;
   clear: both;
-  content: '';
+  content: "";
 }
 
 table {
@@ -500,12 +536,12 @@ pre {
 /* Borders */
 
 .border {
-  border: 1px var(--border-color-default) solid ;
+  border: 1px var(--border-color-default) solid;
 }
 
 .border-y {
-  border-top: 1px var(--border-color-default) solid ;
-  border-bottom: 1px var(--border-color-default) solid ;
+  border-top: 1px var(--border-color-default) solid;
+  border-bottom: 1px var(--border-color-default) solid;
 }
 
 .border-top {
@@ -669,7 +705,7 @@ pre {
 /* Backgrounds */
 
 .bg-white {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
 }
 
 .bg-black {
@@ -699,35 +735,35 @@ pre {
 /* Text */
 
 .text-default {
-  color: var(--text-color-default)
+  color: var(--text-color-default);
 }
 
 .text-muted {
-  color: var(--text-color-muted)
+  color: var(--text-color-muted);
 }
 
 .text-on-bold-bg {
-  color: var(--text-color-on-bold-bg)
+  color: var(--text-color-on-bold-bg);
 }
 
 .text-accent {
-  color: var(--text-color-accent)
+  color: var(--text-color-accent);
 }
 
 .text-attention {
-  color: var(--text-color-attention)
+  color: var(--text-color-attention);
 }
 
 .text-attention {
-  color: var(--text-color-warning)
+  color: var(--text-color-warning);
 }
 
 .text-file {
-  color: var(--text-color-file)
+  color: var(--text-color-file);
 }
 
 .text-keys {
-  color: var(--text-color-keys)
+  color: var(--text-color-keys);
 }
 
 /* Summary */
@@ -741,7 +777,7 @@ pre {
   z-index: 80;
   display: block;
   cursor: default;
-  content: ' ';
+  content: " ";
   background: transparent;
 }
 
@@ -867,27 +903,27 @@ pre {
 }
 
 .gap-1 {
-  gap: 4px
+  gap: 4px;
 }
 
 .gap-2 {
-  gap: 8px
+  gap: 8px;
 }
 
 .gap-3 {
-  gap: 12px
+  gap: 12px;
 }
 
 .gap-4 {
-  gap: 16px
+  gap: 16px;
 }
 
 .gap-5 {
-  gap: 20px
+  gap: 20px;
 }
 
 .gap-6 {
-  gap: 24px
+  gap: 24px;
 }
 
 /* Position */
@@ -1560,13 +1596,13 @@ pre {
 
 .container::before {
   display: table;
-  content: '';
+  content: "";
 }
 
 .container::after {
   display: table;
   clear: both;
-  content: '';
+  content: "";
 }
 
 .container-md {
@@ -1600,13 +1636,13 @@ pre {
 
 .columns::before {
   display: table;
-  content: '';
+  content: "";
 }
 
 .columns::after {
   display: table;
   clear: both;
-  content: '';
+  content: "";
 }
 
 .column {
@@ -1706,10 +1742,7 @@ pre {
   right: 0;
   bottom: 0;
   left: 0;
-  transition: 
-    backdrop 0.7s, 
-    -webkit-backdrop-filter 0.7s, 
-    background-color 0.7s;
+  transition: backdrop 0.7s, -webkit-backdrop-filter 0.7s, background-color 0.7s;
 }
 
 .medium-zoom--opened .medium-zoom-overlay {
@@ -1745,13 +1778,13 @@ pre {
 
 .markdown-body::before {
   display: table;
-  content: '';
+  content: "";
 }
 
 .markdown-body::after {
   display: table;
   clear: both;
-  content: '';
+  content: "";
 }
 
 .markdown-body > *:first-child {
@@ -1787,7 +1820,7 @@ pre {
 }
 
 .markdown-body blockquote {
-  padding: .4em 1em;
+  padding: 0.4em 1em;
   color: var(--text-color-default);
   border-left: 0.25em solid var(--border-color-muted);
   background-color: var(--background-color-subtle);
@@ -2027,7 +2060,7 @@ pre {
 .markdown-body code.codeblock-filepath {
   background-color: var(--background-color-code-block);
   color: var(--text-color-file);
-  padding: .4em .7em;
+  padding: 0.4em 0.7em;
   font-size: 14.5px;
 }
 
@@ -2112,7 +2145,7 @@ pre {
 }
 
 #tc-footer-copyright {
-  color: var(--text-color-on-emphasis-muted)
+  color: var(--text-color-on-emphasis-muted);
 }
 
 #tc-footer-right {
@@ -2192,7 +2225,7 @@ pre {
 
 @media screen and (prefers-reduced-motion: reduce) {
   #tc-sub-nav-container {
-    transition: none
+    transition: none;
   }
 }
 
@@ -2222,6 +2255,11 @@ to these types of links.
 }
 
 /* ---------------------------------- Hero ---------------------------------- */
+/* 
+  General maintenance note - some of this code could be removed in favor of 
+  using the design system classes above on these elements - if you're touching 
+  this code and have time to make those updates, that would be a big win!
+*/
 
 #hero {
   aspect-ratio: 64 / 11;
@@ -2262,7 +2300,209 @@ to these types of links.
 }
 
 #hero code {
-  color: #56D364;
+  color: #56d364;
   padding: 2px 4px;
   margin: 0 1px;
+}
+
+/* -------------------- Activity Banners / Timed section -------------------- */
+/* 
+  General maintenance note - some of this code could be removed in favor of 
+  using the design system classes above on these elements - if you're touching 
+  this code and have time to make those updates, that would be a big win!
+*/
+
+.activity {
+  width: 100%;
+  background-color: rgb(var(--activity-banner-background-color-rgb));
+  margin-bottom: 20px;
+}
+
+.activity > .container {
+  border-width: 2px 2px 24px;
+  border-style: solid;
+  padding: 8px 1.5% 10px;
+}
+
+.activity h2,
+.activity h3 {
+  font-family: var(--barlow-condensed-bold), var(--system-fonts);
+  font-size: 1.75em;
+  line-height: 1em;
+  margin: 0 72px 8px 0;
+  padding: 0;
+  border: none;
+  text-wrap: balance;
+}
+
+.activity p {
+  font-family: var(--barlow-semi-condensed-semibold), var(--system-fonts);
+  color: var(--text-color-muted);
+  font-size: 1em;
+  margin: 0;
+}
+
+.activity .meta {
+  display: flex;
+  justify-content: space-between;
+  margin: 2px 0 0 0;
+}
+
+.activity .text-container {
+  margin-left: 1.5%;
+  flex-grow: 1;
+}
+
+.activity .time {
+  display: flex;
+  align-items: center;
+  box-shadow: 0px 0px 10px 5px
+    rgba(var(--activity-banner-background-color-rgb), 0.9);
+  background-color: rgba(var(--activity-banner-background-color-rgb), 0.9);
+}
+
+.activity svg.activity-icon {
+  margin-top: 6px;
+  stroke: var(--text-color-default);
+  min-width: 50px;
+}
+
+.activity svg.clock-icon {
+  margin-right: 4px;
+  stroke: var(--text-color-muted);
+}
+
+.activity > .container h2 code {
+  font-size: 75%;
+}
+
+/* Timed section */
+
+.timed-section {
+  width: 100%;
+  max-width: 980px;
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  margin-top: 24px;
+  margin-bottom: 16px;
+  padding-bottom: 0.25em;
+  border-bottom: 1px solid var(--border-color-muted);
+}
+
+.timed-section h2,
+.timed-section h3,
+.timed-section h4,
+.timed-section h5 {
+  text-wrap: balance;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.timed-section span {
+  font-family: var(--barlow-semi-condensed-semibold);
+  padding-left: 1.5em;
+  min-width: max-content;
+  display: flex;
+  align-items: center;
+  color: var(--text-color-muted);
+}
+
+.timed-section .clock-icon {
+  margin-right: 4px;
+  stroke: var(--text-color-muted);
+}
+
+@media (max-width: 520px) {
+  .activity .meta,
+  .timed-section {
+    justify-content: start;
+  }
+
+  .activity .time {
+    background-color: transparent;
+    box-shadow: none;
+  }
+
+  .activity .time:before {
+    content: "-";
+    padding: 0 4px;
+    color: var(--text-color-muted);
+    font-family: var(--barlow-semi-condensed-semibold);
+  }
+
+  .activity svg.clock-icon,
+  .timed-section svg.clock-icon {
+    display: none;
+  }
+
+  .activity div.container {
+    background: transparent !important;
+  }
+
+  .activity h2,
+  .activity h3 {
+    margin: 0 0 8px;
+  }
+}
+
+/* Activity-specific container customization */
+
+/* ! Important! Read this before working with the activity banners below! */
+/* 
+    The `fill` below must be adjusted manually when there are color changes to 
+    this banner.
+
+    IMPORTANT: the `fill`'s value starts with `%23` - this is the URL encoding 
+    for the # character - do not remove or change this.For example, if 
+    `fill='%239740b5'` then the actual hex color is 9740B5 - that is what you 
+    will want to modify.
+
+    Unfortunately, this value cannot adjust between light and dark mode - use 
+    the light mode color as a sensible default.
+  */
+
+.activity.solo-exercise > .container,
+.activity.partner-exercise > .container,
+.activity.group-exercise > .container {
+  /* See the note above before modifying this code */
+  border-color: var(--exercise-highlight-color);
+  background: var(--activity-banner-background-gradient),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='hexagons' fill='%23FB8F44' fill-rule='nonzero'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.activity.discussion > .container {
+  /* See the note above before modifying this code */
+  border-color: var(--discussion-highlight-color);
+  background: var(--activity-banner-background-gradient),
+    url("data:image/svg+xml,%3Csvg width='76' height='18' viewBox='0 0 76 18' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M32 18c-2.43-1.824-4-4.73-4-8 0-4.418-3.582-8-8-8H0V0h20c5.523 0 10 4.477 10 10 0 4.418 3.582 8 8 8h20c4.418 0 8-3.582 8-8 0-5.523 4.477-10 10-10v2c-4.418 0-8 3.582-8 8 0 3.27-1.57 6.176-4 8H32zM64 0c-1.67 1.256-3.748 2-6 2H38c-2.252 0-4.33-.744-6-2h32z' fill='%230550AE' fill-rule='evenodd'/%3E%3C/svg%3E");
+}
+
+.activity.guided-walkthrough > .container {
+  /* See the note above before modifying this code */
+  border-color: var(--guided-walkthrough-highlight-color);
+  background: var(--activity-banner-background-gradient),
+    url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23E3B341' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.activity.knowledge-check > .container {
+  /* See the note above before modifying this code */
+  border-color: var(--knowledge-check-highlight-color);
+  background: var(--activity-banner-background-gradient),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='88' height='24' viewBox='0 0 88 24'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%236639BA'%3E%3Cpath d='M10 0l30 15 2 1V2.18A10 10 0 0 0 41.76 0H39.7a8 8 0 0 1 .3 2.18v10.58L14.47 0H10zm31.76 24a10 10 0 0 0-5.29-6.76L4 1 2 0v13.82a10 10 0 0 0 5.53 8.94L10 24h4.47l-6.05-3.02A8 8 0 0 1 4 13.82V3.24l31.58 15.78A8 8 0 0 1 39.7 24h2.06zM78 24l2.47-1.24A10 10 0 0 0 86 13.82V0l-2 1-32.47 16.24A10 10 0 0 0 46.24 24h2.06a8 8 0 0 1 4.12-4.98L84 3.24v10.58a8 8 0 0 1-4.42 7.16L73.53 24H78zm0-24L48 15l-2 1V2.18A10 10 0 0 1 46.24 0h2.06a8 8 0 0 0-.3 2.18v10.58L73.53 0H78z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.activity.pair-programming > .container {
+  /* See the note above before modifying this code */
+  border-color: var(--programming-highlight-color);
+  background: var(--activity-banner-background-gradient),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%232DA44E'%3E%3Cpath d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z'/%3E%3Cpath d='M6 5V0H5v5H0v1h5v94h1V6h94V5H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.activity.mob-programming > .container {
+  /* See the note above before modifying this code */
+  border-color: var(--programming-highlight-color);
+  background: var(--activity-banner-background-gradient),
+    url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9 0h2v20H9V0zm25.134.84l1.732 1-10 17.32-1.732-1 10-17.32zm-20 20l1.732 1-10 17.32-1.732-1 10-17.32zM58.16 4.134l1 1.732-17.32 10-1-1.732 17.32-10zm-40 40l1 1.732-17.32 10-1-1.732 17.32-10zM80 9v2H60V9h20zM20 69v2H0v-2h20zm79.32-55l-1 1.732-17.32-10L82 4l17.32 10zm-80 80l-1 1.732-17.32-10L2 84l17.32 10zm96.546-75.84l-1.732 1-10-17.32 1.732-1 10 17.32zm-100 100l-1.732 1-10-17.32 1.732-1 10 17.32zM38.16 24.134l1 1.732-17.32 10-1-1.732 17.32-10zM60 29v2H40v-2h20zm19.32 5l-1 1.732-17.32-10L62 24l17.32 10zm16.546 4.16l-1.732 1-10-17.32 1.732-1 10 17.32zM111 40h-2V20h2v20zm3.134.84l1.732 1-10 17.32-1.732-1 10-17.32zM40 49v2H20v-2h20zm19.32 5l-1 1.732-17.32-10L42 44l17.32 10zm16.546 4.16l-1.732 1-10-17.32 1.732-1 10 17.32zM91 60h-2V40h2v20zm3.134.84l1.732 1-10 17.32-1.732-1 10-17.32zm24.026 3.294l1 1.732-17.32 10-1-1.732 17.32-10zM39.32 74l-1 1.732-17.32-10L22 64l17.32 10zm16.546 4.16l-1.732 1-10-17.32 1.732-1 10 17.32zM71 80h-2V60h2v20zm3.134.84l1.732 1-10 17.32-1.732-1 10-17.32zm24.026 3.294l1 1.732-17.32 10-1-1.732 17.32-10zM120 89v2h-20v-2h20zm-84.134 9.16l-1.732 1-10-17.32 1.732-1 10 17.32zM51 100h-2V80h2v20zm3.134.84l1.732 1-10 17.32-1.732-1 10-17.32zm24.026 3.294l1 1.732-17.32 10-1-1.732 17.32-10zM100 109v2H80v-2h20zm19.32 5l-1 1.732-17.32-10 1-1.732 17.32 10zM31 120h-2v-20h2v20z' fill='%232DA44E' fill-rule='evenodd'/%3E%3C/svg%3E");
 }

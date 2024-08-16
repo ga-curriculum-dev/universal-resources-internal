@@ -8,8 +8,6 @@ document.addEventListener('DOMContentLoaded', function (event) {
 });
 
 function addCodeBlockHighlighting() {
-
-
   /*
   Adds copy buttons to all hljs code blocks. This code should execute first.
   */
