@@ -505,7 +505,7 @@ function getBannerElements(activityEl) {
 
 function buildBannerElements(bannerEls) {
   bannerEls.containerEl = document.createElement("div")
-  bannerEls.containerEl.classList.add("container, d-flex", "width-full")
+  bannerEls.containerEl.classList.add("container", "d-flex", "width-full")
 
   bannerEls.activityIconSvg = createSvgWithAttrs("svg", activityIconSvgAttrs)
   bannerEls.activityIconPath = createSvgWithAttrs("path", activityIconPathAttrs)
