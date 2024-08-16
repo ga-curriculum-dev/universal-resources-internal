@@ -314,6 +314,11 @@ class Course {
     mode will be used.
   */
   isDarkModeForcedDefault: Boolean = false
+
+  /*
+    Set isActivityTimeShown to false to hide tagged pacing expectations.
+  */
+  isActivityTimeShown: Boolean = true
 }
 
 // Do not modify this class
