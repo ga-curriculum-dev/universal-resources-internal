@@ -15,18 +15,82 @@ Customizations and the motivations behind them should be added as comments
 when necessary. 
 */
 
+/* Barlow */
 @font-face {
   font-family: "Barlow Condensed Bold";
-  src: url("https://pages.git.generalassemb.ly/modular-curriculum-all-courses/universal-resources-internal/static/v2/fonts/barlow-condensed-bold.woff2")
-    format("woff2");
+  src: url("https://pages.git.generalassemb.ly/modular-curriculum-all-courses/universal-resources-internal/static/v2/fonts/barlow-condensed-bold.woff2")format("woff2");
+  font-display: swap;
+}
+
+/* Barlow Semi Condensed */
+@font-face {
+  font-family: "Barlow Semi Condensed SemiBold";
+  src: url("https://pages.git.generalassemb.ly/modular-curriculum-all-courses/universal-resources-internal/static/v2/fonts/barlow-semi-condensed-semibold.woff2") format("woff2");
+  font-display: swap;
+}
+
+/* Nunito Sans */
+@font-face {
+  font-family: "Nunito Sans";
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://pages.git.generalassemb.ly/modular-curriculum-all-courses/universal-resources-internal/static/v2/fonts/nunito-sans-v15-latin-regular.woff2") format("woff2");
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Barlow Semi Condensed SemiBold";
-  src: url("https://pages.git.generalassemb.ly/modular-curriculum-all-courses/universal-resources-internal/static/v2/fonts/barlow-semi-condensed-semibold.woff2")
-    format("woff2");
+  font-family: "Nunito Sans";
+  font-style: italic;
+  font-weight: 400;
+  src: url("https://pages.git.generalassemb.ly/modular-curriculum-all-courses/universal-resources-internal/static/v2/fonts/nunito-sans-v15-latin-italic.woff2") format("woff2");
   font-display: swap;
+}
+
+@font-face {
+  font-family: "Nunito Sans";
+  font-style: normal;
+  font-weight: 700;
+  src: url("https://pages.git.generalassemb.ly/modular-curriculum-all-courses/universal-resources-internal/static/v2/fonts/nunito-sans-v15-latin-700.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Nunito Sans";
+  font-style: italic;
+  font-weight: 700;
+  src: url("https://pages.git.generalassemb.ly/modular-curriculum-all-courses/universal-resources-internal/static/v2/fonts/nunito-sans-v15-latin-700italic.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Nunito Sans";
+  font-style: normal;
+  font-weight: 800;
+  src: url("https://pages.git.generalassemb.ly/modular-curriculum-all-courses/universal-resources-internal/static/v2/fonts/nunito-sans-v15-latin-800.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Nunito Sans";
+  font-style: italic;
+  font-weight: 800;
+  src: url("https://pages.git.generalassemb.ly/modular-curriculum-all-courses/universal-resources-internal/static/v2/fonts/nunito-sans-v15-latin-800italic.woff2") format("woff2");
+  font-display: swap;
+}
+
+/* Cascadia Mono */
+@font-face {
+  font-display: swap;
+  font-family: "Cascadia Mono";
+  font-style: normal;
+  src: url("https://pages.git.generalassemb.ly/modular-curriculum-all-courses/universal-resources-internal/static/v2/fonts/cascadia-mono.woff2") format("woff2");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Cascadia Mono";
+  font-style: italic;
+  src: url("https://pages.git.generalassemb.ly/modular-curriculum-all-courses/universal-resources-internal/static/v2/fonts/cascadia-mono-italic.woff2") format("woff2");
 }
 
 /*
@@ -89,6 +153,10 @@ html {
     Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
   --barlow-condensed-bold: "Barlow Condensed Bold";
   --barlow-semi-condensed-semibold: "Barlow Semi Condensed SemiBold";
+  --nunito-sans: "Nunito Sans";
+  --cascadia-mono: "Cascadia Mono";
+  --system-mono-fonts: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
+  "Liberation Mono", monospace;
 
   /* Misc */
   --highlighter-yellow: #ccff15;
@@ -254,8 +322,6 @@ code,
 kbd,
 samp,
 pre {
-  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
-    "Liberation Mono", monospace;
   font-size: 1em;
 }
 
@@ -368,6 +434,17 @@ summary {
 
 /* Elements */
 
+/** Customization
+ *  Default font is Nunito Sans
+ *  This follows the GA Brand Guidelines found here: 
+ *  https://drive.google.com/file/d/1BfU0gnDvB65MmRkCPtcvawPMcQkpX4gg/view.
+ *  (headers are overridden)
+ */
+
+html {
+  font-family: var(--nunito-sans), var(--system-fonts);
+}
+
 body {
   font-size: 16px;
   line-height: 1.5;
@@ -460,34 +537,57 @@ h6 {
   margin-bottom: 0;
 }
 
-h1 {
-  font-size: 32px;
-  font-weight: 600;
+/** Customization
+ *  Headers use rem sizes. hX element and hX classes adhere to the same sizes.
+ *  Markdown h1 is no different from a regular h1 outside of markdown content.
+ *  h1 and h2 use Barlow Condensed Bold, h3 uses Barlow Semi Condensed Semibold,
+ *  h4 - h6 use ExtraBold Nunito Sans. This follows the GA Brand Guidelines
+ *  found here: 
+ *  https://drive.google.com/file/d/1BfU0gnDvB65MmRkCPtcvawPMcQkpX4gg/view.
+ */
+h1,
+.h1 {
+  font-size: 2.25rem;
+  font-family: var(--barlow-condensed-bold), var(--system-fonts);
 }
 
-h2 {
-  font-size: 24px;
-  font-weight: 600;
+h2,
+.h2 {
+  padding-bottom: 0.3em;
+  font-size: 1.75rem;
+  border-bottom: 1px solid var(--border-color-muted);
+  font-family: var(--barlow-condensed-bold), var(--system-fonts);
 }
 
-h3 {
-  font-size: 20px;
-  font-weight: 600;
+h3,
+.h3 {
+  font-size: 1.5rem;
+  font-family: var(--barlow-semi-condensed-semibold), var(--system-fonts);
 }
 
-h4 {
-  font-size: 16px;
-  font-weight: 600;
+h4,
+.h4 {
+  font-size: 1.25rem;
 }
 
-h5 {
-  font-size: 14px;
-  font-weight: 600;
+h5,
+.h5 {
+  font-size: 1rem;
 }
 
-h6 {
-  font-size: 12px;
-  font-weight: 600;
+h6,
+.h6 {
+  font-size: 0.85rem;
+}
+
+h4
+h5,
+h6,
+.h4
+.h5,
+.h6 {
+  font-family: var(--nunito-sans), var(--system-fonts);
+  font-weight: 800;
 }
 
 p {
@@ -531,6 +631,17 @@ pre {
   margin-top: 0;
   margin-bottom: 0;
   font-size: 12px;
+}
+
+
+/** Customization
+ *  Use Cascadia Mono as the preferred mono font.
+ */
+code,
+kbd,
+samp,
+pre {
+  font-family: var(--cascadia-mono), var(--system-mono-fonts);
 }
 
 /* Borders */
@@ -1425,59 +1536,6 @@ pre {
   padding-bottom: 40px;
 }
 
-/* Responsive headings */
-
-.h1 {
-  font-size: 26px;
-}
-
-@media (min-width: 768px) {
-  .h1 {
-    font-size: 32px;
-  }
-}
-
-.h2 {
-  font-size: 22px;
-}
-
-@media (min-width: 768px) {
-  .h2 {
-    font-size: 24px;
-  }
-}
-
-.h3 {
-  font-size: 18px;
-}
-
-@media (min-width: 768px) {
-  .h3 {
-    font-size: 20px;
-  }
-}
-
-.h4 {
-  font-size: 16px;
-}
-
-.h5 {
-  font-size: 14px;
-}
-
-.h6 {
-  font-size: 12px;
-}
-
-.h1,
-.h2,
-.h3,
-.h4,
-.h5,
-.h6 {
-  font-weight: 600;
-}
-
 /* Responsive fonts */
 
 .f1 {
@@ -1816,7 +1874,7 @@ pre {
 }
 
 .markdown-body hr {
-  height: 0.25em;
+  height: 0.25rem;
   padding: 0;
   margin: 24px 0;
   background-color: var(--border-color-default);
@@ -1824,9 +1882,9 @@ pre {
 }
 
 .markdown-body blockquote {
-  padding: 0.4em 1em;
+  padding: 0.4rem 1rem;
   color: var(--text-color-default);
-  border-left: 0.25em solid var(--border-color-muted);
+  border-left: 0.25rem solid var(--border-color-muted);
   background-color: var(--background-color-subtle);
   border-top-right-radius: 3px;
   border-bottom-right-radius: 3px;
@@ -1868,7 +1926,6 @@ pre {
 .markdown-body h6 {
   margin-top: 24px;
   margin-bottom: 16px;
-  font-weight: 600;
   line-height: 1.25;
 }
 
@@ -1885,32 +1942,6 @@ pre {
 .markdown-body h6 tt,
 .markdown-body h6 code {
   font-size: inherit;
-}
-
-.markdown-body h1 {
-  font-size: 2.25em;
-}
-
-.markdown-body h2 {
-  padding-bottom: 0.3em;
-  font-size: 1.75em;
-  border-bottom: 1px solid var(--border-color-muted);
-}
-
-.markdown-body h3 {
-  font-size: 1.5em;
-}
-
-.markdown-body h4 {
-  font-size: 1.25em;
-}
-
-.markdown-body h5 {
-  font-size: 1em;
-}
-
-.markdown-body h6 {
-  font-size: 0.85em;
 }
 
 .markdown-body ul,
@@ -1951,7 +1982,7 @@ pre {
 .markdown-body dl dt {
   padding: 0;
   margin-top: 16px;
-  font-size: 1em;
+  font-size: 1rem;
   font-style: italic;
   font-weight: 600;
 }
