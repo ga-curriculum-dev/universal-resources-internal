@@ -554,7 +554,7 @@ h1,
 h2,
 .h2 {
   padding-bottom: 0.3em;
-  font-size: 1.75rem;
+  font-size: 1.95rem;
   border-bottom: 1px solid var(--border-color-muted);
   font-family: var(--barlow-condensed-bold), var(--system-fonts);
 }
