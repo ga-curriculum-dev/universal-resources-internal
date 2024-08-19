@@ -470,6 +470,7 @@ function buildFooter() {
 }
 
 function getMinMainHeight() {
+  if (!mainEl) return
   mainEl.style.minHeight = courseConfig.isHeaderShown
     ? "calc(100dvh - 90px - 64px)"
     : "calc(100dvh - 40px - 64px)"
