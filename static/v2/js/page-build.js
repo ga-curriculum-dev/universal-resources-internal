@@ -197,8 +197,8 @@ buildPage()
 /* --------------------------------- Header --------------------------------- */
 
 function buildHeader() {
+  const tempHeader = document.getElementById("tc-header-temp")
   if (!courseConfig.isHeaderShown) {
-    const tempHeader = document.getElementById("tc-header-temp")
     if (!tempHeader) return
     tempHeader.remove()
     return
@@ -211,7 +211,9 @@ function buildHeader() {
   buildSettings()
   pageEls.subNavContainer.appendChild(pageEls.subNav)
   pageEls.header.appendChild(pageEls.subNavContainer)
-  document.getElementById("tc-header-temp").remove()
+  if (tempHeader) {
+    tempHeader.remove()
+  }
   document.body.prepend(pageEls.header)
 }
 
