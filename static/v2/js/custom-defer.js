@@ -20,7 +20,9 @@ enable navigation between microlessons.
 */
 if (courseConfig?.isHeaderShown) {
   pageEls.navPanelButton.addEventListener('click', handleToggleSubNav)
-  mainEl.addEventListener("click", handleInferredNavClose)
+  if (mainEl) {
+    mainEl.addEventListener("click", handleInferredNavClose)
+  }
   document.body.addEventListener("keyup", handleInferredNavClose)
 }
 
