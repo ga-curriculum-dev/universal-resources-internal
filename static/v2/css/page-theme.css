@@ -1945,7 +1945,7 @@ pre {
 .markdown-body h5 code,
 .markdown-body h6 tt,
 .markdown-body h6 code {
-  font-size: inherit;
+  font-size: 85%;
 }
 
 .markdown-body ul,
