@@ -22,6 +22,7 @@ const subNavItemsContainerEl = document.createElement("div")
 // Get cached element references
 
 const mainEl = document.querySelector("main")
+const tempHeader = document.getElementById("tc-header-temp")
 
 /*
 Attributes by element
@@ -181,7 +182,7 @@ const clockIconPathAttrs = [
 
 function buildPage() {
   if (!config) {
-    document.getElementById("tc-header-temp").remove()
+    if (tempHeader) tempHeader.remove()
     console.log("No config file for this module is present.")
     return
   }
@@ -197,10 +198,9 @@ buildPage()
 /* --------------------------------- Header --------------------------------- */
 
 function buildHeader() {
-  const tempHeader = document.getElementById("tc-header-temp")
+  
   if (!courseConfig.isHeaderShown) {
-    if (!tempHeader) return
-    tempHeader.remove()
+    if (tempHeader) tempHeader.remove()
     return
   }
   pageEls.header = createElWithAttrs("header", headerElAttrs)

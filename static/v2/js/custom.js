@@ -20,9 +20,16 @@ function addCodeBlockHighlighting() {
 }
 
 function addHeroLogo() {
-  const h1El = document.querySelector("h1")
   const mainEl = document.querySelector("main")
-  if (!h1El || !mainEl) return
+  const h1El = document.querySelector("h1")
+  
+  if (!mainEl) {
+    console.log("Document has no <main> element. Check the HTML template.");
+  }
+  if (!h1El) {
+    console.log("Document has no <h1>. All documents must have an <h1>.")
+    return
+  }
 
   const newH1El = h1El.cloneNode(true)
   const heroContainerEl = document.createElement("div")
