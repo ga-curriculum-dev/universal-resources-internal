@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function (event) {
+document.addEventListener('DOMContentLoaded', function () {
   addCodeBlockHighlighting()
   addHeroLogo()
   attachFilePathsToCodeBlocks()
@@ -21,7 +21,8 @@ function addCodeBlockHighlighting() {
 
 function addHeroLogo() {
   const h1El = document.querySelector("h1")
-  if (!h1El) return
+  const mainEl = document.querySelector("main")
+  if (!h1El || !mainEl) return
 
   const newH1El = h1El.cloneNode(true)
   const heroContainerEl = document.createElement("div")
@@ -40,7 +41,7 @@ function addHeroLogo() {
   heroContainerEl.appendChild(heroLogoContainerEl)
   heroContainerEl.appendChild(newH1El)
   h1El.remove()
-  document.querySelector("main").prepend(heroContainerEl)
+  mainEl.prepend(heroContainerEl)
 }
 
 function attachFilePathsToCodeBlocks() {
@@ -63,6 +64,9 @@ function attachFilePathsToCodeBlocks() {
 }
 
 function addMediumZoom() {
+  const mainEl = document.querySelector("main")
+  if (!mainEl) return
+
   // mediumZoom function is in in medium-zoom.js
   mediumZoom(document.querySelectorAll("main img:not(.no-zoom)"), {
     margin: 24,

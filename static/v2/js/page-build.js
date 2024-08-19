@@ -198,7 +198,9 @@ buildPage()
 
 function buildHeader() {
   if (!courseConfig.isHeaderShown) {
-    document.getElementById("tc-header-temp").remove()
+    const tempHeader = document.getElementById("tc-header-temp")
+    if (!tempHeader) return
+    tempHeader.remove()
     return
   }
   pageEls.header = createElWithAttrs("header", headerElAttrs)
