@@ -277,9 +277,9 @@ function buildHomeLink() {
 function buildMicrolessonLinks() {
   if (!courseConfig.isHeaderMicrolessonNavShown) return
 
-  const contentHeadingEl = createElWithAttrs("h2", subNavHeadingElAttrs)
+  const contentHeadingEl = createElWithAttrs("h3", subNavHeadingElAttrs)
   contentHeadingEl.textContent = "Content"
-  const levelUpContentHeadingEl = createElWithAttrs("h2", subNavHeadingElAttrs)
+  const levelUpContentHeadingEl = createElWithAttrs("h3", subNavHeadingElAttrs)
   levelUpContentHeadingEl.textContent = "Level Up content 🚀"
 
   const contentUlEl = createElWithAttrs("ul", subNavUlElAttrs)
@@ -349,7 +349,6 @@ function buildSettings() {
   if (!courseConfig.isHeaderNavSettingsShown) return
 
   const subNavSettingsContainerEl = document.createElement("div")
-  const settingsHeadingEl = createElWithAttrs("h2", subNavHeadingElAttrs)
   const settingsBtnContainerEl = createElWithAttrs(
     "div",
     settingsBtnContainerElAttrs
@@ -380,7 +379,6 @@ function buildSettings() {
     settingsBtnContainerEl.appendChild(pageEls.darkModeButton)
   }
 
-  subNavSettingsContainerEl.appendChild(settingsHeadingEl)
   subNavSettingsContainerEl.appendChild(settingsBtnContainerEl)
 
   pageEls.subNav.appendChild(subNavSettingsContainerEl)
