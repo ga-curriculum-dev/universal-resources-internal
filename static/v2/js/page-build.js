@@ -292,7 +292,7 @@ function buildMicrolessonLinks() {
     liEl.setAttribute("class", "f4")
 
     // Create the base link
-    const baseLinkHref = `/${config.org.name}/${config.repo.name}/${ml.dirName}`
+    const baseLinkHref = `/${config.org.name}/${config.repo.name}/${ml.dirName}/`
     liEl.appendChild(
       createNavAnchorEl(idx, currentMlIdx, baseLinkHref, ml.friendlyName)
     )
@@ -404,7 +404,7 @@ function buildFooter() {
     const backNavLgElAttrs = [
       ["id", "tc-left-nav-lg"],
       ["class", "f4 text-bold no-underline"],
-      ["href", `/${config.org.name}/${config.repo.name}/${prevMl.dirName}`],
+      ["href", `/${config.org.name}/${config.repo.name}/${prevMl.dirName}/`],
     ]
     const backNavLgEl = createElWithAttrs("a", backNavLgElAttrs)
     backNavLgEl.textContent = `< ${prevMl.friendlyName}`
@@ -412,7 +412,7 @@ function buildFooter() {
     const backNavSmElAttrs = [
       ["id", "tc-left-nav-sm"],
       ["class", "f4 text-bold no-underline"],
-      ["href", `/${config.org.name}/${config.repo.name}/${prevMl.dirName}`],
+      ["href", `/${config.org.name}/${config.repo.name}/${prevMl.dirName}/`],
     ]
     const backNavSmEl = createElWithAttrs("a", backNavSmElAttrs)
     backNavSmEl.textContent = "< Previous"
@@ -441,7 +441,7 @@ function buildFooter() {
     const nextNavElLgAttrs = [
       ["id", "tc-right-nav-lg"],
       ["class", "f4 text-bold no-underline"],
-      ["href", `/${config.org.name}/${config.repo.name}/${nextMl.dirName}`],
+      ["href", `/${config.org.name}/${config.repo.name}/${nextMl.dirName}/`],
     ]
     const nextNavLgEl = createElWithAttrs("a", nextNavElLgAttrs)
     nextNavLgEl.textContent = `${nextMl.friendlyName} >`
@@ -449,7 +449,7 @@ function buildFooter() {
     const nextNavElSmAttrs = [
       ["id", "tc-right-nav-sm"],
       ["class", "f4 text-bold no-underline"],
-      ["href", `/${config.org.name}/${config.repo.name}/${nextMl.dirName}`],
+      ["href", `/${config.org.name}/${config.repo.name}/${nextMl.dirName}/`],
     ]
     const nextNavSmEl = createElWithAttrs("a", nextNavElSmAttrs)
     nextNavSmEl.textContent = "Next >"

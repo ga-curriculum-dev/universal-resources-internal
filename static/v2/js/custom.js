@@ -1,11 +1,17 @@
-document.addEventListener('DOMContentLoaded', function () {
+if (document.readyState === "loading") {
+  document.addEventListener('DOMContentLoaded', buildPage)
+} else {
+  buildPage();
+}
+
+function buildPage() {
   addCodeBlockHighlighting()
   addHeroLogo()
   attachFilePathsToCodeBlocks()
   addMediumZoom()
   setLinkAttrs()
   addAnchors()
-});
+};
 
 function addCodeBlockHighlighting() {
   /*
