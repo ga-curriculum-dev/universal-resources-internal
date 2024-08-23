@@ -108,10 +108,18 @@ class Course {
 
   /*
     Set isHeaderMicrolessonNavShown to false to hide links to other 
-    microlessons in a module inside the header. Other header navigation 
-    components will not be disabled.
+    microlessons in a module inside the header. This also hides the links
+    to video content for microlessons. Other header navigation components will
+    not be disabled.
   */
   isHeaderMicrolessonNavShown: Boolean = true
+
+  /*
+    Set isHeaderMicrolessonVideoLinkShown to false to hide links to video
+    content for microlessons in a module inside the header. Other header 
+    navigation components will not be disabled.
+  */
+  isHeaderMicrolessonVideoLinkShown: Boolean = true
 
   /*
     Set isHeaderNavSettingsShown to false to prevent users from manually 

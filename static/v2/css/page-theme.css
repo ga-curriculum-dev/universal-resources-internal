@@ -386,6 +386,7 @@ button,
 [type="reset"],
 [type="submit"],
 [role="button"] {
+  appearance: button;
   -webkit-appearance: button; /* 1 */
   cursor: pointer;
 }
@@ -2111,13 +2112,17 @@ pre {
   border-color: var(--border-color-attention);
 }
 
+.markdown-body blockquote.knowledge-check {
+  border-color: var(--knowledge-check-highlight-color);
+}
+
 .markdown-body blockquote.warning {
   border-color: var(--border-color-warning);
 }
 
 .markdown-body blockquote.extreme-warning {
-  color: var(--text-color-on-bold-bg);
-  border-color: var(--border-color-default);
+  color: var(--black);
+  border-color: var(--background-color-warning);
   background-color: var(--background-color-warning);
   font-weight: 600;
 }
@@ -2500,17 +2505,18 @@ to these types of links.
 
 /* ! Important! Read this before working with the activity banners below! */
 /* 
-    The `fill` below must be adjusted manually when there are color changes to 
-    this banner.
+  The `fill` below must be adjusted manually when there are color changes to 
+  this banner.
 
-    IMPORTANT: the `fill`'s value starts with `%23` - this is the URL encoding 
-    for the # character - do not remove or change this.For example, if 
-    `fill='%239740b5'` then the actual hex color is 9740B5 - that is what you 
-    will want to modify.
+  IMPORTANT: the `fill`'s value starts with `%23` - this is the URL encoding 
+  for the # character - do not remove or change this.For example, if 
+  `fill='%239740b5'` then the actual hex color is 9740B5 - that is what you 
+  will want to modify.
 
-    Unfortunately, this value cannot adjust between light and dark mode - use 
-    the light mode color as a sensible default.
-  */
+  Unfortunately, this value cannot adjust between light and dark mode without
+  doubling up this already extensive code - use the light mode color as a 
+  sensible default.
+*/
 
 .activity.solo-exercise > .container,
 .activity.partner-exercise > .container,

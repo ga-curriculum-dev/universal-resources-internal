@@ -297,8 +297,12 @@ function buildMicrolessonLinks() {
       createNavAnchorEl(idx, currentMlIdx, baseLinkHref, ml.friendlyName)
     )
 
-    // If microlesson has a video attach a link to it
-    if (ml.videoUrl) {
+    // If microlesson has a video attach a link to it unless explicitly 
+    // configured to not be shown
+    if (
+      ml.videoUrl && 
+      !(courseConfig.isHeaderMicrolessonVideoLinkShown === false)
+    ) {
       const content = document.createTextNode(" - ")
       liEl.appendChild(content)
       liEl.appendChild(
