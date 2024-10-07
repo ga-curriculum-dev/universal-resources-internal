@@ -1873,7 +1873,8 @@ pre {
 .markdown-body ol,
 .markdown-body dl,
 .markdown-body table,
-.markdown-body pre {
+.markdown-body pre
+.markdown-body figure {
   margin-top: 0;
   margin-bottom: 16px;
 }
@@ -1886,7 +1887,8 @@ pre {
   border: 0;
 }
 
-.markdown-body blockquote {
+.markdown-body blockquote:not(.markdown-body blockquote.quote),
+.markdown-body .figquote {
   padding: 0.4rem 1rem;
   color: var(--text-color-default);
   border-left: 0.25rem solid var(--border-color-muted);
@@ -1894,6 +1896,15 @@ pre {
   border-top-right-radius: 3px;
   border-bottom-right-radius: 3px;
   font-size: 16.5px;
+}
+
+.markdown-body .figquote > blockquote {
+  margin-bottom: 0
+}
+
+.markdown-body .figquote > figcaption {
+  text-align: right;
+  font-style: italic;
 }
 
 .markdown-body blockquote > :first-child {

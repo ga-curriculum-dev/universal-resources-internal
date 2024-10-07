@@ -190,6 +190,7 @@ function buildPage() {
   buildFooter()
   getMinMainHeight()
   addActivityBanners()
+  transformQuotes()
   addTimedSections()
 }
 
@@ -568,6 +569,36 @@ function placeBannerInDom(bannerEls) {
   bannerEls.ogTitleEl.remove()
   bannerEls.ogMinutesEl.remove()
   bannerEls.activityEl.appendChild(bannerEls.containerEl)
+}
+
+/* --------------------------------- Quotes --------------------------------- */
+
+function transformQuotes() {
+  const quoteEls = document.querySelectorAll("blockquote.quote")
+
+  quoteEls.forEach((quoteEl) => {
+    const finalQuoteEl = buildQuoteEl(quoteEl)
+    quoteEl.replaceWith(finalQuoteEl)
+  })
+}
+
+function buildQuoteEl(el) {
+  const figureEl = document.createElement("figure")
+  const blockquoteEl = document.createElement("blockquote")
+  const figcaptionEl = document.createElement("figcaption")
+
+  const personEl = el.querySelector("span")
+  figcaptionEl.textContent = personEl.textContent
+  personEl.remove()
+  blockquoteEl.textContent = el.textContent
+
+  figureEl.classList.add("figquote")
+  blockquoteEl.classList.add("quote")
+
+  figureEl.appendChild(blockquoteEl)
+  figureEl.appendChild(figcaptionEl)
+
+  return figureEl
 }
 
 /* ----------------------------- Timed sections ----------------------------- */
