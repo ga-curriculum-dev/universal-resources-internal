@@ -588,7 +588,7 @@ function buildQuoteEl(el) {
   const figcaptionEl = document.createElement("figcaption")
 
   const personEl = el.querySelector("span")
-  figcaptionEl.textContent = personEl.textContent
+  figcaptionEl.textContent = `— ${personEl.textContent}`
   personEl.remove()
   blockquoteEl.textContent = el.textContent
 
