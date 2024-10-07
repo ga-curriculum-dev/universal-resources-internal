@@ -1887,7 +1887,11 @@ pre {
   border: 0;
 }
 
-.markdown-body blockquote:not(.markdown-body blockquote.quote),
+/** Customization
+ *  Add .fiquote class
+ */
+
+.markdown-body blockquote,
 .markdown-body .figquote {
   padding: 0.4rem 1rem;
   color: var(--text-color-default);
@@ -2117,6 +2121,20 @@ pre {
 
 .markdown-body code.filepath {
   color: var(--text-color-file);
+}
+
+/** 
+ * Would really like to :not() this, but that increases the specificity of the 
+ * base rule and makes us have to !important all the color rules for blockquotes
+ * which we'd prefer not to do. Just unsetting things here instead.
+ */
+
+.markdown-body blockquote.quote {
+  padding: unset;
+  border-left: unset;
+  background-color: unset;
+  border-top-right-radius: unset;
+  border-bottom-right-radius: unset;
 }
 
 .markdown-body blockquote.attention {
