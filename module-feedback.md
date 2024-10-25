@@ -17,7 +17,7 @@ Thank you for helping us improve our curriculum! To enable us to address your fe
 <br>
 <br>
 
-## Feedback Template (copy and paste into form)
+## Feedback Template
 
 **Product/Course Name:**  
 \[ Your answer here \]
