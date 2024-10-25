@@ -17,7 +17,7 @@ Thank you for helping us improve our curriculum! To enable us to address your fe
 <br>
 <br>
 
-## Feedback Template
+## Feedback Template (copy and paste into form)
 
 **Product/Course Name:**  
 \[ Your answer here \]
@@ -29,13 +29,9 @@ Thank you for helping us improve our curriculum! To enable us to address your fe
 \[ Insert link(s) here \]
 
 **Feedback Type:**  
-\[ Select one or more \]
+\[ Your answer here \]
 
-- Factual Error
-- Clarity Issue
-- Structure
-- Formatting
-- Additional Content Suggestion
+_Ex: Factual Error, Clarity Issue, Structure, Formatting, Additional Content Suggestion_
 
 **Severity of the Issue (1-5):**  
 \[ Your rating here \]
@@ -44,11 +40,9 @@ Thank you for helping us improve our curriculum! To enable us to address your fe
 - **5** - Major issue (hinders comprehension or key concepts)
 
 **Content Delivery Method:**  
-\[ Select one \]
+\[ Your answer here \]
 
-- Live Class
-- Video Lesson
-- Independent Learning
+_Ex: Live Class, Video Lesson, Independent Learning_
 
 **Solution Provided (if applicable):**  
 \[ Describe any workaround or explanation you provided to students and its effectiveness \]
