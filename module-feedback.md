@@ -1,31 +1,59 @@
-# Module Feedback
+# Module Feedback Instructions
 
+Thank you for helping us improve our curriculum! To enable us to address your feedback quickly, please follow the steps below.
 
-Thank you for taking the time to review and provide feedback on our curriculum modules. Your insights are critical in our continuous effort to improve.
+1. **Copy the Feedback Template** (below).
 
-To ensure timely and effective action on your feedback, we utilize an intake form to collect and process your requests. [You'll find the link to this intake form here.](https://generalassembly.atlassian.net/servicedesk/customer/portal/16/group/89/create/256) For consistency and efficiency, we've provided a template you can copy and paste directly into the form's main description field.
+2. **Open the Product Intake Form**:
 
+   [**👉 Submit Your Feedback Here**](https://generalassembly.atlassian.net/servicedesk/customer/portal/16/group/89/create/256)
 
-The following helps us locate and address issues faster: 
+3. **Paste the Template** into the main **_description_** field of the form.
 
+4. **Fill Out the Template** with your information.
 
-Product Name: [ ]
+5. **Submit the Form**.
 
-Module Name: [ ]
+<br>
+<br>
 
-Link to File(s) Containing Issue: [ ]
+## Feedback Template
 
-Feedback Type:  [ ]
- - Is the feedback about a factual error, clarity issue, structure/formatting problem, or a suggestion for additional content?
+**Product/Course Name:**  
+\[ Your answer here \]
 
-Severity of the Issue: [ ]
- - Rate the issue on a scale (e.g., 1-5) where 1 might be "minor issue" and 5 could be "major error affecting student comprehension."
+**Module/Lesson Name:**  
+\[ Your answer here \]
 
-Content Delivery Method:  [ ]
- - Was the content taught live or asynchronously when the issue arose?
+**Link to File(s) Containing Issue:**  
+\[ Insert link(s) here \]
 
-Solution Provided:  [ ]
- - If you offered a solution to students regarding this issue, what was it, and what was the outcome?
+**Feedback Type:**  
+\[ Select one or more \]
 
-Product Team Outreach:  [ ]
- - Would you like a member of the product team to contact you to discuss a potential solution?
+- Factual Error
+- Clarity Issue
+- Structure
+- Formatting
+- Additional Content Suggestion
+
+**Severity of the Issue (1-5):**  
+\[ Your rating here \]
+
+- **1** - Minor issue (does not significantly impact learning)
+- **5** - Major issue (hinders comprehension or key concepts)
+
+**Content Delivery Method:**  
+\[ Select one \]
+
+- Live Class
+- Video Lesson
+- Independent Learning
+
+**Solution Provided (if applicable):**  
+\[ Describe any workaround or explanation you provided to students and its effectiveness \]
+
+**Product Team Outreach Needed?:**  
+\[ Yes / No \]
+
+---
