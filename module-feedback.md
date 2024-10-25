@@ -15,7 +15,6 @@ Thank you for helping us improve our curriculum! To enable us to address your fe
 5. **Submit the Form**.
 
 <br>
-<br>
 
 ## Feedback Template
 
