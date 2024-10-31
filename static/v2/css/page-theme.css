@@ -1873,7 +1873,7 @@ pre {
 .markdown-body ol,
 .markdown-body dl,
 .markdown-body table,
-.markdown-body pre
+.markdown-body pre,
 .markdown-body figure {
   margin-top: 0;
   margin-bottom: 16px;
