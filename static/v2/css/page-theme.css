@@ -2383,9 +2383,13 @@ to these types of links.
 }
 
 #hero code {
-  color: #56d364;
+  color: var(--text-color-inline-code);
   padding: 2px 4px;
   margin: 0 1px;
+}
+
+#hero code.filepath {
+  color: var(--text-color-file);
 }
 
 /* -------------------- Activity Banners / Timed section -------------------- */
