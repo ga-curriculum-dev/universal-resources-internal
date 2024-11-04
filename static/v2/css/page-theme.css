@@ -1656,7 +1656,7 @@ pre {
 /* Containers */
 
 .container {
-  width: 980px;
+  max-width: 980px;
   margin-right: auto;
   margin-left: auto;
 }

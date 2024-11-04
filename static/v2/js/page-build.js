@@ -270,7 +270,7 @@ function buildHomeLink() {
   const homeHeadingEl = createElWithAttrs("h2", subNavHomeHeadingElAttrs)
 
   const homeHeadingLinkEl = createElWithAttrs("a", homeHeadingLinkElAttrs)
-  homeHeadingLinkEl.textContent = config.repo.friendlyName
+  homeHeadingLinkEl.innerHTML = config.repo.friendlyName
   homeHeadingEl.appendChild(homeHeadingLinkEl)
   subNavItemsContainerEl.appendChild(homeHeadingEl)
 }
@@ -338,7 +338,7 @@ function createNavAnchorEl(idx, currentMlIdx, href, textContent) {
   ]
   const anchorEl = createElWithAttrs("a", anchorElAttrs)
   if (!href.startsWith("/")) anchorEl.setAttribute("target", "_blank")
-  anchorEl.textContent = textContent
+  anchorEl.innerHTML = textContent
 
   // apply styling
   if (idx < currentMlIdx) {
