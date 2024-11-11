@@ -44,6 +44,26 @@ class Repo {
     "Decoupled Project"|
     "Decoupled Group Project"|
     "Documentation"
+  
+  /*
+    A summary of the content in the module.
+  */
+  about?: String
+
+  /*
+    The URL to the Starter Code repo used by this module
+  */
+  starterCode?: String
+
+  /*
+    The URL to the Solution Code repo used by this module
+  */
+  solutionCode?: String
+
+  /*
+    The URL to the deployed site for this module
+  */
+  deployedSite?: String
 }
 
 // Do not modify this class. 
@@ -333,9 +353,29 @@ class Microlesson {
   type: "Content"|"Level Up content"
 
   /*
+    Skills delivered in this microlesson.
+  */
+  skill?: String
+
+  /*
+    The microlesson's learning objective.
+  */
+  learningObjective?: String
+
+  /*
     A link to the video content that corresponds to this microlesson.
   */
   videoUrl: String = ""
+
+  /*
+    The length of the video provided in the videoURL in minutes as a whole number. Round up to the nearest whole number.
+  */
+  videoLengthInMinutes?: Int
+
+  /*
+    The estimated amount of time it will take to deliver this content in a live setting. Round to the nearest 5 minutes.
+  */
+  estimatedDeliveryTimeInMinutes?: Int
 }
 
 org: Org
