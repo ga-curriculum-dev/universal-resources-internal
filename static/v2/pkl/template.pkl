@@ -81,7 +81,17 @@ class Course {
     the module is most likely to be used in.
   */
   name: String
+
+  /*
+    An acronym for the course, if it has one.
+  */
+  courseAcronym: String = ""
   
+  /*
+    The full name for the course.
+  */
+  courseFullName: String = ""
+
   /*
     The full URL for the logo used for this course.
   */
