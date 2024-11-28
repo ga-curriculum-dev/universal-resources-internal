@@ -412,7 +412,7 @@ function buildFooter() {
       ["href", `/${config.org.name}/${config.repo.name}/${prevMl.dirName}/`],
     ]
     const backNavLgEl = createElWithAttrs("a", backNavLgElAttrs)
-    backNavLgEl.textContent = `< ${prevMl.friendlyName}`
+    backNavLgEl.innerHTML = `< ${prevMl.friendlyName}`
 
     const backNavSmElAttrs = [
       ["id", "tc-left-nav-sm"],
@@ -449,7 +449,7 @@ function buildFooter() {
       ["href", `/${config.org.name}/${config.repo.name}/${nextMl.dirName}/`],
     ]
     const nextNavLgEl = createElWithAttrs("a", nextNavElLgAttrs)
-    nextNavLgEl.textContent = `${nextMl.friendlyName} >`
+    nextNavLgEl.innerHTML = `${nextMl.friendlyName} >`
 
     const nextNavElSmAttrs = [
       ["id", "tc-right-nav-sm"],

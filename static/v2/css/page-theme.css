@@ -2264,6 +2264,15 @@ pre {
   color: var(--text-color-on-emphasis);
 }
 
+#tc-sub-nav code {
+  padding: 0.2em 0.4em;
+  margin: 0;
+  font-size: 90%;
+  background-color: var(--background-color-inline-code);
+  color: var(--text-color-inline-code);
+  border-radius: 3px;
+}
+
 #tc-sub-nav button:hover {
   background-color: var(--background-color-subtle-hover);
 }
@@ -2278,12 +2287,14 @@ pre {
 }
 
 #tc-sub-nav a.current,
-#tc-sub-nav li.current {
+#tc-sub-nav li.current,
+#tc-sub-nav a.current code {
   color: var(--text-color-accent);
 }
 
 #tc-sub-nav a.complete:hover,
-#tc-sub-nav a.current:hover {
+#tc-sub-nav a.current:hover,
+#tc-sub-nav a.current:hover code {
   color: var(--text-color-accent);
 }
 
@@ -2299,8 +2310,18 @@ pre {
   color: var(--text-color-on-emphasis);
 }
 
+#tc-footer-items a code {
+  padding: 0.2em 0.4em;
+  margin: 0;
+  font-size: 90%;
+  background-color: var(--background-color-inline-code);
+  color: var(--text-color-inline-code);
+  border-radius: 3px;
+}
+
 #tc-footer-items a:hover,
-#tc-footer-legal a:hover {
+#tc-footer-legal a:hover,
+#tc-footer-items a:hover code {
   color: var(--text-color-accent);
 }
 
