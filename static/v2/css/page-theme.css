@@ -118,7 +118,7 @@ html {
   --background-color-subtle: #f6f8fa;
   --background-color-subtle-hover: #eff2f5;
   --background-color-callout: #eff2f5;
-  --background-color-code-block: #151B23;
+  --background-color-code-block: #010409;
   --background-color-inline-code: #1b1f230d;
   --background-color-emphasis: #24292f;
   --background-color-nav: #24292f;
@@ -184,8 +184,8 @@ html.dark {
   --body-background-color: #0d1117;
   --background-color-subtle: #161b22;
   --background-color-subtle-hover: #21262d;
-  --background-color-callout: #010409;
-  --background-color-code-block: #151b23;
+  --background-color-callout: #151b23;
+  --background-color-code-block: #010409;
   --background-color-inline-code: #f5f1ed20;
   --background-color-nav: #24292f;
   --background-color-emphasis: #6e7681;
