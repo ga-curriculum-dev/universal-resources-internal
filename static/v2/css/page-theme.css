@@ -116,8 +116,9 @@ html {
   /* Backgrounds */
   --body-background-color: #fff;
   --background-color-subtle: #f6f8fa;
-  --background-color-subtle-hover: #eaeef2;
-  --background-color-code-block: #0c0c0c;
+  --background-color-subtle-hover: #eff2f5;
+  --background-color-callout: #eff2f5;
+  --background-color-code-block: #151B23;
   --background-color-inline-code: #1b1f230d;
   --background-color-emphasis: #24292f;
   --background-color-nav: #24292f;
@@ -183,7 +184,8 @@ html.dark {
   --body-background-color: #0d1117;
   --background-color-subtle: #161b22;
   --background-color-subtle-hover: #21262d;
-  --background-color-code-block: #1f1f25;
+  --background-color-callout: #010409;
+  --background-color-code-block: #151b23;
   --background-color-inline-code: #f5f1ed20;
   --background-color-nav: #24292f;
   --background-color-emphasis: #6e7681;
@@ -1896,7 +1898,7 @@ pre {
   padding: 0.4rem 1rem;
   color: var(--text-color-default);
   border-left: 0.25rem solid var(--border-color-muted);
-  background-color: var(--background-color-subtle);
+  background-color: var(--background-color-callout);
   border-top-right-radius: 3px;
   border-bottom-right-radius: 3px;
   font-size: 16.5px;

@@ -9,6 +9,7 @@
   border: 1px solid rgba(255, 255, 255, 0.3);
   background-color: transparent;
   font-size: 14px;
+  transition: ease .25s;
 }
 
 .hljs-copy-button:hover {
@@ -66,7 +67,6 @@ hue-6-2: #e6c07b
  */
 .hljs {
   color: #abb2bf;
-  background: #0c0c0e;
 }
 
 /** Customization
