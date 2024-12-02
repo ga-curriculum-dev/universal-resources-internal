@@ -2172,6 +2172,10 @@ pre {
   height: 50px;
 }
 
+#tc-nav {
+  height: 100%;
+}
+
 #tc-sub-nav-button {
   background: none;
   color: var(--text-color-on-emphasis);
@@ -2195,6 +2199,10 @@ pre {
   background: var(--background-color-nav);
   color: var(--text-color-on-emphasis);
   height: 55px;
+}
+
+#tc-footer-items {
+  height: 100%
 }
 
 #tc-footer-right,
