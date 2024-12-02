@@ -2161,6 +2161,7 @@ pre {
 #tc-header {
   background: var(--background-color-nav);
   color: var(--text-color-on-emphasis);
+  height: 50px;
 }
 
 #tc-header-temp {
@@ -2168,10 +2169,6 @@ pre {
   color: var(--text-color-on-emphasis);
   position: sticky;
   top: 0;
-  height: 50px;
-}
-
-#tc-nav {
   height: 50px;
 }
 
@@ -2197,9 +2194,6 @@ pre {
 #tc-footer {
   background: var(--background-color-nav);
   color: var(--text-color-on-emphasis);
-}
-
-#tc-footer-items {
   height: 55px;
 }
 
