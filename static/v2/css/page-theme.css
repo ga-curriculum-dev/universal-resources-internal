@@ -2161,7 +2161,7 @@ pre {
 #tc-header {
   background: var(--background-color-nav);
   color: var(--text-color-on-emphasis);
-  height: 50px;
+  min-height: 50px;
 }
 
 #tc-header-temp {
