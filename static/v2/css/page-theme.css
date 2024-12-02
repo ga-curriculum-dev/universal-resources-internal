@@ -2172,7 +2172,7 @@ pre {
 }
 
 #tc-nav {
-  height: 49px;
+  height: 50px;
 }
 
 #tc-sub-nav-button {
@@ -2200,13 +2200,14 @@ pre {
 }
 
 #tc-footer-items {
-  height: 39px;
+  height: 55px;
 }
 
 #tc-footer-right,
 #tc-footer-left {
   flex-grow: 1;
   flex-basis: 0;
+  text-wrap-style: balance;
 }
 
 #tc-left-nav-lg {
@@ -2225,6 +2226,7 @@ pre {
 #tc-footer-right {
   display: flex;
   justify-content: flex-end;
+  text-align: right;
 }
 
 #tc-sub-nav {
@@ -2273,6 +2275,10 @@ pre {
   border-radius: 3px;
 }
 
+#tc-sub-nav code.filepath {
+  color: var(--text-color-file);
+}
+
 #tc-sub-nav button:hover {
   background-color: var(--background-color-subtle-hover);
 }
@@ -2317,6 +2323,10 @@ pre {
   background-color: var(--background-color-inline-code);
   color: var(--text-color-inline-code);
   border-radius: 3px;
+}
+
+#tc-footer-items a code.filepath {
+  color: var(--text-color-file);
 }
 
 #tc-footer-items a:hover,

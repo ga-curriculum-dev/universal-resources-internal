@@ -136,7 +136,7 @@ const footerNextElAttrs = [["id", "tc-footer-right"]]
 
 const legalContainerElAttrs = [
   ["id", "tc-footer-legal"],
-  ["class", "f6 d-flex flex-column flex-items-center"],
+  ["class", "f6 d-flex flex-column flex-items-center px-3"],
 ]
 
 const attributionsElAttrs = [
@@ -474,9 +474,40 @@ function buildFooter() {
 
 function getMinMainHeight() {
   if (!mainEl) return
+
+  // If the header is shown, the height of the `<main>` element should be:
+  //    100 dvh
+  //  -  50 px  (the defined height of `#tc-nav` in page-theme.css)
+  //  -  55 px  (the defined height of the `#tc-footer-items` in page-theme.css)
+  //  -  64 px  (the margin on the y-axis of the `<main>` element defined in 
+  //             each module's `_layouts/default.html` file.)
+  //  in short...
+  //  100dvh - 169px
+
+  // If the header is not shown the above calculation remains the same, just
+  // exclude the height of the `#tc-nav`:
+  //
+  //  100 dvh - 119px
+  
+  // TODO:  Change the margin on the y-axis of the `<main>` element to padding.
+  //        If this were padding instead of margin it wouldn't need to be
+  //        included in this calculation. It currently exists as margin for 
+  //        legacy template reasons. 
+  //        This could be addressed in a future template version update.
+
+  // TODO:  Overall, this is an MVP implementation. 
+  //        In an ideal world I'd refactor this to query for the height of the 
+  //        actual elements instead of what we do here.
+  //        The height of the #tc-nav and #tc-footer-items elements is 
+  //        currently also locked at the heights listed above - ideally these 
+  //        would be min-heights instead. This would allow for their height 
+  //        to grow with their content, as we'd obviously prefer.
+  //        These deficiencies could be addressed WITHOUT requiring a new 
+  //        template update.
+
   mainEl.style.minHeight = courseConfig.isHeaderShown
-    ? "calc(100dvh - 90px - 64px)"
-    : "calc(100dvh - 40px - 64px)"
+    ? "calc(100dvh - 169px)"
+    : "calc(100dvh - 119px)"
 }
 
 /* ---------------------------- Activity Banners ---------------------------- */
