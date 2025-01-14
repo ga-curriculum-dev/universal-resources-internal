@@ -2180,6 +2180,7 @@ pre {
 
 #tc-nav-logo-container {
   display: none;
+  line-height: 32px;
 }
 
 #tc-sub-nav-button {

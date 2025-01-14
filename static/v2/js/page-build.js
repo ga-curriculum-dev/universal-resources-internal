@@ -94,7 +94,7 @@ const navLogoContainerElAttrs = [
 
 const headerGaLogoElAttrs = [
   ["id", "tc-header-ga-logo"],
-  ["class", "mr-2"],
+  ["class", "mr-3"],
   ["src", "https://pages.git.generalassemb.ly/modular-curriculum-all-courses/universal-resources-internal/static/v2/assets/hero-logo.png"],
   ["height", "32"],
   ["alt", "GA logo"],
@@ -249,7 +249,7 @@ function buildNav() {
   if (courseConfig.logoUrl) {
     const headerLogoElAttrs = [
       ["id", "tc-header-logo"],
-      ["class", "ml-2"],
+      ["class", "ml-3"],
       ["src", courseConfig.logoUrl],
       ["height", "32"],
       ["alt", "logo"],
