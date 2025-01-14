@@ -87,6 +87,19 @@ const closeIconSvgAttrs = [
   ["viewBox", "0 0 14 14"],
 ]
 
+const navLogoContainerElAttrs = [
+  ["id", "tc-nav-logo-container"],
+  ["class", "ml-5 f2"]
+]
+
+const headerGaLogoElAttrs = [
+  ["id", "tc-header-ga-logo"],
+  ["class", "mr-2"],
+  ["src", "https://pages.git.generalassemb.ly/modular-curriculum-all-courses/universal-resources-internal/static/v2/assets/hero-logo.png"],
+  ["height", "32"],
+  ["alt", "GA logo"],
+]
+
 const subNavContainerElAttrs = [
   ["id", "tc-sub-nav-container"],
   ["class", "d-grid"],
@@ -236,13 +249,18 @@ function buildNav() {
   if (courseConfig.logoUrl) {
     const headerLogoElAttrs = [
       ["id", "tc-header-logo"],
-      ["class", "ml-5"],
+      ["class", "ml-2"],
       ["src", courseConfig.logoUrl],
       ["height", "32"],
       ["alt", "logo"],
     ]
+    const navLogoContainerEl = createElWithAttrs("div", navLogoContainerElAttrs)
+    const gaHeaderLogoEl = createElWithAttrs("img", headerGaLogoElAttrs)
     const headerLogoEl = createElWithAttrs("img", headerLogoElAttrs)
-    navEl.appendChild(headerLogoEl)
+    navLogoContainerEl.appendChild(gaHeaderLogoEl)
+    navLogoContainerEl.append("+")
+    navLogoContainerEl.appendChild(headerLogoEl)
+    navEl.appendChild(navLogoContainerEl)
   }
 
   pageEls.header.appendChild(navEl)

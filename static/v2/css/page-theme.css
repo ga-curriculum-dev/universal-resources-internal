@@ -2178,6 +2178,10 @@ pre {
   height: 49px;
 }
 
+#tc-nav-logo-container {
+  display: none;
+}
+
 #tc-sub-nav-button {
   background: none;
   color: var(--text-color-on-emphasis);
@@ -2369,6 +2373,10 @@ to these types of links.
   #tc-left-nav-lg,
   #tc-right-nav-lg {
     display: block;
+  }
+
+  #tc-nav-logo-container {
+    display: inline-flex;
   }
 }
 
