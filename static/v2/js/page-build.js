@@ -89,13 +89,13 @@ const closeIconSvgAttrs = [
 
 const navLogoContainerElAttrs = [
   ["id", "tc-nav-logo-container"],
-  ["class", "ml-5 f2"]
+  ["class", "f2 text-bold"]
 ]
 
 const headerGaLogoElAttrs = [
   ["id", "tc-header-ga-logo"],
   ["class", "mr-3"],
-  ["src", "https://pages.git.generalassemb.ly/modular-curriculum-all-courses/universal-resources-internal/static/v2/assets/hero-logo.png"],
+  ["src", "https://pages.git.generalassemb.ly/modular-curriculum-all-courses/universal-resources-internal/static/v2/assets/ga-nav-logo.png"],
   ["height", "32"],
   ["alt", "GA logo"],
 ]
