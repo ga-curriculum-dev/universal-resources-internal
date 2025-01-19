@@ -281,7 +281,7 @@ function buildHomeLink() {
     ["class", "no-underline"],
     [
       "href",
-      `/${config.org.name}/${config.repo.name}/canvas-landing-pages/${courseConfig.name}`,
+      `/${config.org.name}/${config.repo.name}/canvas-landing-pages/${courseConfig.name}.html`,
     ],
   ]
 
