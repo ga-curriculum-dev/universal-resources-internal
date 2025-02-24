@@ -2,4 +2,8 @@
 # universal-resources-internal repo. Unless a later match takes precedence,
 # these owners will be requested for review when anyone opens a pull request.
 
-@DavidStinson @laurenperez-ga
+*                            @DavidStinson @laurenperez-ga
+
+# Also protect the CODEOWNERS file itself
+
+/.github/CODEOWNERS          @DavidStinson @laurenperez-ga
