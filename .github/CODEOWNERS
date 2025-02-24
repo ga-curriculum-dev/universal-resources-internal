@@ -1,0 +1,5 @@
+# Below you will find the default owners for everything in the
+# universal-resources-internal repo. Unless a later match takes precedence,
+# these owners will be requested for review when anyone opens a pull request.
+
+@DavidStinson @laurenperez-ga
