@@ -1,0 +1,27 @@
+.test-button {
+  line-height: 1.5;
+  display: inline-block;
+  position: fixed;
+  font-weight: 500;
+  white-space: nowrap;
+  text-align: center;
+  background-image: none;
+  -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.015);
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.015);
+  cursor: pointer;
+  -webkit-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  height: 48px;
+  padding: 11px 23px;
+  font-size: 16px;
+  border-radius: 4px;
+  color: #707070;
+  background: #fff;
+  border: 1px solid #707070;
+}
