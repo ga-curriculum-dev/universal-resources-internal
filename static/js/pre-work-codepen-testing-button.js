@@ -1,4 +1,4 @@
-// This is the button that allows students to run tests in codepens that are embedded in pre-work exercises.
+// This is the button that allows students to run tests in CodePens that are embedded in pre-work exercises.
 // Do not modify this file.
 // If you need to make changes, please reach out to the Curriculum team.
 
@@ -16,21 +16,34 @@ testToggleButton.style.color = 'white';
 testToggleButton.style['font-family'] = 'Circular,Helvetica,Arial,sans-serif';
 testToggleButton.style.border = 'none';
 document.body.prepend(testToggleButton);
+
 let testResultsShowing = false;
 const testResultsToggle = document.getElementById('test-results-toggle');
+
+// 🔹 Updated event listener with DOM refresh fix
 testResultsToggle.addEventListener('click', (e) => {
   const jasmineWindow = document.getElementsByClassName(
     'jasmine_html-reporter'
   )[0];
+
   if (testResultsShowing) {
     jasmineWindow.style.display = 'none';
     e.target.innerText = 'View Test Results';
   } else {
     jasmineWindow.style.display = 'block';
     e.target.innerText = 'Hide Test Results';
+
+    // 🔹 Force a small DOM update to trigger a reflow (fixes CSS test detection)
+    document.body.style.opacity = '0.99';
+    setTimeout(() => {
+      document.body.style.opacity = '1';
+    }, 50);
   }
+
   testResultsShowing = !testResultsShowing;
 });
+
+// Function to wait for an element to be added to the DOM
 function waitForElm(selector) {
   return new Promise((resolve) => {
     if (document.querySelector(selector)) {
@@ -51,6 +64,7 @@ function waitForElm(selector) {
     });
   });
 }
+
 waitForElm('.jasmine_html-reporter').then((el) => {
   el.style.display = 'none';
 });
