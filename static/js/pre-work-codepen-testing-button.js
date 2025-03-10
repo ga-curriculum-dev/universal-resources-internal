@@ -20,7 +20,7 @@ document.body.prepend(testToggleButton);
 let testResultsShowing = false;
 const testResultsToggle = document.getElementById('test-results-toggle');
 
-// 🔹 Updated event listener with DOM refresh fix
+// Updated event listener with DOM update hack
 testResultsToggle.addEventListener('click', (e) => {
   const jasmineWindow = document.getElementsByClassName(
     'jasmine_html-reporter'
@@ -33,10 +33,14 @@ testResultsToggle.addEventListener('click', (e) => {
     jasmineWindow.style.display = 'block';
     e.target.innerText = 'Hide Test Results';
 
-    // 🔹 Force a small DOM update to trigger a reflow (fixes CSS test detection)
-    document.body.style.opacity = '0.99';
+    // Force a small, invisible DOM update to trigger a re-render
+    const refreshSpan = document.createElement('span');
+    refreshSpan.style.display = 'none'; // Keep it hidden
+    refreshSpan.setAttribute('data-refresh', Date.now()); // Unique value to force reflow
+    document.body.appendChild(refreshSpan);
+
     setTimeout(() => {
-      document.body.style.opacity = '1';
+      document.body.removeChild(refreshSpan);
     }, 50);
   }
 
