@@ -2,73 +2,46 @@
 // Do not modify this file.
 // If you need to make changes, please reach out to the Curriculum team.
 
+// Create the "View Test Results" button
 const testToggleButton = document.createElement('button');
 testToggleButton.innerText = 'View Test Results';
 testToggleButton.id = 'test-results-toggle';
 testToggleButton.classList.add('test-button');
-testToggleButton.style.position = 'fixed';
-testToggleButton.style.bottom = '5px';
-testToggleButton.style.right = '5px';
-testToggleButton.style.height = '3em';
-testToggleButton.style['border-radius'] = '5px';
-testToggleButton.style['background-color'] = '#e41a23';
-testToggleButton.style.color = 'white';
-testToggleButton.style['font-family'] = 'Circular,Helvetica,Arial,sans-serif';
-testToggleButton.style.border = 'none';
+
+// Apply basic styles
+Object.assign(testToggleButton.style, {
+  position: 'fixed',
+  bottom: '5px',
+  right: '5px',
+  height: '3em',
+  borderRadius: '5px',
+  backgroundColor: '#e41a23',
+  color: 'white',
+  fontFamily: 'Circular, Helvetica, Arial, sans-serif',
+  border: 'none'
+});
+
 document.body.prepend(testToggleButton);
 
 let testResultsShowing = false;
-const testResultsToggle = document.getElementById('test-results-toggle');
 
-// Updated event listener with DOM update hack
-testResultsToggle.addEventListener('click', (e) => {
-  const jasmineWindow = document.getElementsByClassName(
-    'jasmine_html-reporter'
-  )[0];
+// Toggle visibility of the Jasmine test results
+testToggleButton.addEventListener('click', () => {
+  const jasmineWindow = document.querySelector('.jasmine_html-reporter');
 
-  if (testResultsShowing) {
-    jasmineWindow.style.display = 'none';
-    e.target.innerText = 'View Test Results';
-  } else {
-    jasmineWindow.style.display = 'block';
-    e.target.innerText = 'Hide Test Results';
-
-    // Force a small, invisible DOM update to trigger a re-render
-    const refreshSpan = document.createElement('span');
-    refreshSpan.style.display = 'none'; // Keep it hidden
-    refreshSpan.setAttribute('data-refresh', Date.now()); // Unique value to force reflow
-    document.body.appendChild(refreshSpan);
-
-    setTimeout(() => {
-      document.body.removeChild(refreshSpan);
-    }, 50);
+  if (jasmineWindow) {
+    testResultsShowing = !testResultsShowing;
+    jasmineWindow.style.display = testResultsShowing ? 'block' : 'none';
+    testToggleButton.innerText = testResultsShowing ? 'Hide Test Results' : 'View Test Results';
   }
 
-  testResultsShowing = !testResultsShowing;
+  if (typeof loadCssTest === 'function') {
+    loadCssTest();
+  }
 });
 
-// Function to wait for an element to be added to the DOM
-function waitForElm(selector) {
-  return new Promise((resolve) => {
-    if (document.querySelector(selector)) {
-      return resolve(document.querySelector(selector));
-    }
-
-    const observer = new MutationObserver((mutations) => {
-      if (document.querySelector(selector)) {
-        observer.disconnect();
-        resolve(document.querySelector(selector));
-      }
-    });
-
-    // If you get "parameter 1 is not of type 'Node'" error, see https://stackoverflow.com/a/77855838/492336
-    observer.observe(document.body, {
-      childList: true,
-      subtree: true,
-    });
-  });
-}
-
-waitForElm('.jasmine_html-reporter').then((el) => {
-  el.style.display = 'none';
+// Hide Jasmine test results initially
+document.addEventListener('DOMContentLoaded', () => {
+  const jasmineWindow = document.querySelector('.jasmine_html-reporter');
+  if (jasmineWindow) jasmineWindow.style.display = 'none';
 });
