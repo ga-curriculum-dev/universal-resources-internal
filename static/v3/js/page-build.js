@@ -95,7 +95,7 @@ const navLogoContainerElAttrs = [
 const headerGaLogoElAttrs = [
   ["id", "tc-header-ga-logo"],
   ["class", "mr-3"],
-  ["src", "https://pages.git.generalassemb.ly/modular-curriculum-all-courses/universal-resources-internal/static/v2/assets/ga-nav-logo.png"],
+  ["src", "https://ga-curriculum-dev.github.io/universal-resources-internal/static/v2/assets/ga-nav-logo.png"],
   ["height", "32"],
   ["alt", "GA logo"],
 ]
@@ -153,7 +153,7 @@ const legalContainerElAttrs = [
 ]
 
 const attributionsElAttrs = [
-  ["href", "https://pages.git.generalassemb.ly/modular-curriculum-all-courses/universal-resources/docs/v2/attributions.html"],
+  ["href", "https://ga-curriculum-dev.github.io/universal-resources/docs/v2/attributions.html"],
   ["target", "blank_"],
   ["class", "f7"],
 ]

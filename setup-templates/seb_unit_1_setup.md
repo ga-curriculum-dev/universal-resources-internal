@@ -18,7 +18,7 @@ Navigate to [GitHub](https://github.com/) and create a new repository named **[t
 Using the `Quick Setup` option, clone your newly created repo into your `~/code/ga/labs` directory with the `git clone` command:
 
 ```bash
-git clone https://git.generalassemb.ly/<your-username>/[tktk-repo-name].git
+git clone https://github.com/<your-username>/[tktk-repo-name].git
 ```
 
 > 🚨 Do not copy the above command. It will not work. Your GitHub username will replace <github-username> (including the < and >) in the URL above.

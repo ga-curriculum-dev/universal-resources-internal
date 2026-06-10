@@ -18,14 +18,14 @@ when necessary.
 /* Barlow */
 @font-face {
   font-family: "Barlow Condensed Bold";
-  src: url("https://pages.git.generalassemb.ly/modular-curriculum-all-courses/universal-resources-internal/static/v2/fonts/barlow-condensed-bold.woff2")format("woff2");
+  src: url("https://ga-curriculum-dev.github.io/universal-resources-internal/static/v2/fonts/barlow-condensed-bold.woff2")format("woff2");
   font-display: swap;
 }
 
 /* Barlow Semi Condensed */
 @font-face {
   font-family: "Barlow Semi Condensed SemiBold";
-  src: url("https://pages.git.generalassemb.ly/modular-curriculum-all-courses/universal-resources-internal/static/v2/fonts/barlow-semi-condensed-semibold.woff2") format("woff2");
+  src: url("https://ga-curriculum-dev.github.io/universal-resources-internal/static/v2/fonts/barlow-semi-condensed-semibold.woff2") format("woff2");
   font-display: swap;
 }
 
@@ -34,7 +34,7 @@ when necessary.
   font-family: "Nunito Sans";
   font-style: normal;
   font-weight: 400;
-  src: url("https://pages.git.generalassemb.ly/modular-curriculum-all-courses/universal-resources-internal/static/v2/fonts/nunito-sans-v15-latin-regular.woff2") format("woff2");
+  src: url("https://ga-curriculum-dev.github.io/universal-resources-internal/static/v2/fonts/nunito-sans-v15-latin-regular.woff2") format("woff2");
   font-display: swap;
 }
 
@@ -42,7 +42,7 @@ when necessary.
   font-family: "Nunito Sans";
   font-style: italic;
   font-weight: 400;
-  src: url("https://pages.git.generalassemb.ly/modular-curriculum-all-courses/universal-resources-internal/static/v2/fonts/nunito-sans-v15-latin-italic.woff2") format("woff2");
+  src: url("https://ga-curriculum-dev.github.io/universal-resources-internal/static/v2/fonts/nunito-sans-v15-latin-italic.woff2") format("woff2");
   font-display: swap;
 }
 
@@ -50,7 +50,7 @@ when necessary.
   font-family: "Nunito Sans";
   font-style: normal;
   font-weight: 700;
-  src: url("https://pages.git.generalassemb.ly/modular-curriculum-all-courses/universal-resources-internal/static/v2/fonts/nunito-sans-v15-latin-700.woff2") format("woff2");
+  src: url("https://ga-curriculum-dev.github.io/universal-resources-internal/static/v2/fonts/nunito-sans-v15-latin-700.woff2") format("woff2");
   font-display: swap;
 }
 
@@ -58,7 +58,7 @@ when necessary.
   font-family: "Nunito Sans";
   font-style: italic;
   font-weight: 700;
-  src: url("https://pages.git.generalassemb.ly/modular-curriculum-all-courses/universal-resources-internal/static/v2/fonts/nunito-sans-v15-latin-700italic.woff2") format("woff2");
+  src: url("https://ga-curriculum-dev.github.io/universal-resources-internal/static/v2/fonts/nunito-sans-v15-latin-700italic.woff2") format("woff2");
   font-display: swap;
 }
 
@@ -66,7 +66,7 @@ when necessary.
   font-family: "Nunito Sans";
   font-style: normal;
   font-weight: 800;
-  src: url("https://pages.git.generalassemb.ly/modular-curriculum-all-courses/universal-resources-internal/static/v2/fonts/nunito-sans-v15-latin-800.woff2") format("woff2");
+  src: url("https://ga-curriculum-dev.github.io/universal-resources-internal/static/v2/fonts/nunito-sans-v15-latin-800.woff2") format("woff2");
   font-display: swap;
 }
 
@@ -74,7 +74,7 @@ when necessary.
   font-family: "Nunito Sans";
   font-style: italic;
   font-weight: 800;
-  src: url("https://pages.git.generalassemb.ly/modular-curriculum-all-courses/universal-resources-internal/static/v2/fonts/nunito-sans-v15-latin-800italic.woff2") format("woff2");
+  src: url("https://ga-curriculum-dev.github.io/universal-resources-internal/static/v2/fonts/nunito-sans-v15-latin-800italic.woff2") format("woff2");
   font-display: swap;
 }
 
@@ -83,14 +83,14 @@ when necessary.
   font-display: swap;
   font-family: "Cascadia Mono";
   font-style: normal;
-  src: url("https://pages.git.generalassemb.ly/modular-curriculum-all-courses/universal-resources-internal/static/v2/fonts/cascadia-mono.woff2") format("woff2");
+  src: url("https://ga-curriculum-dev.github.io/universal-resources-internal/static/v2/fonts/cascadia-mono.woff2") format("woff2");
 }
 
 @font-face {
   font-display: swap;
   font-family: "Cascadia Mono";
   font-style: italic;
-  src: url("https://pages.git.generalassemb.ly/modular-curriculum-all-courses/universal-resources-internal/static/v2/fonts/cascadia-mono-italic.woff2") format("woff2");
+  src: url("https://ga-curriculum-dev.github.io/universal-resources-internal/static/v2/fonts/cascadia-mono-italic.woff2") format("woff2");
 }
 
 /*

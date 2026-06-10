@@ -10,7 +10,7 @@ cd ~/code/ga/lessons
 
 <!-- tktk if starter code exists -->
 
-Fork the [[tktk Module Name]](https://git.generalassemb.ly/modular-curriculum-all-courses/[tktk-repo-name]) repository.
+Fork the [[tktk Module Name]](https://github.com/modular-curriculum-all-courses/[tktk-repo-name]) repository.
 
 <!-- tktk if starting from scratch  -->
 
@@ -19,7 +19,7 @@ Make a new repository on [GitHub](https://github.com/) named `[tktk-repo-name]`.
 <!-- tktk -->
 
 ```bash
-git clone https://git.generalassemb.ly/<your-username>/[tktk-repo-name].git
+git clone https://github.com/<your-username>/[tktk-repo-name].git
 ```
 
 > 🚨 Do not copy the above command. It will not work. Your GitHub username will replace <github-username> (including the < and >) in the URL above.
