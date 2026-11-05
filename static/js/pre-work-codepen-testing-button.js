@@ -13,7 +13,7 @@ testToggleButton.style.height = '3em';
 testToggleButton.style['border-radius'] = '5px';
 testToggleButton.style['background-color'] = '#e41a23';
 testToggleButton.style.color = 'white';
-testToggleButton.style['font-family'] = 'Circular,Helvetica,Arial,sans-serif';
+testToggleButton.style['font-family'] = 'system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
 testToggleButton.style.border = 'none';
 document.body.prepend(testToggleButton);
 let testResultsShowing = false;
